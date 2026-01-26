@@ -22,6 +22,29 @@ export class Options {
   heavyTokenLimits: TokenLimits
   apiBaseUrl: string
   language: string
+  enableTestCoverageAnalysis: boolean
+  testCoverageThreshold: number
+  testCoverageFiles: string[]
+  enableSecurityAnalysis: boolean
+  securitySeverityThreshold: string
+  enablePerformanceAnalysis: boolean
+  performanceScoreThreshold: number
+  enableComplexityAnalysis: boolean
+  complexityScoreThreshold: number
+  enableDependencyAnalysis: boolean
+  dependencySecurityThreshold: number
+  enableDocumentationAnalysis: boolean
+  documentationCoverageThreshold: number
+  enableCICDAnalysis: boolean
+  cicdMergeBlocking: boolean
+  cicdStrictMode: boolean
+  cicdQualityGateThreshold: number
+  cicdSecurityGateThreshold: number
+  cicdPerformanceGateThreshold: number
+  cicdCoverageGateThreshold: number
+  cicdComplexityGateThreshold: number
+  cicdDependencyGateThreshold: number
+  cicdDocumentationGateThreshold: number
 
   constructor(
     debug: boolean,
@@ -40,7 +63,30 @@ export class Options {
     openaiConcurrencyLimit = '6',
     githubConcurrencyLimit = '6',
     apiBaseUrl = 'https://api.openai.com/v1',
-    language = 'en-US'
+    language = 'en-US',
+    enableTestCoverageAnalysis = true,
+    testCoverageThreshold = '80',
+    testCoverageFiles = 'coverage/coverage-summary.json,coverage/lcov.info,coverage/clover.xml,test-results/coverage.json,coverage/coverage.json',
+    enableSecurityAnalysis = true,
+    securitySeverityThreshold = 'medium',
+    enablePerformanceAnalysis = true,
+    performanceScoreThreshold = '70',
+    enableComplexityAnalysis = true,
+    complexityScoreThreshold = '75',
+    enableDependencyAnalysis = true,
+    dependencySecurityThreshold = '80',
+    enableDocumentationAnalysis = true,
+    documentationCoverageThreshold = '70',
+    enableCICDAnalysis = true,
+    cicdMergeBlocking = false,
+    cicdStrictMode = false,
+    cicdQualityGateThreshold = '80',
+    cicdSecurityGateThreshold = '85',
+    cicdPerformanceGateThreshold = '70',
+    cicdCoverageGateThreshold = '80',
+    cicdComplexityGateThreshold = '75',
+    cicdDependencyGateThreshold = '80',
+    cicdDocumentationGateThreshold = '70'
   ) {
     this.debug = debug
     this.disableReview = disableReview
@@ -61,6 +107,33 @@ export class Options {
     this.heavyTokenLimits = new TokenLimits(openaiHeavyModel)
     this.apiBaseUrl = apiBaseUrl
     this.language = language
+    this.enableTestCoverageAnalysis = enableTestCoverageAnalysis
+    this.testCoverageThreshold = parseInt(testCoverageThreshold)
+    this.testCoverageFiles = testCoverageFiles.split(',').map(f => f.trim())
+    this.enableSecurityAnalysis = enableSecurityAnalysis
+    this.securitySeverityThreshold = securitySeverityThreshold
+    this.enablePerformanceAnalysis = enablePerformanceAnalysis
+    this.performanceScoreThreshold = parseInt(performanceScoreThreshold)
+    this.enableComplexityAnalysis = enableComplexityAnalysis
+    this.complexityScoreThreshold = parseInt(complexityScoreThreshold)
+    this.enableDependencyAnalysis = enableDependencyAnalysis
+    this.dependencySecurityThreshold = parseInt(dependencySecurityThreshold)
+    this.enableDocumentationAnalysis = enableDocumentationAnalysis
+    this.documentationCoverageThreshold = parseInt(
+      documentationCoverageThreshold
+    )
+    this.enableCICDAnalysis = enableCICDAnalysis
+    this.cicdMergeBlocking = cicdMergeBlocking
+    this.cicdStrictMode = cicdStrictMode
+    this.cicdQualityGateThreshold = parseInt(cicdQualityGateThreshold)
+    this.cicdSecurityGateThreshold = parseInt(cicdSecurityGateThreshold)
+    this.cicdPerformanceGateThreshold = parseInt(cicdPerformanceGateThreshold)
+    this.cicdCoverageGateThreshold = parseInt(cicdCoverageGateThreshold)
+    this.cicdComplexityGateThreshold = parseInt(cicdComplexityGateThreshold)
+    this.cicdDependencyGateThreshold = parseInt(cicdDependencyGateThreshold)
+    this.cicdDocumentationGateThreshold = parseInt(
+      cicdDocumentationGateThreshold
+    )
   }
 
   // print all options using core.info
@@ -84,6 +157,35 @@ export class Options {
     info(`review_token_limits: ${this.heavyTokenLimits.string()}`)
     info(`api_base_url: ${this.apiBaseUrl}`)
     info(`language: ${this.language}`)
+    info(`enable_test_coverage_analysis: ${this.enableTestCoverageAnalysis}`)
+    info(`test_coverage_threshold: ${this.testCoverageThreshold}`)
+    info(`test_coverage_files: ${this.testCoverageFiles.join(', ')}`)
+    info(`enable_security_analysis: ${this.enableSecurityAnalysis}`)
+    info(`security_severity_threshold: ${this.securitySeverityThreshold}`)
+    info(`enable_performance_analysis: ${this.enablePerformanceAnalysis}`)
+    info(`performance_score_threshold: ${this.performanceScoreThreshold}`)
+    info(`enable_complexity_analysis: ${this.enableComplexityAnalysis}`)
+    info(`complexity_score_threshold: ${this.complexityScoreThreshold}`)
+    info(`enable_dependency_analysis: ${this.enableDependencyAnalysis}`)
+    info(`dependency_security_threshold: ${this.dependencySecurityThreshold}`)
+    info(`enable_documentation_analysis: ${this.enableDocumentationAnalysis}`)
+    info(
+      `documentation_coverage_threshold: ${this.documentationCoverageThreshold}`
+    )
+    info(`enable_cicd_analysis: ${this.enableCICDAnalysis}`)
+    info(`cicd_merge_blocking: ${this.cicdMergeBlocking}`)
+    info(`cicd_strict_mode: ${this.cicdStrictMode}`)
+    info(`cicd_quality_gate_threshold: ${this.cicdQualityGateThreshold}`)
+    info(`cicd_security_gate_threshold: ${this.cicdSecurityGateThreshold}`)
+    info(
+      `cicd_performance_gate_threshold: ${this.cicdPerformanceGateThreshold}`
+    )
+    info(`cicd_coverage_gate_threshold: ${this.cicdCoverageGateThreshold}`)
+    info(`cicd_complexity_gate_threshold: ${this.cicdComplexityGateThreshold}`)
+    info(`cicd_dependency_gate_threshold: ${this.cicdDependencyGateThreshold}`)
+    info(
+      `cicd_documentation_gate_threshold: ${this.cicdDocumentationGateThreshold}`
+    )
   }
 
   checkPath(path: string): boolean {

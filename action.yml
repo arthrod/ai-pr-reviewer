@@ -1,4 +1,4 @@
-FaithHope15: 'AI-based PR Reviewer & Summarizer with Chat Capabilities'
+name: 'AI-based PR Reviewer & Summarizer with Chat Capabilities'
 description: 'AI-based PR Reviewer & Summarizer with Chat Capabilities'
 branding:
   icon: 'git-merge'
@@ -238,6 +238,98 @@ inputs:
     required: false
     description: 'The icon for the bot'
     default: '<img src="https://avatars.githubusercontent.com/in/347564?s=41" alt="Image description" width="20" height="20">'
+  enable_test_coverage_analysis:
+    required: false
+    description: 'Enable automated test coverage analysis for changed files'
+    default: 'true'
+  test_coverage_threshold:
+    required: false
+    description: 'Minimum test coverage percentage threshold for warnings'
+    default: '80'
+  test_coverage_files:
+    required: false
+    description: 'Comma-separated list of test coverage report files to check'
+    default: 'coverage/coverage-summary.json,coverage/lcov.info,coverage/clover.xml,test-results/coverage.json,coverage/coverage.json'
+  enable_security_analysis:
+    required: false
+    description: 'Enable automated security vulnerability analysis for changed files'
+    default: 'true'
+  security_severity_threshold:
+    required: false
+    description: 'Minimum severity level for security vulnerabilities to report (low, medium, high, critical)'
+    default: 'medium'
+  enable_performance_analysis:
+    required: false
+    description: 'Enable automated performance impact assessment for changed files'
+    default: 'true'
+  performance_score_threshold:
+    required: false
+    description: 'Minimum performance score threshold for warnings (0-100)'
+    default: '70'
+  enable_complexity_analysis:
+    required: false
+    description: 'Enable automated code complexity analysis for changed files'
+    default: 'true'
+  complexity_score_threshold:
+    required: false
+    description: 'Minimum complexity score threshold for warnings (0-100)'
+    default: '75'
+  enable_dependency_analysis:
+    required: false
+    description: 'Enable automated dependency update intelligence analysis for changed files'
+    default: 'true'
+  dependency_security_threshold:
+    required: false
+    description: 'Minimum dependency security score threshold for warnings (0-100)'
+    default: '80'
+  enable_documentation_analysis:
+    required: false
+    description: 'Enable automated documentation quality validation for changed files'
+    default: 'true'
+  documentation_coverage_threshold:
+    required: false
+    description: 'Minimum documentation coverage score threshold for warnings (0-100)'
+    default: '70'
+  enable_cicd_analysis:
+    required: false
+    description: 'Enable automated CI/CD pipeline integration with quality gates'
+    default: 'true'
+  cicd_merge_blocking:
+    required: false
+    description: 'Enable merge blocking when quality gates fail'
+    default: 'false'
+  cicd_strict_mode:
+    required: false
+    description: 'Enable strict mode with higher quality thresholds'
+    default: 'false'
+  cicd_quality_gate_threshold:
+    required: false
+    description: 'CI/CD quality gate threshold (0-100)'
+    default: '80'
+  cicd_security_gate_threshold:
+    required: false
+    description: 'CI/CD security gate threshold (0-100)'
+    default: '85'
+  cicd_performance_gate_threshold:
+    required: false
+    description: 'CI/CD performance gate threshold (0-100)'
+    default: '70'
+  cicd_coverage_gate_threshold:
+    required: false
+    description: 'CI/CD test coverage gate threshold (0-100)'
+    default: '80'
+  cicd_complexity_gate_threshold:
+    required: false
+    description: 'CI/CD complexity gate threshold (0-100)'
+    default: '75'
+  cicd_dependency_gate_threshold:
+    required: false
+    description: 'CI/CD dependency gate threshold (0-100)'
+    default: '80'
+  cicd_documentation_gate_threshold:
+    required: false
+    description: 'CI/CD documentation gate threshold (0-100)'
+    default: '70'
 runs:
   using: 'node16'
   main: 'dist/index.js'

@@ -29,7 +29,30 @@ async function run(): Promise<void> {
     getInput('openai_concurrency_limit'),
     getInput('github_concurrency_limit'),
     getInput('openai_base_url'),
-    getInput('language')
+    getInput('language'),
+    getBooleanInput('enable_test_coverage_analysis'),
+    getInput('test_coverage_threshold'),
+    getInput('test_coverage_files'),
+    getBooleanInput('enable_security_analysis'),
+    getInput('security_severity_threshold'),
+    getBooleanInput('enable_performance_analysis'),
+    getInput('performance_score_threshold'),
+    getBooleanInput('enable_complexity_analysis'),
+    getInput('complexity_score_threshold'),
+    getBooleanInput('enable_dependency_analysis'),
+    getInput('dependency_security_threshold'),
+    getBooleanInput('enable_documentation_analysis'),
+    getInput('documentation_coverage_threshold'),
+    getBooleanInput('enable_cicd_analysis'),
+    getBooleanInput('cicd_merge_blocking'),
+    getBooleanInput('cicd_strict_mode'),
+    getInput('cicd_quality_gate_threshold'),
+    getInput('cicd_security_gate_threshold'),
+    getInput('cicd_performance_gate_threshold'),
+    getInput('cicd_coverage_gate_threshold'),
+    getInput('cicd_complexity_gate_threshold'),
+    getInput('cicd_dependency_gate_threshold'),
+    getInput('cicd_documentation_gate_threshold')
   )
 
   // print options

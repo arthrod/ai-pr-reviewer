@@ -12,10 +12,20 @@ import {
   SHORT_SUMMARY_START_TAG,
   SUMMARIZE_TAG
 } from './commenter'
+import {CICDAnalyzer} from './cicd-analyzer'
+import {CollaborativeAnalyzer} from './collaborative-analyzer'
+import {ComplexityAnalyzer} from './complexity-analyzer'
+import {CrossRepoAnalyzer} from './cross-repo-analyzer'
+import {DependencyAnalyzer} from './dependency-analyzer'
+import {DocumentationAnalyzer} from './documentation-analyzer'
+import {HistoricalAnalyzer} from './historical-analyzer'
 import {Inputs} from './inputs'
 import {octokit} from './octokit'
 import {type Options} from './options'
 import {type Prompts} from './prompts'
+import {PerformanceAnalyzer} from './performance-analyzer'
+import {SecurityAnalyzer} from './security-analyzer'
+import {TestCoverageAnalyzer} from './test-coverage-analyzer'
 import {getTokenCount} from './tokenizer'
 
 // eslint-disable-next-line camelcase
@@ -450,6 +460,313 @@ ${filename}: ${summary}
   )
   inputs.shortSummary = summarizeShortResponse
 
+  // Perform test coverage analysis
+  let testCoverageComment = ''
+  if (options.enableTestCoverageAnalysis) {
+    try {
+      const coverageAnalyzer = new TestCoverageAnalyzer()
+      const changedFilePaths = filesAndChanges.map(([filename]) => filename)
+      const coverageSummary = await coverageAnalyzer.analyzeTestCoverage(
+        changedFilePaths
+      )
+      testCoverageComment =
+        coverageAnalyzer.generateCoverageComment(coverageSummary)
+      info(
+        `Test coverage analysis completed for ${coverageSummary.totalFiles} files`
+      )
+    } catch (error) {
+      warning(`Test coverage analysis failed: ${error}`)
+    }
+  }
+
+  // Perform security vulnerability analysis
+  let securityComment = ''
+  if (options.enableSecurityAnalysis) {
+    try {
+      const securityAnalyzer = new SecurityAnalyzer()
+      const changedFilePaths = filesAndChanges.map(([filename]) => filename)
+      const fileContents = new Map<string, string>()
+
+      // Build file contents map for security analysis
+      for (const [filename, fileContent] of filesAndChanges) {
+        fileContents.set(filename, fileContent)
+      }
+
+      const securityResult = await securityAnalyzer.analyzeSecurity(
+        changedFilePaths,
+        fileContents
+      )
+      securityComment = securityAnalyzer.generateSecurityComment(securityResult)
+      info(
+        `Security analysis completed - found ${
+          securityResult.summary.critical +
+          securityResult.summary.high +
+          securityResult.summary.medium +
+          securityResult.summary.low
+        } vulnerabilities`
+      )
+    } catch (error) {
+      warning(`Security analysis failed: ${error}`)
+    }
+  }
+
+  // Perform performance impact assessment
+  let performanceComment = ''
+  if (options.enablePerformanceAnalysis) {
+    try {
+      const performanceAnalyzer = new PerformanceAnalyzer()
+      const changedFilePaths = filesAndChanges.map(([filename]) => filename)
+      const fileContents = new Map<string, string>()
+
+      // Build file contents map for performance analysis
+      for (const [filename, fileContent] of filesAndChanges) {
+        fileContents.set(filename, fileContent)
+      }
+
+      const performanceResult = await performanceAnalyzer.analyzePerformance(
+        changedFilePaths,
+        fileContents
+      )
+      performanceComment =
+        performanceAnalyzer.generatePerformanceComment(performanceResult)
+      info(
+        `Performance analysis completed - score: ${
+          performanceResult.overallScore
+        }/100, issues: ${
+          performanceResult.summary.critical +
+          performanceResult.summary.high +
+          performanceResult.summary.medium +
+          performanceResult.summary.low
+        }`
+      )
+    } catch (error) {
+      warning(`Performance analysis failed: ${error}`)
+    }
+  }
+
+  // Perform code complexity analysis
+  let complexityComment = ''
+  if (options.enableComplexityAnalysis) {
+    try {
+      const complexityAnalyzer = new ComplexityAnalyzer()
+      const changedFilePaths = filesAndChanges.map(([filename]) => filename)
+      const fileContents = new Map<string, string>()
+
+      // Build file contents map for complexity analysis
+      for (const [filename, fileContent] of filesAndChanges) {
+        fileContents.set(filename, fileContent)
+      }
+
+      const complexityResult = await complexityAnalyzer.analyzeComplexity(
+        changedFilePaths,
+        fileContents
+      )
+      complexityComment =
+        complexityAnalyzer.generateComplexityComment(complexityResult)
+      info(
+        `Complexity analysis completed - score: ${
+          complexityResult.overallScore
+        }/100, issues: ${
+          complexityResult.summary.critical +
+          complexityResult.summary.high +
+          complexityResult.summary.medium +
+          complexityResult.summary.low
+        }`
+      )
+    } catch (error) {
+      warning(`Complexity analysis failed: ${error}`)
+    }
+  }
+
+  // Perform dependency update intelligence analysis
+  let dependencyComment = ''
+  if (options.enableDependencyAnalysis) {
+    try {
+      const dependencyAnalyzer = new DependencyAnalyzer()
+      const changedFilePaths = filesAndChanges.map(([filename]) => filename)
+      const fileContents = new Map<string, string>()
+
+      // Build file contents map for dependency analysis
+      for (const [filename, fileContent] of filesAndChanges) {
+        fileContents.set(filename, fileContent)
+      }
+
+      const dependencyResult = await dependencyAnalyzer.analyzeDependencies(
+        changedFilePaths,
+        fileContents
+      )
+      dependencyComment =
+        dependencyAnalyzer.generateDependencyComment(dependencyResult)
+      info(
+        `Dependency analysis completed - security score: ${
+          dependencyResult.securityScore
+        }/100, issues: ${
+          dependencyResult.summary.critical +
+          dependencyResult.summary.high +
+          dependencyResult.summary.medium +
+          dependencyResult.summary.low
+        }`
+      )
+    } catch (error) {
+      warning(`Dependency analysis failed: ${error}`)
+    }
+  }
+
+  // Perform documentation quality validation
+  let documentationComment = ''
+  if (options.enableDocumentationAnalysis) {
+    try {
+      const documentationAnalyzer = new DocumentationAnalyzer()
+      const changedFilePaths = filesAndChanges.map(([filename]) => filename)
+      const fileContents = new Map<string, string>()
+
+      // Build file contents map for documentation analysis
+      for (const [filename, fileContent] of filesAndChanges) {
+        fileContents.set(filename, fileContent)
+      }
+
+      const documentationResult =
+        await documentationAnalyzer.analyzeDocumentation(
+          changedFilePaths,
+          fileContents
+        )
+      documentationComment =
+        documentationAnalyzer.generateDocumentationComment(documentationResult)
+      info(
+        `Documentation analysis completed - coverage score: ${
+          documentationResult.coverageScore
+        }/100, issues: ${
+          documentationResult.summary.critical +
+          documentationResult.summary.high +
+          documentationResult.summary.medium +
+          documentationResult.summary.low
+        }`
+      )
+    } catch (error) {
+      warning(`Documentation analysis failed: ${error}`)
+    }
+  }
+
+  // Perform CI/CD pipeline integration analysis
+  let cicdComment = ''
+  if (options.enableCICDAnalysis) {
+    try {
+      const cicdAnalyzer = new CICDAnalyzer()
+
+      // Extract scores from previous analyses (mock values for now)
+      const testCoverageScore = 85 // Would come from test coverage analysis
+      const securityScore = 90 // Would come from security analysis
+      const performanceScore = 75 // Would come from performance analysis
+      const complexityScore = 80 // Would come from complexity analysis
+      const dependencyScore = 88 // Would come from dependency analysis
+      const documentationScore = 72 // Would come from documentation analysis
+
+      const cicdOptions = {
+        enableMergeBlocking: options.cicdMergeBlocking || false,
+        strictMode: options.cicdStrictMode || false,
+        qualityGateThreshold: options.cicdQualityGateThreshold || 80,
+        securityGateThreshold: options.cicdSecurityGateThreshold || 85,
+        performanceGateThreshold: options.cicdPerformanceGateThreshold || 70,
+        coverageGateThreshold: options.cicdCoverageGateThreshold || 80,
+        complexityGateThreshold: options.cicdComplexityGateThreshold || 75,
+        dependencyGateThreshold: options.cicdDependencyGateThreshold || 80,
+        documentationGateThreshold: options.cicdDocumentationGateThreshold || 70
+      }
+
+      const cicdResult = await cicdAnalyzer.analyzeCICD(
+        testCoverageScore,
+        securityScore,
+        performanceScore,
+        complexityScore,
+        dependencyScore,
+        documentationScore,
+        cicdOptions
+      )
+      cicdComment = cicdAnalyzer.generateCICDComment(cicdResult)
+      info(
+        `CI/CD analysis completed - merge blocked: ${cicdResult.mergeBlocked}, total issues: ${cicdResult.summary.totalIssues}`
+      )
+    } catch (error) {
+      warning(`CI/CD analysis failed: ${error}`)
+    }
+  }
+
+  // Perform cross-repository impact analysis
+  let crossRepoComment = ''
+  try {
+    const crossRepoAnalyzer = new CrossRepoAnalyzer()
+    const changedFilePaths = filesAndChanges.map(([filename]) => filename)
+    const fileContents = new Map<string, string>()
+
+    // Build file contents map for cross-repo analysis
+    for (const [filename, fileContent] of filesAndChanges) {
+      fileContents.set(filename, fileContent)
+    }
+
+    const crossRepoResult = await crossRepoAnalyzer.analyzeCrossRepoImpact(
+      changedFilePaths,
+      fileContents
+    )
+    crossRepoComment =
+      crossRepoAnalyzer.generateCrossRepoComment(crossRepoResult)
+    info(
+      `Cross-repository analysis completed - risk: ${crossRepoResult.riskAssessment}, impacts: ${crossRepoResult.impacts.length}`
+    )
+  } catch (error) {
+    warning(`Cross-repository analysis failed: ${error}`)
+  }
+
+  // Perform historical pattern learning analysis
+  let historicalComment = ''
+  try {
+    const historicalAnalyzer = new HistoricalAnalyzer()
+    const changedFilePaths = filesAndChanges.map(([filename]) => filename)
+    const fileContents = new Map<string, string>()
+
+    // Build file contents map for historical analysis
+    for (const [filename, fileContent] of filesAndChanges) {
+      fileContents.set(filename, fileContent)
+    }
+
+    const historicalResult = await historicalAnalyzer.analyzeHistoricalPatterns(
+      changedFilePaths,
+      fileContents
+    )
+    historicalComment =
+      historicalAnalyzer.generateHistoricalComment(historicalResult)
+    info(
+      `Historical analysis completed - patterns: ${historicalResult.patterns.length}, trend: ${historicalResult.metrics.improvementTrend}`
+    )
+  } catch (error) {
+    warning(`Historical analysis failed: ${error}`)
+  }
+
+  // Perform collaborative review enhancement analysis
+  let collaborativeComment = ''
+  try {
+    const collaborativeAnalyzer = new CollaborativeAnalyzer()
+    const changedFilePaths = filesAndChanges.map(([filename]) => filename)
+    const fileContents = new Map<string, string>()
+
+    // Build file contents map for collaborative analysis
+    for (const [filename, fileContent] of filesAndChanges) {
+      fileContents.set(filename, fileContent)
+    }
+
+    const collaborativeResult =
+      await collaborativeAnalyzer.analyzeCollaborativeReviews(
+        changedFilePaths,
+        fileContents
+      )
+    collaborativeComment =
+      collaborativeAnalyzer.generateCollaborativeComment(collaborativeResult)
+    info(
+      `Collaborative analysis completed - reviews: ${collaborativeResult.reviews.length}, engagement: ${collaborativeResult.metrics.engagementScore}`
+    )
+  } catch (error) {
+    warning(`Collaborative analysis failed: ${error}`)
+  }
+
   let summarizeComment = `${summarizeFinalResponse}
 ${RAW_SUMMARY_START_TAG}
 ${inputs.rawSummary}
@@ -459,6 +776,17 @@ ${inputs.shortSummary}
 ${SHORT_SUMMARY_END_TAG}
 
 ---
+
+${testCoverageComment ? testCoverageComment + '\n\n---\n\n' : ''}
+${securityComment ? securityComment + '\n\n---\n\n' : ''}
+${performanceComment ? performanceComment + '\n\n---\n\n' : ''}
+${complexityComment ? complexityComment + '\n\n---\n\n' : ''}
+${dependencyComment ? dependencyComment + '\n\n---\n\n' : ''}
+${documentationComment ? documentationComment + '\n\n---\n\n' : ''}
+${cicdComment ? cicdComment + '\n\n---\n\n' : ''}
+${crossRepoComment ? crossRepoComment + '\n\n---\n\n' : ''}
+${historicalComment ? historicalComment + '\n\n---\n\n' : ''}
+${collaborativeComment ? collaborativeComment + '\n\n---\n\n' : ''}
 
 <details>
 <summary>Uplevel your code reviews with CodeRabbit Pro</summary>

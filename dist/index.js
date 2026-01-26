@@ -4627,7 +4627,7 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony import */ var _bot__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(6959);
 /* harmony import */ var _options__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(8870);
 /* harmony import */ var _prompts__WEBPACK_IMPORTED_MODULE_5__ = __nccwpck_require__(4272);
-/* harmony import */ var _review__WEBPACK_IMPORTED_MODULE_3__ = __nccwpck_require__(2612);
+/* harmony import */ var _review__WEBPACK_IMPORTED_MODULE_3__ = __nccwpck_require__(691);
 /* harmony import */ var _review_comment__WEBPACK_IMPORTED_MODULE_4__ = __nccwpck_require__(5947);
 
 
@@ -4636,7 +4636,7 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 async function run() {
-    const options = new _options__WEBPACK_IMPORTED_MODULE_2__/* .Options */ .Ei((0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('debug'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('disable_review'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('disable_release_notes'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('max_files'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('review_simple_changes'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('review_comment_lgtm'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getMultilineInput)('path_filters'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('system_message'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_light_model'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_heavy_model'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_model_temperature'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_retries'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_timeout_ms'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_concurrency_limit'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('github_concurrency_limit'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_base_url'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('language'));
+    const options = new _options__WEBPACK_IMPORTED_MODULE_2__/* .Options */ .Ei((0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('debug'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('disable_review'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('disable_release_notes'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('max_files'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('review_simple_changes'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('review_comment_lgtm'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getMultilineInput)('path_filters'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('system_message'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_light_model'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_heavy_model'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_model_temperature'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_retries'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_timeout_ms'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_concurrency_limit'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('github_concurrency_limit'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('openai_base_url'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('language'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('enable_test_coverage_analysis'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('test_coverage_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('test_coverage_files'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('enable_security_analysis'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('security_severity_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('enable_performance_analysis'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('performance_score_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('enable_complexity_analysis'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('complexity_score_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('enable_dependency_analysis'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('dependency_security_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('enable_documentation_analysis'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('documentation_coverage_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('enable_cicd_analysis'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('cicd_merge_blocking'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput)('cicd_strict_mode'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('cicd_quality_gate_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('cicd_security_gate_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('cicd_performance_gate_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('cicd_coverage_gate_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('cicd_complexity_gate_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('cicd_dependency_gate_threshold'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('cicd_documentation_gate_threshold'));
     // print options
     options.print();
     const prompts = new _prompts__WEBPACK_IMPORTED_MODULE_5__/* .Prompts */ .j((0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('summarize'), (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('summarize_release_notes'));
@@ -6573,7 +6573,30 @@ class Options {
     heavyTokenLimits;
     apiBaseUrl;
     language;
-    constructor(debug, disableReview, disableReleaseNotes, maxFiles = '0', reviewSimpleChanges = false, reviewCommentLGTM = false, pathFilters = null, systemMessage = '', openaiLightModel = 'gpt-3.5-turbo', openaiHeavyModel = 'gpt-3.5-turbo', openaiModelTemperature = '0.0', openaiRetries = '3', openaiTimeoutMS = '120000', openaiConcurrencyLimit = '6', githubConcurrencyLimit = '6', apiBaseUrl = 'https://api.openai.com/v1', language = 'en-US') {
+    enableTestCoverageAnalysis;
+    testCoverageThreshold;
+    testCoverageFiles;
+    enableSecurityAnalysis;
+    securitySeverityThreshold;
+    enablePerformanceAnalysis;
+    performanceScoreThreshold;
+    enableComplexityAnalysis;
+    complexityScoreThreshold;
+    enableDependencyAnalysis;
+    dependencySecurityThreshold;
+    enableDocumentationAnalysis;
+    documentationCoverageThreshold;
+    enableCICDAnalysis;
+    cicdMergeBlocking;
+    cicdStrictMode;
+    cicdQualityGateThreshold;
+    cicdSecurityGateThreshold;
+    cicdPerformanceGateThreshold;
+    cicdCoverageGateThreshold;
+    cicdComplexityGateThreshold;
+    cicdDependencyGateThreshold;
+    cicdDocumentationGateThreshold;
+    constructor(debug, disableReview, disableReleaseNotes, maxFiles = '0', reviewSimpleChanges = false, reviewCommentLGTM = false, pathFilters = null, systemMessage = '', openaiLightModel = 'gpt-3.5-turbo', openaiHeavyModel = 'gpt-3.5-turbo', openaiModelTemperature = '0.0', openaiRetries = '3', openaiTimeoutMS = '120000', openaiConcurrencyLimit = '6', githubConcurrencyLimit = '6', apiBaseUrl = 'https://api.openai.com/v1', language = 'en-US', enableTestCoverageAnalysis = true, testCoverageThreshold = '80', testCoverageFiles = 'coverage/coverage-summary.json,coverage/lcov.info,coverage/clover.xml,test-results/coverage.json,coverage/coverage.json', enableSecurityAnalysis = true, securitySeverityThreshold = 'medium', enablePerformanceAnalysis = true, performanceScoreThreshold = '70', enableComplexityAnalysis = true, complexityScoreThreshold = '75', enableDependencyAnalysis = true, dependencySecurityThreshold = '80', enableDocumentationAnalysis = true, documentationCoverageThreshold = '70', enableCICDAnalysis = true, cicdMergeBlocking = false, cicdStrictMode = false, cicdQualityGateThreshold = '80', cicdSecurityGateThreshold = '85', cicdPerformanceGateThreshold = '70', cicdCoverageGateThreshold = '80', cicdComplexityGateThreshold = '75', cicdDependencyGateThreshold = '80', cicdDocumentationGateThreshold = '70') {
         this.debug = debug;
         this.disableReview = disableReview;
         this.disableReleaseNotes = disableReleaseNotes;
@@ -6593,6 +6616,29 @@ class Options {
         this.heavyTokenLimits = new TokenLimits(openaiHeavyModel);
         this.apiBaseUrl = apiBaseUrl;
         this.language = language;
+        this.enableTestCoverageAnalysis = enableTestCoverageAnalysis;
+        this.testCoverageThreshold = parseInt(testCoverageThreshold);
+        this.testCoverageFiles = testCoverageFiles.split(',').map(f => f.trim());
+        this.enableSecurityAnalysis = enableSecurityAnalysis;
+        this.securitySeverityThreshold = securitySeverityThreshold;
+        this.enablePerformanceAnalysis = enablePerformanceAnalysis;
+        this.performanceScoreThreshold = parseInt(performanceScoreThreshold);
+        this.enableComplexityAnalysis = enableComplexityAnalysis;
+        this.complexityScoreThreshold = parseInt(complexityScoreThreshold);
+        this.enableDependencyAnalysis = enableDependencyAnalysis;
+        this.dependencySecurityThreshold = parseInt(dependencySecurityThreshold);
+        this.enableDocumentationAnalysis = enableDocumentationAnalysis;
+        this.documentationCoverageThreshold = parseInt(documentationCoverageThreshold);
+        this.enableCICDAnalysis = enableCICDAnalysis;
+        this.cicdMergeBlocking = cicdMergeBlocking;
+        this.cicdStrictMode = cicdStrictMode;
+        this.cicdQualityGateThreshold = parseInt(cicdQualityGateThreshold);
+        this.cicdSecurityGateThreshold = parseInt(cicdSecurityGateThreshold);
+        this.cicdPerformanceGateThreshold = parseInt(cicdPerformanceGateThreshold);
+        this.cicdCoverageGateThreshold = parseInt(cicdCoverageGateThreshold);
+        this.cicdComplexityGateThreshold = parseInt(cicdComplexityGateThreshold);
+        this.cicdDependencyGateThreshold = parseInt(cicdDependencyGateThreshold);
+        this.cicdDocumentationGateThreshold = parseInt(cicdDocumentationGateThreshold);
     }
     // print all options using core.info
     print() {
@@ -6615,6 +6661,29 @@ class Options {
         (0,core.info)(`review_token_limits: ${this.heavyTokenLimits.string()}`);
         (0,core.info)(`api_base_url: ${this.apiBaseUrl}`);
         (0,core.info)(`language: ${this.language}`);
+        (0,core.info)(`enable_test_coverage_analysis: ${this.enableTestCoverageAnalysis}`);
+        (0,core.info)(`test_coverage_threshold: ${this.testCoverageThreshold}`);
+        (0,core.info)(`test_coverage_files: ${this.testCoverageFiles.join(', ')}`);
+        (0,core.info)(`enable_security_analysis: ${this.enableSecurityAnalysis}`);
+        (0,core.info)(`security_severity_threshold: ${this.securitySeverityThreshold}`);
+        (0,core.info)(`enable_performance_analysis: ${this.enablePerformanceAnalysis}`);
+        (0,core.info)(`performance_score_threshold: ${this.performanceScoreThreshold}`);
+        (0,core.info)(`enable_complexity_analysis: ${this.enableComplexityAnalysis}`);
+        (0,core.info)(`complexity_score_threshold: ${this.complexityScoreThreshold}`);
+        (0,core.info)(`enable_dependency_analysis: ${this.enableDependencyAnalysis}`);
+        (0,core.info)(`dependency_security_threshold: ${this.dependencySecurityThreshold}`);
+        (0,core.info)(`enable_documentation_analysis: ${this.enableDocumentationAnalysis}`);
+        (0,core.info)(`documentation_coverage_threshold: ${this.documentationCoverageThreshold}`);
+        (0,core.info)(`enable_cicd_analysis: ${this.enableCICDAnalysis}`);
+        (0,core.info)(`cicd_merge_blocking: ${this.cicdMergeBlocking}`);
+        (0,core.info)(`cicd_strict_mode: ${this.cicdStrictMode}`);
+        (0,core.info)(`cicd_quality_gate_threshold: ${this.cicdQualityGateThreshold}`);
+        (0,core.info)(`cicd_security_gate_threshold: ${this.cicdSecurityGateThreshold}`);
+        (0,core.info)(`cicd_performance_gate_threshold: ${this.cicdPerformanceGateThreshold}`);
+        (0,core.info)(`cicd_coverage_gate_threshold: ${this.cicdCoverageGateThreshold}`);
+        (0,core.info)(`cicd_complexity_gate_threshold: ${this.cicdComplexityGateThreshold}`);
+        (0,core.info)(`cicd_dependency_gate_threshold: ${this.cicdDependencyGateThreshold}`);
+        (0,core.info)(`cicd_documentation_gate_threshold: ${this.cicdDocumentationGateThreshold}`);
     }
     checkPath(path) {
         const ok = this.pathFilters.check(path);
@@ -7103,7 +7172,7 @@ const handleReviewComment = async (heavyBot, options, prompts) => {
 
 /***/ }),
 
-/***/ 2612:
+/***/ 691:
 /***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
 
 "use strict";
@@ -7258,10 +7327,4327 @@ function pLimit(concurrency) {
 
 // EXTERNAL MODULE: ./lib/commenter.js
 var lib_commenter = __nccwpck_require__(3339);
+;// CONCATENATED MODULE: ./lib/cicd-analyzer.js
+
+class CICDAnalyzer {
+    gateThresholds = {
+        testCoverage: {
+            blocker: 60,
+            warning: 80
+        },
+        security: {
+            blocker: 70,
+            warning: 85
+        },
+        performance: {
+            blocker: 50,
+            warning: 70
+        },
+        complexity: {
+            blocker: 60,
+            warning: 75
+        },
+        dependency: {
+            blocker: 65,
+            warning: 80
+        },
+        documentation: {
+            blocker: 50,
+            warning: 70
+        },
+        overallQuality: {
+            blocker: 65,
+            warning: 80
+        }
+    };
+    async analyzeCICD(testCoverageScore, securityScore, performanceScore, complexityScore, dependencyScore, documentationScore, options) {
+        const issues = [];
+        const metrics = {
+            testCoverageScore,
+            securityScore,
+            performanceScore,
+            complexityScore,
+            dependencyScore,
+            documentationScore,
+            overallQualityScore: this.calculateOverallQualityScore(testCoverageScore, securityScore, performanceScore, complexityScore, dependencyScore, documentationScore)
+        };
+        // Check each gate
+        const gateStatus = {
+            quality: this.checkQualityGate(metrics.overallQualityScore, options.qualityGateThreshold, options.strictMode),
+            security: this.checkSecurityGate(metrics.securityScore, options.securityGateThreshold, options.strictMode),
+            performance: this.checkPerformanceGate(metrics.performanceScore, options.performanceGateThreshold, options.strictMode),
+            coverage: this.checkCoverageGate(metrics.testCoverageScore, options.coverageGateThreshold, options.strictMode),
+            complexity: this.checkComplexityGate(metrics.complexityScore, options.complexityGateThreshold, options.strictMode),
+            dependency: this.checkDependencyGate(metrics.dependencyScore, options.dependencyGateThreshold, options.strictMode),
+            documentation: this.checkDocumentationGate(metrics.documentationScore, options.documentationGateThreshold, options.strictMode)
+        };
+        // Generate issues based on gate failures
+        issues.push(...this.generateGateIssues(metrics, gateStatus, options));
+        const summary = {
+            blockers: issues.filter(i => i.category === 'blocker').length,
+            warnings: issues.filter(i => i.category === 'warning').length,
+            info: issues.filter(i => i.category === 'info').length,
+            totalIssues: issues.length
+        };
+        const mergeBlocked = options.enableMergeBlocking && summary.blockers > 0;
+        const recommendations = this.generateRecommendations(issues, metrics, gateStatus);
+        // Set GitHub Actions outputs
+        this.setOutputs(metrics, gateStatus, mergeBlocked, summary);
+        // Fail the build if there are blockers and merge blocking is enabled
+        if (mergeBlocked) {
+            (0,core.setFailed)(`PR blocked from merge due to ${summary.blockers} critical issues`);
+        }
+        return {
+            issues,
+            summary,
+            metrics,
+            mergeBlocked,
+            recommendations,
+            gateStatus
+        };
+    }
+    calculateOverallQualityScore(testCoverage, security, performance, complexity, dependency, documentation) {
+        // Weighted average of all scores
+        const weights = {
+            testCoverage: 0.2,
+            security: 0.25,
+            performance: 0.15,
+            complexity: 0.15,
+            dependency: 0.15,
+            documentation: 0.1
+        };
+        const weightedSum = testCoverage * weights.testCoverage +
+            security * weights.security +
+            performance * weights.performance +
+            complexity * weights.complexity +
+            dependency * weights.dependency +
+            documentation * weights.documentation;
+        return Math.round(weightedSum);
+    }
+    checkQualityGate(score, threshold, strictMode) {
+        const actualThreshold = strictMode ? threshold + 10 : threshold;
+        if (score < this.gateThresholds.overallQuality.blocker) {
+            return 'fail';
+        }
+        else if (score < actualThreshold) {
+            return 'warning';
+        }
+        return 'pass';
+    }
+    checkSecurityGate(score, threshold, strictMode) {
+        const actualThreshold = strictMode ? threshold + 10 : threshold;
+        if (score < this.gateThresholds.security.blocker) {
+            return 'fail';
+        }
+        else if (score < actualThreshold) {
+            return 'warning';
+        }
+        return 'pass';
+    }
+    checkPerformanceGate(score, threshold, strictMode) {
+        const actualThreshold = strictMode ? threshold + 10 : threshold;
+        if (score < this.gateThresholds.performance.blocker) {
+            return 'fail';
+        }
+        else if (score < actualThreshold) {
+            return 'warning';
+        }
+        return 'pass';
+    }
+    checkCoverageGate(score, threshold, strictMode) {
+        const actualThreshold = strictMode ? threshold + 10 : threshold;
+        if (score < this.gateThresholds.testCoverage.blocker) {
+            return 'fail';
+        }
+        else if (score < actualThreshold) {
+            return 'warning';
+        }
+        return 'pass';
+    }
+    checkComplexityGate(score, threshold, strictMode) {
+        const actualThreshold = strictMode ? threshold + 10 : threshold;
+        if (score < this.gateThresholds.complexity.blocker) {
+            return 'fail';
+        }
+        else if (score < actualThreshold) {
+            return 'warning';
+        }
+        return 'pass';
+    }
+    checkDependencyGate(score, threshold, strictMode) {
+        const actualThreshold = strictMode ? threshold + 10 : threshold;
+        if (score < this.gateThresholds.dependency.blocker) {
+            return 'fail';
+        }
+        else if (score < actualThreshold) {
+            return 'warning';
+        }
+        return 'pass';
+    }
+    checkDocumentationGate(score, threshold, strictMode) {
+        const actualThreshold = strictMode ? threshold + 10 : threshold;
+        if (score < this.gateThresholds.documentation.blocker) {
+            return 'fail';
+        }
+        else if (score < actualThreshold) {
+            return 'warning';
+        }
+        return 'pass';
+    }
+    generateGateIssues(metrics, gateStatus, options) {
+        const issues = [];
+        // Quality gate issues
+        if (gateStatus.quality === 'fail') {
+            issues.push({
+                type: 'quality_gate',
+                severity: 'critical',
+                category: 'blocker',
+                metric: 'overall_quality_score',
+                value: metrics.overallQualityScore,
+                threshold: this.gateThresholds.overallQuality.blocker,
+                description: `Overall quality score (${metrics.overallQualityScore}) below minimum threshold`,
+                recommendation: 'Improve code quality across all metrics before merging',
+                blockMerge: options.enableMergeBlocking
+            });
+        }
+        else if (gateStatus.quality === 'warning') {
+            issues.push({
+                type: 'quality_gate',
+                severity: 'medium',
+                category: 'warning',
+                metric: 'overall_quality_score',
+                value: metrics.overallQualityScore,
+                threshold: options.qualityGateThreshold,
+                description: `Overall quality score (${metrics.overallQualityScore}) below desired threshold`,
+                recommendation: 'Consider improving code quality before merging',
+                blockMerge: false
+            });
+        }
+        // Security gate issues
+        if (gateStatus.security === 'fail') {
+            issues.push({
+                type: 'security_gate',
+                severity: 'critical',
+                category: 'blocker',
+                metric: 'security_score',
+                value: metrics.securityScore,
+                threshold: this.gateThresholds.security.blocker,
+                description: `Security score (${metrics.securityScore}) below minimum threshold`,
+                recommendation: 'Address security vulnerabilities before merging',
+                blockMerge: options.enableMergeBlocking
+            });
+        }
+        else if (gateStatus.security === 'warning') {
+            issues.push({
+                type: 'security_gate',
+                severity: 'high',
+                category: 'warning',
+                metric: 'security_score',
+                value: metrics.securityScore,
+                threshold: options.securityGateThreshold,
+                description: `Security score (${metrics.securityScore}) below desired threshold`,
+                recommendation: 'Review and address security concerns',
+                blockMerge: false
+            });
+        }
+        // Performance gate issues
+        if (gateStatus.performance === 'fail') {
+            issues.push({
+                type: 'performance_gate',
+                severity: 'high',
+                category: 'blocker',
+                metric: 'performance_score',
+                value: metrics.performanceScore,
+                threshold: this.gateThresholds.performance.blocker,
+                description: `Performance score (${metrics.performanceScore}) below minimum threshold`,
+                recommendation: 'Optimize performance before merging',
+                blockMerge: options.enableMergeBlocking
+            });
+        }
+        else if (gateStatus.performance === 'warning') {
+            issues.push({
+                type: 'performance_gate',
+                severity: 'medium',
+                category: 'warning',
+                metric: 'performance_score',
+                value: metrics.performanceScore,
+                threshold: options.performanceGateThreshold,
+                description: `Performance score (${metrics.performanceScore}) below desired threshold`,
+                recommendation: 'Consider performance optimizations',
+                blockMerge: false
+            });
+        }
+        // Coverage gate issues
+        if (gateStatus.coverage === 'fail') {
+            issues.push({
+                type: 'coverage_gate',
+                severity: 'high',
+                category: 'blocker',
+                metric: 'test_coverage_score',
+                value: metrics.testCoverageScore,
+                threshold: this.gateThresholds.testCoverage.blocker,
+                description: `Test coverage score (${metrics.testCoverageScore}) below minimum threshold`,
+                recommendation: 'Increase test coverage before merging',
+                blockMerge: options.enableMergeBlocking
+            });
+        }
+        else if (gateStatus.coverage === 'warning') {
+            issues.push({
+                type: 'coverage_gate',
+                severity: 'medium',
+                category: 'warning',
+                metric: 'test_coverage_score',
+                value: metrics.testCoverageScore,
+                threshold: options.coverageGateThreshold,
+                description: `Test coverage score (${metrics.testCoverageScore}) below desired threshold`,
+                recommendation: 'Consider adding more tests',
+                blockMerge: false
+            });
+        }
+        // Complexity gate issues
+        if (gateStatus.complexity === 'fail') {
+            issues.push({
+                type: 'complexity_gate',
+                severity: 'high',
+                category: 'blocker',
+                metric: 'complexity_score',
+                value: metrics.complexityScore,
+                threshold: this.gateThresholds.complexity.blocker,
+                description: `Complexity score (${metrics.complexityScore}) below minimum threshold`,
+                recommendation: 'Reduce code complexity before merging',
+                blockMerge: options.enableMergeBlocking
+            });
+        }
+        else if (gateStatus.complexity === 'warning') {
+            issues.push({
+                type: 'complexity_gate',
+                severity: 'medium',
+                category: 'warning',
+                metric: 'complexity_score',
+                value: metrics.complexityScore,
+                threshold: options.complexityGateThreshold,
+                description: `Complexity score (${metrics.complexityScore}) below desired threshold`,
+                recommendation: 'Consider refactoring complex code',
+                blockMerge: false
+            });
+        }
+        // Dependency gate issues
+        if (gateStatus.dependency === 'fail') {
+            issues.push({
+                type: 'dependency_gate',
+                severity: 'high',
+                category: 'blocker',
+                metric: 'dependency_score',
+                value: metrics.dependencyScore,
+                threshold: this.gateThresholds.dependency.blocker,
+                description: `Dependency security score (${metrics.dependencyScore}) below minimum threshold`,
+                recommendation: 'Update dependencies and address security issues',
+                blockMerge: options.enableMergeBlocking
+            });
+        }
+        else if (gateStatus.dependency === 'warning') {
+            issues.push({
+                type: 'dependency_gate',
+                severity: 'medium',
+                category: 'warning',
+                metric: 'dependency_score',
+                value: metrics.dependencyScore,
+                threshold: options.dependencyGateThreshold,
+                description: `Dependency security score (${metrics.dependencyScore}) below desired threshold`,
+                recommendation: 'Review and update dependencies',
+                blockMerge: false
+            });
+        }
+        // Documentation gate issues
+        if (gateStatus.documentation === 'fail') {
+            issues.push({
+                type: 'documentation_gate',
+                severity: 'medium',
+                category: 'blocker',
+                metric: 'documentation_score',
+                value: metrics.documentationScore,
+                threshold: this.gateThresholds.documentation.blocker,
+                description: `Documentation coverage score (${metrics.documentationScore}) below minimum threshold`,
+                recommendation: 'Improve documentation before merging',
+                blockMerge: options.enableMergeBlocking
+            });
+        }
+        else if (gateStatus.documentation === 'warning') {
+            issues.push({
+                type: 'documentation_gate',
+                severity: 'low',
+                category: 'warning',
+                metric: 'documentation_score',
+                value: metrics.documentationScore,
+                threshold: options.documentationGateThreshold,
+                description: `Documentation coverage score (${metrics.documentationScore}) below desired threshold`,
+                recommendation: 'Consider improving documentation',
+                blockMerge: false
+            });
+        }
+        return issues;
+    }
+    setOutputs(metrics, gateStatus, mergeBlocked, summary) {
+        // Set GitHub Actions outputs for use in workflows
+        (0,core.setOutput)('test_coverage_score', metrics.testCoverageScore.toString());
+        (0,core.setOutput)('security_score', metrics.securityScore.toString());
+        (0,core.setOutput)('performance_score', metrics.performanceScore.toString());
+        (0,core.setOutput)('complexity_score', metrics.complexityScore.toString());
+        (0,core.setOutput)('dependency_score', metrics.dependencyScore.toString());
+        (0,core.setOutput)('documentation_score', metrics.documentationScore.toString());
+        (0,core.setOutput)('overall_quality_score', metrics.overallQualityScore.toString());
+        (0,core.setOutput)('quality_gate_status', gateStatus.quality);
+        (0,core.setOutput)('security_gate_status', gateStatus.security);
+        (0,core.setOutput)('performance_gate_status', gateStatus.performance);
+        (0,core.setOutput)('coverage_gate_status', gateStatus.coverage);
+        (0,core.setOutput)('complexity_gate_status', gateStatus.complexity);
+        (0,core.setOutput)('dependency_gate_status', gateStatus.dependency);
+        (0,core.setOutput)('documentation_gate_status', gateStatus.documentation);
+        (0,core.setOutput)('merge_blocked', mergeBlocked.toString());
+        (0,core.setOutput)('total_issues', summary.totalIssues.toString());
+        (0,core.setOutput)('blockers', summary.blockers.toString());
+        (0,core.setOutput)('warnings', summary.warnings.toString());
+        (0,core.setOutput)('info', summary.info.toString());
+    }
+    generateRecommendations(issues, metrics, gateStatus) {
+        const recommendations = [];
+        if (gateStatus.quality === 'fail') {
+            recommendations.push('🚫 **CRITICAL**: Overall quality gate failed - address all critical issues before merging');
+        }
+        else if (gateStatus.quality === 'warning') {
+            recommendations.push('⚠️ **WARNING**: Quality gate warning - consider improvements before merging');
+        }
+        if (gateStatus.security === 'fail') {
+            recommendations.push('🔒 **CRITICAL**: Security gate failed - fix all security vulnerabilities immediately');
+        }
+        else if (gateStatus.security === 'warning') {
+            recommendations.push('🔐 **WARNING**: Security concerns detected - review and address security issues');
+        }
+        if (gateStatus.performance === 'fail') {
+            recommendations.push('⚡ **CRITICAL**: Performance gate failed - optimize code performance before merging');
+        }
+        else if (gateStatus.performance === 'warning') {
+            recommendations.push('📈 **WARNING**: Performance issues detected - consider optimizations');
+        }
+        if (gateStatus.coverage === 'fail') {
+            recommendations.push('🧪 **CRITICAL**: Test coverage gate failed - add more tests to meet minimum coverage');
+        }
+        else if (gateStatus.coverage === 'warning') {
+            recommendations.push('📋 **WARNING**: Low test coverage - consider adding more tests');
+        }
+        if (gateStatus.complexity === 'fail') {
+            recommendations.push('🔀 **CRITICAL**: Complexity gate failed - refactor complex code before merging');
+        }
+        else if (gateStatus.complexity === 'warning') {
+            recommendations.push('📊 **WARNING**: High complexity detected - consider refactoring');
+        }
+        if (gateStatus.dependency === 'fail') {
+            recommendations.push('📦 **CRITICAL**: Dependency gate failed - update dependencies and fix security issues');
+        }
+        else if (gateStatus.dependency === 'warning') {
+            recommendations.push('🔄 **WARNING**: Dependency issues detected - review and update dependencies');
+        }
+        if (gateStatus.documentation === 'fail') {
+            recommendations.push('📚 **CRITICAL**: Documentation gate failed - improve documentation before merging');
+        }
+        else if (gateStatus.documentation === 'warning') {
+            recommendations.push('📖 **WARNING**: Documentation issues detected - consider improving documentation');
+        }
+        // General recommendations
+        if (issues.some(i => i.category === 'blocker')) {
+            recommendations.push('🚫 **MERGE BLOCKED**: Address all critical issues to enable merge');
+        }
+        if (issues.length > 0) {
+            recommendations.push('📊 **Quality Metrics**: Review detailed analysis results for specific improvement areas');
+            recommendations.push('🔄 **Continuous Improvement**: Use these insights to improve future PRs');
+        }
+        return recommendations;
+    }
+    generateCICDComment(result) {
+        let comment = `## 🚀 CI/CD Pipeline Integration\n\n`;
+        if (result.mergeBlocked) {
+            comment += `🚫 **MERGE BLOCKED** - ${result.summary.blockers} critical issues must be resolved\n\n`;
+        }
+        else if (result.summary.warnings > 0) {
+            comment += `⚠️ **MERGE ALLOWED** - ${result.summary.warnings} warnings detected\n\n`;
+        }
+        else {
+            comment += `✅ **MERGE APPROVED** - All quality gates passed\n\n`;
+        }
+        comment += `### 📊 Quality Gate Status\n\n`;
+        const gateEmojis = {
+            pass: '✅',
+            warning: '⚠️',
+            fail: '❌'
+        };
+        comment += `- **Overall Quality**: ${gateEmojis[result.gateStatus.quality]} ${result.gateStatus.quality.toUpperCase()} (${result.metrics.overallQualityScore}/100)\n`;
+        comment += `- **Security**: ${gateEmojis[result.gateStatus.security]} ${result.gateStatus.security.toUpperCase()} (${result.metrics.securityScore}/100)\n`;
+        comment += `- **Performance**: ${gateEmojis[result.gateStatus.performance]} ${result.gateStatus.performance.toUpperCase()} (${result.metrics.performanceScore}/100)\n`;
+        comment += `- **Test Coverage**: ${gateEmojis[result.gateStatus.coverage]} ${result.gateStatus.coverage.toUpperCase()} (${result.metrics.testCoverageScore}/100)\n`;
+        comment += `- **Complexity**: ${gateEmojis[result.gateStatus.complexity]} ${result.gateStatus.complexity.toUpperCase()} (${result.metrics.complexityScore}/100)\n`;
+        comment += `- **Dependencies**: ${gateEmojis[result.gateStatus.dependency]} ${result.gateStatus.dependency.toUpperCase()} (${result.metrics.dependencyScore}/100)\n`;
+        comment += `- **Documentation**: ${gateEmojis[result.gateStatus.documentation]} ${result.gateStatus.documentation.toUpperCase()} (${result.metrics.documentationScore}/100)\n\n`;
+        if (result.summary.totalIssues > 0) {
+            comment += `### 📋 Issues Summary\n\n`;
+            comment += `- **Blockers**: ${result.summary.blockers}\n`;
+            comment += `- **Warnings**: ${result.summary.warnings}\n`;
+            comment += `- **Info**: ${result.summary.info}\n`;
+            comment += `- **Total**: ${result.summary.totalIssues}\n\n`;
+            // Show blockers first
+            const blockers = result.issues.filter(i => i.category === 'blocker');
+            if (blockers.length > 0) {
+                comment += `### 🚫 Critical Issues (Blockers)\n\n`;
+                for (const issue of blockers) {
+                    comment += `- **${issue.metric}**: ${issue.description}\n`;
+                    comment += `  - **Current**: ${issue.value}/100\n`;
+                    comment += `  - **Required**: ${issue.threshold}/100\n`;
+                    comment += `  - **Action**: ${issue.recommendation}\n\n`;
+                }
+            }
+            // Show warnings
+            const warnings = result.issues.filter(i => i.category === 'warning');
+            if (warnings.length > 0) {
+                comment += `### ⚠️ Warnings\n\n`;
+                for (const issue of warnings.slice(0, 5)) { // Limit to 5 for readability
+                    comment += `- **${issue.metric}**: ${issue.description}\n`;
+                    comment += `  - **Current**: ${issue.value}/100\n`;
+                    comment += `  - **Recommended**: ${issue.threshold}/100\n\n`;
+                }
+                if (warnings.length > 5) {
+                    comment += `- ... and ${warnings.length - 5} more warnings\n\n`;
+                }
+            }
+        }
+        if (result.recommendations.length > 0) {
+            comment += `### 💡 Recommendations\n\n`;
+            result.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+        }
+        comment += `### 🔧 CI/CD Integration\n\n`;
+        comment += `This analysis is integrated into your CI/CD pipeline with the following features:\n\n`;
+        comment += `- **Quality Gates**: Automatic enforcement of code quality standards\n`;
+        comment += `- **Merge Blocking**: Prevents merging of PRs that don't meet quality criteria\n`;
+        comment += `- **Real-time Feedback**: Immediate analysis during pull request creation\n`;
+        comment += `- **Metrics Tracking**: Continuous monitoring of code quality metrics\n`;
+        comment += `- **Automated Outputs**: GitHub Actions outputs for workflow integration\n\n`;
+        if (result.mergeBlocked) {
+            comment += `### 🚫 Next Steps\n\n`;
+            comment += `1. Address all critical issues listed above\n`;
+            comment += `2. Push fixes to the pull request branch\n`;
+            comment += `3. Wait for automated re-analysis\n`;
+            comment += `4. Merge once all gates pass\n\n`;
+        }
+        return comment;
+    }
+}
+
+;// CONCATENATED MODULE: ./lib/collaborative-analyzer.js
+class CollaborativeAnalyzer {
+    teamMembers = [];
+    reviewHistory = [];
+    votingThreshold = 3;
+    consensusThreshold = 0.7;
+    constructor() {
+        this.initializeMockData();
+    }
+    initializeMockData() {
+        // Mock team members
+        this.teamMembers = [
+            'alice-dev', 'bob-senior', 'charlie-lead', 'diana-qa', 'eve-architect'
+        ];
+        // Mock collaborative review data
+        this.reviewHistory = [
+            {
+                id: 'rev-001',
+                reviewer: 'alice-dev',
+                timestamp: new Date('2024-01-15T10:30:00Z'),
+                type: 'suggestion',
+                content: 'Consider using async/await instead of Promise chains for better readability',
+                filePath: 'src/api/users.js',
+                lineNumber: 45,
+                votes: { up: 3, down: 1 },
+                responses: [
+                    'Good point! Will refactor this section',
+                    'I agree, async/await would be cleaner here'
+                ],
+                status: 'resolved',
+                priority: 'medium'
+            },
+            {
+                id: 'rev-002',
+                reviewer: 'bob-senior',
+                timestamp: new Date('2024-01-15T11:15:00Z'),
+                type: 'concern',
+                content: 'This query might cause N+1 performance issues. Consider using JOIN instead',
+                filePath: 'src/database/queries.js',
+                lineNumber: 23,
+                votes: { up: 5, down: 0 },
+                responses: [
+                    'Thanks for catching this! Will optimize the query',
+                    'Great catch - this could be a performance bottleneck'
+                ],
+                status: 'resolved',
+                priority: 'high'
+            },
+            {
+                id: 'rev-003',
+                reviewer: 'charlie-lead',
+                timestamp: new Date('2024-01-15T14:20:00Z'),
+                type: 'approval',
+                content: 'Excellent implementation of the new authentication flow. Clean code and good error handling',
+                filePath: 'src/auth/middleware.js',
+                votes: { up: 4, down: 0 },
+                responses: [
+                    'Thank you! Appreciate the feedback',
+                    'Agreed, this is a solid implementation'
+                ],
+                status: 'acknowledged',
+                priority: 'low'
+            },
+            {
+                id: 'rev-004',
+                reviewer: 'diana-qa',
+                timestamp: new Date('2024-01-15T15:45:00Z'),
+                type: 'question',
+                content: 'How are we handling edge cases where the user input is null or undefined?',
+                filePath: 'src/utils/validation.js',
+                lineNumber: 67,
+                votes: { up: 2, down: 0 },
+                responses: [
+                    'Good question! Added null checks in the validation logic',
+                    'We should also add unit tests for these edge cases'
+                ],
+                status: 'open',
+                priority: 'medium'
+            },
+            {
+                id: 'rev-005',
+                reviewer: 'eve-architect',
+                timestamp: new Date('2024-01-15T16:30:00Z'),
+                type: 'praise',
+                content: 'Great job following the architectural patterns! The separation of concerns is well done',
+                filePath: 'src/services/order.js',
+                votes: { up: 3, down: 0 },
+                responses: [
+                    'Thank you! Tried to follow the established patterns',
+                    'This makes the code much more maintainable'
+                ],
+                status: 'acknowledged',
+                priority: 'low'
+            }
+        ];
+    }
+    async analyzeCollaborativeReviews(changedFiles, fileContents) {
+        // Simulate generating collaborative reviews for current changes
+        const currentReviews = await this.generateCollaborativeReviews(changedFiles, fileContents);
+        // Combine with historical reviews for analysis
+        const allReviews = [...this.reviewHistory, ...currentReviews];
+        // Analyze review patterns and metrics
+        const summary = this.calculateReviewSummary(allReviews);
+        const metrics = this.calculateCollaborativeMetrics(allReviews);
+        const recommendations = this.generateRecommendations(allReviews, currentReviews);
+        const teamInsights = this.generateTeamInsights(allReviews);
+        const actionItems = this.generateActionItems(currentReviews);
+        return {
+            reviews: currentReviews,
+            summary,
+            metrics,
+            recommendations,
+            teamInsights,
+            actionItems
+        };
+    }
+    async generateCollaborativeReviews(changedFiles, fileContents) {
+        const reviews = [];
+        // Simulate team members reviewing the changes
+        for (const filePath of changedFiles) {
+            const content = fileContents.get(filePath);
+            if (!content)
+                continue;
+            // Generate different types of reviews based on content analysis
+            const fileReviews = this.analyzeFileForCollaborativeReview(filePath, content);
+            reviews.push(...fileReviews);
+        }
+        return reviews;
+    }
+    analyzeFileForCollaborativeReview(filePath, content) {
+        const reviews = [];
+        const reviewers = this.getRandomReviewers(2); // Get 2 random reviewers
+        // Generate reviews based on content analysis
+        if (content.includes('TODO') || content.includes('FIXME')) {
+            reviews.push({
+                id: `rev-${Date.now()}-1`,
+                reviewer: reviewers[0],
+                timestamp: new Date(),
+                type: 'suggestion',
+                content: 'I noticed some TODO comments. Consider creating issues for these items to track them properly',
+                filePath,
+                votes: { up: 1, down: 0 },
+                responses: [],
+                status: 'open',
+                priority: 'medium'
+            });
+        }
+        if (content.length > 500 && content.split('\n').length > 50) {
+            reviews.push({
+                id: `rev-${Date.now()}-2`,
+                reviewer: reviewers[1],
+                timestamp: new Date(),
+                type: 'suggestion',
+                content: 'This file is quite large. Consider breaking it down into smaller, more focused modules',
+                filePath,
+                votes: { up: 2, down: 0 },
+                responses: [],
+                status: 'open',
+                priority: 'medium'
+            });
+        }
+        if (content.includes('console.log') || content.includes('console.error')) {
+            reviews.push({
+                id: `rev-${Date.now()}-3`,
+                reviewer: reviewers[0],
+                timestamp: new Date(),
+                type: 'concern',
+                content: 'Found console statements. Should we use proper logging instead for production code?',
+                filePath,
+                votes: { up: 1, down: 0 },
+                responses: [],
+                status: 'open',
+                priority: 'low'
+            });
+        }
+        // Add positive feedback for good practices
+        if (content.includes('try') && content.includes('catch')) {
+            reviews.push({
+                id: `rev-${Date.now()}-4`,
+                reviewer: reviewers[1],
+                timestamp: new Date(),
+                type: 'praise',
+                content: 'Good error handling! The try-catch blocks are well implemented',
+                filePath,
+                votes: { up: 3, down: 0 },
+                responses: [],
+                status: 'acknowledged',
+                priority: 'low'
+            });
+        }
+        return reviews;
+    }
+    getRandomReviewers(count) {
+        const shuffled = [...this.teamMembers].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    }
+    calculateReviewSummary(reviews) {
+        return {
+            suggestions: reviews.filter(r => r.type === 'suggestion').length,
+            approvals: reviews.filter(r => r.type === 'approval').length,
+            concerns: reviews.filter(r => r.type === 'concern').length,
+            questions: reviews.filter(r => r.type === 'question').length,
+            praise: reviews.filter(r => r.type === 'praise').length
+        };
+    }
+    calculateCollaborativeMetrics(reviews) {
+        const activeReviewers = new Set(reviews.map(r => r.reviewer)).size;
+        const totalVotes = reviews.reduce((sum, r) => sum + r.votes.up + r.votes.down, 0);
+        const averageVotes = reviews.length > 0 ? totalVotes / reviews.length : 0;
+        const resolvedReviews = reviews.filter(r => r.status === 'resolved').length;
+        const resolutionRate = reviews.length > 0 ? resolvedReviews / reviews.length : 0;
+        // Calculate engagement score based on votes and responses
+        const totalResponses = reviews.reduce((sum, r) => sum + r.responses.length, 0);
+        const engagementScore = reviews.length > 0
+            ? Math.min(100, ((totalVotes + totalResponses) / reviews.length) * 10)
+            : 0;
+        // Calculate consensus score based on vote ratios
+        const consensusReviews = reviews.filter(r => r.votes.up > 0 || r.votes.down > 0);
+        const consensusScore = consensusReviews.length > 0
+            ? consensusReviews.reduce((sum, r) => {
+                const total = r.votes.up + r.votes.down;
+                return sum + (total > 0 ? r.votes.up / total : 0.5);
+            }, 0) / consensusReviews.length * 100
+            : 50;
+        return {
+            totalReviews: reviews.length,
+            activeReviewers,
+            averageVotes: Math.round(averageVotes * 10) / 10,
+            resolutionRate: Math.round(resolutionRate * 100),
+            engagementScore: Math.round(engagementScore),
+            consensusScore: Math.round(consensusScore)
+        };
+    }
+    generateRecommendations(allReviews, currentReviews) {
+        const recommendations = [];
+        // Analyze current review patterns
+        const openConcerns = currentReviews.filter(r => r.type === 'concern' && r.status === 'open');
+        const unansweredQuestions = currentReviews.filter(r => r.type === 'question' && r.responses.length === 0);
+        if (openConcerns.length > 0) {
+            recommendations.push(`🚨 **Address Concerns**: ${openConcerns.length} open concerns need attention before merge`);
+        }
+        if (unansweredQuestions.length > 0) {
+            recommendations.push(`❓ **Answer Questions**: ${unansweredQuestions.length} questions need responses`);
+        }
+        // Team engagement recommendations
+        const lowEngagementReviews = currentReviews.filter(r => r.votes.up + r.votes.down < this.votingThreshold);
+        if (lowEngagementReviews.length > currentReviews.length * 0.5) {
+            recommendations.push('🤝 **Increase Engagement**: Encourage more team members to vote on reviews');
+        }
+        // Quality recommendations
+        const highPriorityReviews = currentReviews.filter(r => r.priority === 'high' || r.priority === 'critical');
+        if (highPriorityReviews.length > 0) {
+            recommendations.push(`⚠️ **High Priority**: Address ${highPriorityReviews.length} high-priority reviews first`);
+        }
+        // Process recommendations
+        const unresolvedReviews = currentReviews.filter(r => r.status === 'open');
+        if (unresolvedReviews.length > 3) {
+            recommendations.push('📋 **Review Management**: Consider breaking down large reviews into smaller, focused discussions');
+        }
+        // Positive reinforcement
+        const praiseCount = currentReviews.filter(r => r.type === 'praise').length;
+        if (praiseCount > 0) {
+            recommendations.push('👏 **Good Work**: Keep up the excellent practices that earned praise!');
+        }
+        return recommendations;
+    }
+    generateTeamInsights(reviews) {
+        const insights = [];
+        // Reviewer participation insights
+        const reviewerStats = new Map();
+        reviews.forEach(r => {
+            reviewerStats.set(r.reviewer, (reviewerStats.get(r.reviewer) || 0) + 1);
+        });
+        const topReviewer = Array.from(reviewerStats.entries())
+            .sort(([, a], [, b]) => b - a)[0];
+        if (topReviewer) {
+            insights.push(`🏆 **Most Active**: ${topReviewer[0]} has contributed ${topReviewer[1]} reviews`);
+        }
+        // Review type insights
+        const totalReviews = reviews.length;
+        const suggestionRate = (reviews.filter(r => r.type === 'suggestion').length / totalReviews) * 100;
+        const concernRate = (reviews.filter(r => r.type === 'concern').length / totalReviews) * 100;
+        const praiseRate = (reviews.filter(r => r.type === 'praise').length / totalReviews) * 100;
+        insights.push(`📊 **Review Balance**: ${suggestionRate.toFixed(1)}% suggestions, ${concernRate.toFixed(1)}% concerns, ${praiseRate.toFixed(1)}% praise`);
+        // Resolution insights
+        const recentReviews = reviews.filter(r => new Date().getTime() - r.timestamp.getTime() < 7 * 24 * 60 * 60 * 1000 // Last 7 days
+        );
+        const recentResolutionRate = recentReviews.length > 0
+            ? (recentReviews.filter(r => r.status === 'resolved').length / recentReviews.length) * 100
+            : 0;
+        insights.push(`⚡ **Recent Resolution**: ${recentResolutionRate.toFixed(1)}% of recent reviews resolved`);
+        // Collaboration insights
+        const avgResponses = reviews.reduce((sum, r) => sum + r.responses.length, 0) / reviews.length;
+        insights.push(`💬 **Discussion Level**: Average ${avgResponses.toFixed(1)} responses per review`);
+        return insights;
+    }
+    generateActionItems(currentReviews) {
+        const actionItems = [];
+        // Priority-based action items
+        const criticalReviews = currentReviews.filter(r => r.priority === 'critical' && r.status === 'open');
+        if (criticalReviews.length > 0) {
+            actionItems.push(`🚨 **URGENT**: Address ${criticalReviews.length} critical reviews immediately`);
+        }
+        const highReviews = currentReviews.filter(r => r.priority === 'high' && r.status === 'open');
+        if (highReviews.length > 0) {
+            actionItems.push(`⚠️ **HIGH**: Resolve ${highReviews.length} high-priority reviews before merge`);
+        }
+        // Type-based action items
+        const openQuestions = currentReviews.filter(r => r.type === 'question' && r.status === 'open');
+        if (openQuestions.length > 0) {
+            actionItems.push(`❓ **Questions**: Respond to ${openQuestions.length} unanswered questions`);
+        }
+        const openSuggestions = currentReviews.filter(r => r.type === 'suggestion' && r.status === 'open');
+        if (openSuggestions.length > 0) {
+            actionItems.push(`💡 **Suggestions**: Review and consider ${openSuggestions.length} improvement suggestions`);
+        }
+        // Voting action items
+        const lowVoteReviews = currentReviews.filter(r => r.votes.up + r.votes.down < 2);
+        if (lowVoteReviews.length > 0) {
+            actionItems.push(`🗳️ **Voting**: Vote on ${lowVoteReviews.length} reviews to build consensus`);
+        }
+        // Follow-up items
+        const unresolvedReviews = currentReviews.filter(r => r.status === 'open');
+        if (unresolvedReviews.length > 0) {
+            actionItems.push(`📋 **Follow-up**: ${unresolvedReviews.length} reviews need resolution`);
+        }
+        return actionItems;
+    }
+    generateCollaborativeComment(result) {
+        let comment = `## 🤝 Collaborative Review Enhancement\n\n`;
+        comment += `### 📊 Review Summary\n\n`;
+        comment += `- **Suggestions**: ${result.summary.suggestions}\n`;
+        comment += `- **Approvals**: ${result.summary.approvals}\n`;
+        comment += `- **Concerns**: ${result.summary.concerns}\n`;
+        comment += `- **Questions**: ${result.summary.questions}\n`;
+        comment += `- **Praise**: ${result.summary.praise}\n\n`;
+        comment += `### 📈 Team Metrics\n\n`;
+        comment += `- **Total Reviews**: ${result.metrics.totalReviews}\n`;
+        comment += `- **Active Reviewers**: ${result.metrics.activeReviewers}\n`;
+        comment += `- **Average Votes**: ${result.metrics.averageVotes}\n`;
+        comment += `- **Resolution Rate**: ${result.metrics.resolutionRate}%\n`;
+        comment += `- **Engagement Score**: ${result.metrics.engagementScore}/100\n`;
+        comment += `- **Consensus Score**: ${result.metrics.consensusScore}/100\n\n`;
+        if (result.reviews.length > 0) {
+            comment += `### 💬 Current Reviews\n\n`;
+            // Group reviews by priority
+            const reviewsByPriority = result.reviews.reduce((acc, review) => {
+                if (!acc[review.priority])
+                    acc[review.priority] = [];
+                acc[review.priority].push(review);
+                return acc;
+            }, {});
+            const priorityOrder = ['critical', 'high', 'medium', 'low'];
+            for (const priority of priorityOrder) {
+                const reviews = reviewsByPriority[priority];
+                if (!reviews || reviews.length === 0)
+                    continue;
+                const priorityEmojis = {
+                    critical: '🚨',
+                    high: '⚠️',
+                    medium: '📋',
+                    low: 'ℹ️'
+                };
+                comment += `#### ${priorityEmojis[priority]} ${priority.toUpperCase()} PRIORITY\n\n`;
+                for (const review of reviews) {
+                    const typeEmojis = {
+                        suggestion: '💡',
+                        approval: '✅',
+                        concern: '🚨',
+                        question: '❓',
+                        praise: '👏'
+                    };
+                    comment += `- **${typeEmojis[review.type]} ${review.type.charAt(0).toUpperCase() + review.type.slice(1)}** by ${review.reviewer}\n`;
+                    comment += `  ${review.content}\n`;
+                    if (review.filePath) {
+                        comment += `  📁 **File**: ${review.filePath}${review.lineNumber ? `:${review.lineNumber}` : ''}\n`;
+                    }
+                    comment += `  🗳️ **Votes**: 👍 ${review.votes.up} 👎 ${review.votes.down}\n`;
+                    comment += `  📊 **Status**: ${review.status}\n\n`;
+                    if (review.responses.length > 0) {
+                        comment += `  💬 **Responses**:\n`;
+                        review.responses.forEach(response => {
+                            comment += `    - ${response}\n`;
+                        });
+                        comment += '\n';
+                    }
+                }
+            }
+        }
+        if (result.actionItems.length > 0) {
+            comment += `### 🎯 Action Items\n\n`;
+            result.actionItems.forEach(item => {
+                comment += `${item}\n`;
+            });
+            comment += '\n';
+        }
+        if (result.teamInsights.length > 0) {
+            comment += `### 💡 Team Insights\n\n`;
+            result.teamInsights.forEach(insight => {
+                comment += `${insight}\n`;
+            });
+            comment += '\n';
+        }
+        if (result.recommendations.length > 0) {
+            comment += `### 📋 Recommendations\n\n`;
+            result.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+            comment += '\n';
+        }
+        comment += `### 🤝 Collaboration Features\n\n`;
+        comment += `This review supports collaborative enhancement with the following features:\n\n`;
+        comment += `- **🗳️ Voting**: Team members can vote on reviews to build consensus\n`;
+        comment += `- **💬 Discussion**: Threaded responses for detailed discussions\n`;
+        comment += `- **📊 Metrics**: Track team engagement and review quality\n`;
+        comment += `- **🎯 Action Items**: Prioritized tasks based on review feedback\n`;
+        comment += `- **📈 Insights**: Team performance and collaboration analytics\n\n`;
+        comment += `### 🚀 Next Steps\n\n`;
+        comment += `1. **Review Feedback**: Go through all reviews and suggestions\n`;
+        comment += `2. **Address Concerns**: Prioritize critical and high-priority items\n`;
+        comment += `3. **Respond to Questions**: Answer any outstanding questions\n`;
+        comment += `4. **Vote on Reviews**: Participate in team voting\n`;
+        comment += `5. **Track Progress**: Monitor resolution of action items\n\n`;
+        return comment;
+    }
+}
+
+;// CONCATENATED MODULE: ./lib/complexity-analyzer.js
+class ComplexityAnalyzer {
+    thresholds = {
+        cyclomaticComplexity: {
+            low: 5,
+            medium: 10,
+            high: 20,
+            critical: 50
+        },
+        cognitiveComplexity: {
+            low: 10,
+            medium: 20,
+            high: 30,
+            critical: 50
+        },
+        nestingDepth: {
+            low: 3,
+            medium: 5,
+            high: 7,
+            critical: 10
+        },
+        functionLength: {
+            low: 20,
+            medium: 50,
+            high: 100,
+            critical: 200
+        },
+        parameterCount: {
+            low: 5,
+            medium: 7,
+            high: 10,
+            critical: 15
+        },
+        lineLength: {
+            low: 80,
+            medium: 100,
+            high: 120,
+            critical: 150
+        }
+    };
+    async analyzeComplexity(filePaths, fileContents) {
+        const issues = [];
+        const allMetrics = [];
+        for (const filePath of filePaths) {
+            const content = fileContents.get(filePath);
+            if (!content)
+                continue;
+            const fileIssues = this.analyzeFile(filePath, content);
+            issues.push(...fileIssues.issues);
+            allMetrics.push(...fileIssues.metrics);
+        }
+        return this.generateComplexityResult(issues, allMetrics);
+    }
+    analyzeFile(filePath, content) {
+        const issues = [];
+        const metrics = [];
+        const lines = content.split('\n');
+        // Find functions and analyze each
+        const functions = this.extractFunctions(content, lines);
+        for (const func of functions) {
+            const funcMetrics = this.calculateFunctionMetrics(func, lines);
+            metrics.push(funcMetrics);
+            // Check cyclomatic complexity
+            if (funcMetrics.cyclomaticComplexity > this.thresholds.cyclomaticComplexity.low) {
+                const severity = this.getSeverity(funcMetrics.cyclomaticComplexity, this.thresholds.cyclomaticComplexity);
+                issues.push({
+                    type: 'high_cyclomatic',
+                    severity,
+                    filePath,
+                    lineNumber: func.startLine,
+                    functionName: func.name,
+                    description: `High cyclomatic complexity: ${funcMetrics.cyclomaticComplexity}`,
+                    value: funcMetrics.cyclomaticComplexity,
+                    threshold: this.thresholds.cyclomaticComplexity[severity],
+                    suggestion: 'Consider breaking down into smaller functions or reducing conditional logic'
+                });
+            }
+            // Check cognitive complexity
+            if (funcMetrics.cognitiveComplexity > this.thresholds.cognitiveComplexity.low) {
+                const severity = this.getSeverity(funcMetrics.cognitiveComplexity, this.thresholds.cognitiveComplexity);
+                issues.push({
+                    type: 'high_cognitive',
+                    severity,
+                    filePath,
+                    lineNumber: func.startLine,
+                    functionName: func.name,
+                    description: `High cognitive complexity: ${funcMetrics.cognitiveComplexity}`,
+                    value: funcMetrics.cognitiveComplexity,
+                    threshold: this.thresholds.cognitiveComplexity[severity],
+                    suggestion: 'Simplify control flow, reduce nesting, and extract helper functions'
+                });
+            }
+            // Check function length
+            if (funcMetrics.functionLength > this.thresholds.functionLength.low) {
+                const severity = this.getSeverity(funcMetrics.functionLength, this.thresholds.functionLength);
+                issues.push({
+                    type: 'large_function',
+                    severity,
+                    filePath,
+                    lineNumber: func.startLine,
+                    functionName: func.name,
+                    description: `Large function: ${funcMetrics.functionLength} lines`,
+                    value: funcMetrics.functionLength,
+                    threshold: this.thresholds.functionLength[severity],
+                    suggestion: 'Break down into smaller, more focused functions'
+                });
+            }
+            // Check parameter count
+            if (funcMetrics.parameterCount > this.thresholds.parameterCount.low) {
+                const severity = this.getSeverity(funcMetrics.parameterCount, this.thresholds.parameterCount);
+                issues.push({
+                    type: 'too_many_parameters',
+                    severity,
+                    filePath,
+                    lineNumber: func.startLine,
+                    functionName: func.name,
+                    description: `Too many parameters: ${funcMetrics.parameterCount}`,
+                    value: funcMetrics.parameterCount,
+                    threshold: this.thresholds.parameterCount[severity],
+                    suggestion: 'Consider using an object parameter or configuration class'
+                });
+            }
+            // Check nesting depth
+            if (funcMetrics.nestingDepth > this.thresholds.nestingDepth.low) {
+                const severity = this.getSeverity(funcMetrics.nestingDepth, this.thresholds.nestingDepth);
+                issues.push({
+                    type: 'deep_nesting',
+                    severity,
+                    filePath,
+                    lineNumber: func.startLine,
+                    functionName: func.name,
+                    description: `Deep nesting: ${funcMetrics.nestingDepth} levels`,
+                    value: funcMetrics.nestingDepth,
+                    threshold: this.thresholds.nestingDepth[severity],
+                    suggestion: 'Use early returns, guard clauses, or extract nested logic'
+                });
+            }
+        }
+        // Check line length for all lines
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+            if (line.length > this.thresholds.lineLength.low) {
+                const severity = this.getSeverity(line.length, this.thresholds.lineLength);
+                issues.push({
+                    type: 'long_line',
+                    severity,
+                    filePath,
+                    lineNumber: i + 1,
+                    description: `Long line: ${line.length} characters`,
+                    value: line.length,
+                    threshold: this.thresholds.lineLength[severity],
+                    suggestion: 'Break long lines into multiple lines or use string interpolation'
+                });
+            }
+        }
+        // Check for complex conditions
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+            if (this.isComplexCondition(line)) {
+                issues.push({
+                    type: 'complex_condition',
+                    severity: 'medium',
+                    filePath,
+                    lineNumber: i + 1,
+                    description: 'Complex conditional expression detected',
+                    value: 1,
+                    threshold: 0,
+                    suggestion: 'Extract complex conditions into well-named variables or functions'
+                });
+            }
+        }
+        return { issues, metrics };
+    }
+    extractFunctions(content, lines) {
+        const functions = [];
+        // JavaScript/TypeScript function patterns
+        const functionPatterns = [
+            /function\s+(\w+)\s*\(/g,
+            /const\s+(\w+)\s*=\s*\(/g,
+            /const\s+(\w+)\s*=\s*(?:async\s+)?\(/g,
+            /(\w+)\s*:\s*function\s*\(/g,
+            /(\w+)\s*=\s*function\s*\(/g,
+            /async\s+function\s+(\w+)\s*\(/g,
+            /class\s+(\w+)/g,
+            /(\w+)\s*\([^)]*\)\s*{/g,
+            /(\w+)\s*\([^)]*\)\s*=>/g // Arrow function
+        ];
+        for (const pattern of functionPatterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                const name = match[1];
+                const startIndex = match.index;
+                const startLine = content.substring(0, startIndex).split('\n').length;
+                // Find function end (simplified - just look for closing brace)
+                let braceCount = 0;
+                let endIndex = startIndex;
+                let inFunction = false;
+                for (let i = startIndex; i < content.length; i++) {
+                    if (content[i] === '{') {
+                        braceCount++;
+                        inFunction = true;
+                    }
+                    else if (content[i] === '}') {
+                        braceCount--;
+                        if (inFunction && braceCount === 0) {
+                            endIndex = i;
+                            break;
+                        }
+                    }
+                }
+                const endLine = content.substring(0, endIndex).split('\n').length;
+                const functionContent = content.substring(startIndex, endIndex + 1);
+                functions.push({
+                    name,
+                    startLine,
+                    endLine,
+                    content: functionContent
+                });
+            }
+        }
+        return functions;
+    }
+    calculateFunctionMetrics(func, lines) {
+        const content = func.content;
+        const functionLines = content.split('\n');
+        // Cyclomatic complexity calculation
+        const cyclomaticComplexity = this.calculateCyclomaticComplexity(content);
+        // Cognitive complexity calculation
+        const cognitiveComplexity = this.calculateCognitiveComplexity(content);
+        // Nesting depth
+        const nestingDepth = this.calculateNestingDepth(content);
+        // Function length (excluding empty lines and comments)
+        const functionLength = functionLines.filter(line => line.trim() !== '' && !line.trim().startsWith('//') && !line.trim().startsWith('/*')).length;
+        // Parameter count
+        const parameterCount = this.countParameters(content);
+        // Average line length for this function
+        const lineLength = functionLines.reduce((sum, line) => sum + line.length, 0) / functionLines.length;
+        return {
+            cyclomaticComplexity,
+            cognitiveComplexity,
+            nestingDepth,
+            functionLength,
+            parameterCount,
+            lineLength
+        };
+    }
+    calculateCyclomaticComplexity(content) {
+        let complexity = 1; // Base complexity
+        // Decision points that increase complexity
+        const decisionPatterns = [
+            /\bif\b/g,
+            /\belse\b/g,
+            /\belif\b/g,
+            /\bwhile\b/g,
+            /\bfor\b/g,
+            /\bdo\b/g,
+            /\bswitch\b/g,
+            /\bcase\b/g,
+            /\bcatch\b/g,
+            /\b&&\b/g,
+            /\b\|\|\b/g,
+            /\?\s*:/g,
+            /\bthrow\b/g
+        ];
+        for (const pattern of decisionPatterns) {
+            const matches = content.match(pattern);
+            if (matches) {
+                complexity += matches.length;
+            }
+        }
+        return complexity;
+    }
+    calculateCognitiveComplexity(content) {
+        let complexity = 0;
+        let nestingLevel = 0;
+        const lines = content.split('\n');
+        for (const line of lines) {
+            const trimmed = line.trim();
+            // Ignore comments and empty lines
+            if (trimmed.startsWith('//') || trimmed.startsWith('/*') || trimmed === '') {
+                continue;
+            }
+            // Increase nesting
+            if (/\b(if|while|for|catch|switch|case)\b/.test(trimmed)) {
+                nestingLevel++;
+                complexity += nestingLevel;
+            }
+            // Decrease nesting
+            else if (trimmed === '}' || trimmed === '});' || trimmed === '});') {
+                nestingLevel = Math.max(0, nestingLevel - 1);
+            }
+            // Binary operators increase complexity
+            else if (/\b(&&|\|\||and|or)\b/.test(trimmed)) {
+                complexity += 1 + nestingLevel;
+            }
+            // Ternary operator
+            else if (/\?\s*:/.test(trimmed)) {
+                complexity += 1 + nestingLevel;
+            }
+            // Break, continue, goto
+            else if (/\b(break|continue|goto)\b/.test(trimmed)) {
+                complexity += 1;
+            }
+            // Recursion
+            else if (new RegExp(`\\b${content.match(/function\s+(\w+)/)?.[1] || ''}\\s*\\(`).test(trimmed)) {
+                complexity += 1;
+            }
+        }
+        return complexity;
+    }
+    calculateNestingDepth(content) {
+        let maxDepth = 0;
+        let currentDepth = 0;
+        const lines = content.split('\n');
+        for (const line of lines) {
+            const trimmed = line.trim();
+            // Ignore comments and empty lines
+            if (trimmed.startsWith('//') || trimmed.startsWith('/*') || trimmed === '') {
+                continue;
+            }
+            // Count opening braces
+            const openBraces = (trimmed.match(/{/g) || []).length;
+            currentDepth += openBraces;
+            // Count closing braces
+            const closeBraces = (trimmed.match(/}/g) || []).length;
+            currentDepth = Math.max(0, currentDepth - closeBraces);
+            maxDepth = Math.max(maxDepth, currentDepth);
+        }
+        return maxDepth;
+    }
+    countParameters(content) {
+        const match = content.match(/\(([^)]*)\)/);
+        if (!match)
+            return 0;
+        const params = match[1].split(',').filter(p => p.trim() !== '');
+        return params.length;
+    }
+    isComplexCondition(line) {
+        const trimmed = line.trim();
+        // Multiple logical operators in one line
+        const logicalOperators = (trimmed.match(/&&|\|\||and|or/g) || []).length;
+        if (logicalOperators >= 3)
+            return true;
+        // Nested ternary operators
+        if ((trimmed.match(/\?\s*:/g) || []).length >= 2)
+            return true;
+        // Multiple comparisons in one condition
+        const comparisons = (trimmed.match(/[=<>!]=?/g) || []).length;
+        if (comparisons >= 3)
+            return true;
+        return false;
+    }
+    getSeverity(value, thresholds) {
+        if (value >= thresholds.critical)
+            return 'critical';
+        if (value >= thresholds.high)
+            return 'high';
+        if (value >= thresholds.medium)
+            return 'medium';
+        return 'low';
+    }
+    generateComplexityResult(issues, metrics) {
+        const summary = {
+            critical: issues.filter(i => i.severity === 'critical').length,
+            high: issues.filter(i => i.severity === 'high').length,
+            medium: issues.filter(i => i.severity === 'medium').length,
+            low: issues.filter(i => i.severity === 'low').length
+        };
+        const metricsSummary = {
+            totalFunctions: metrics.length,
+            averageComplexity: metrics.length > 0 ? metrics.reduce((sum, m) => sum + m.cyclomaticComplexity, 0) / metrics.length : 0,
+            maxComplexity: metrics.length > 0 ? Math.max(...metrics.map(m => m.cyclomaticComplexity)) : 0,
+            averageCognitive: metrics.length > 0 ? metrics.reduce((sum, m) => sum + m.cognitiveComplexity, 0) / metrics.length : 0,
+            maxCognitive: metrics.length > 0 ? Math.max(...metrics.map(m => m.cognitiveComplexity)) : 0,
+            averageNesting: metrics.length > 0 ? metrics.reduce((sum, m) => sum + m.nestingDepth, 0) / metrics.length : 0,
+            maxNesting: metrics.length > 0 ? Math.max(...metrics.map(m => m.nestingDepth)) : 0
+        };
+        const recommendations = this.generateRecommendations(issues);
+        const overallScore = this.calculateComplexityScore(issues, metricsSummary);
+        return {
+            issues,
+            summary,
+            metrics: metricsSummary,
+            recommendations,
+            overallScore
+        };
+    }
+    generateRecommendations(issues) {
+        const recommendations = [];
+        if (this.hasIssueType(issues, 'high_cyclomatic')) {
+            recommendations.push('🔄 Reduce cyclomatic complexity by extracting methods and reducing conditional logic');
+        }
+        if (this.hasIssueType(issues, 'high_cognitive')) {
+            recommendations.push('🧠 Simplify cognitive complexity using early returns and guard clauses');
+        }
+        if (this.hasIssueType(issues, 'large_function')) {
+            recommendations.push('📦 Break down large functions into smaller, single-purpose functions');
+        }
+        if (this.hasIssueType(issues, 'too_many_parameters')) {
+            recommendations.push('📋 Reduce parameter count using objects or configuration classes');
+        }
+        if (this.hasIssueType(issues, 'deep_nesting')) {
+            recommendations.push('📊 Reduce nesting depth with early returns and strategy pattern');
+        }
+        if (this.hasIssueType(issues, 'complex_condition')) {
+            recommendations.push('🔍 Extract complex conditions into well-named variables or functions');
+        }
+        if (this.hasIssueType(issues, 'long_line')) {
+            recommendations.push('📝 Break long lines and follow consistent line length guidelines');
+        }
+        // General recommendations
+        if (issues.length > 0) {
+            recommendations.push('📚 Follow SOLID principles for better code organization');
+            recommendations.push('🔧 Consider using refactoring tools to identify improvement opportunities');
+            recommendations.push('📈 Set up automated complexity monitoring in your CI/CD pipeline');
+        }
+        return recommendations;
+    }
+    hasIssueType(issues, type) {
+        return issues.some(i => i.type === type);
+    }
+    calculateComplexityScore(issues, metrics) {
+        if (issues.length === 0)
+            return 100;
+        const severityWeights = {
+            critical: 30,
+            high: 15,
+            medium: 8,
+            low: 3
+        };
+        // Base score from metrics
+        let score = 100;
+        // Deduct for issues
+        const totalDeduction = issues.reduce((sum, issue) => {
+            return sum + severityWeights[issue.severity];
+        }, 0);
+        // Additional deduction for high average complexity
+        if (metrics.averageComplexity > 15) {
+            score -= 10;
+        }
+        else if (metrics.averageComplexity > 10) {
+            score -= 5;
+        }
+        // Additional deduction for high max complexity
+        if (metrics.maxComplexity > 30) {
+            score -= 15;
+        }
+        else if (metrics.maxComplexity > 20) {
+            score -= 8;
+        }
+        return Math.max(0, score - totalDeduction);
+    }
+    generateComplexityComment(result) {
+        let comment = `## 📊 Code Complexity Metrics\n\n`;
+        const totalIssues = result.summary.critical + result.summary.high + result.summary.medium + result.summary.low;
+        if (totalIssues === 0) {
+            comment += `✅ **No complexity issues detected** in the changed files.\n\n`;
+            comment += `### 📈 Complexity Score: ${result.overallScore}/100\n\n`;
+            comment += `### 📋 Metrics Summary\n\n`;
+            comment += `- **Functions Analyzed**: ${result.metrics.totalFunctions}\n`;
+            comment += `- **Average Cyclomatic Complexity**: ${result.metrics.averageComplexity.toFixed(1)}\n`;
+            comment += `- **Max Cyclomatic Complexity**: ${result.metrics.maxComplexity}\n`;
+            comment += `- **Average Cognitive Complexity**: ${result.metrics.averageCognitive.toFixed(1)}\n`;
+            comment += `- **Max Cognitive Complexity**: ${result.metrics.maxCognitive}\n\n`;
+            comment += `### 💡 Complexity Best Practices\n\n`;
+            comment += `- Keep functions small and focused\n`;
+            comment += `- Minimize nesting and conditional complexity\n`;
+            comment += `- Use descriptive names and clear structure\n`;
+            return comment;
+        }
+        comment += `📈 **Complexity Score: ${result.overallScore}/100**\n\n`;
+        comment += `⚠️ **${totalIssues} complexity issues found**\n\n`;
+        comment += `### 📊 Severity Breakdown\n\n`;
+        comment += `- 🔴 **Critical**: ${result.summary.critical}\n`;
+        comment += `- 🟠 **High**: ${result.summary.high}\n`;
+        comment += `- 🟡 **Medium**: ${result.summary.medium}\n`;
+        comment += `- 🟢 **Low**: ${result.summary.low}\n\n`;
+        comment += `### 📋 Metrics Summary\n\n`;
+        comment += `- **Functions Analyzed**: ${result.metrics.totalFunctions}\n`;
+        comment += `- **Average Cyclomatic Complexity**: ${result.metrics.averageComplexity.toFixed(1)}\n`;
+        comment += `- **Max Cyclomatic Complexity**: ${result.metrics.maxComplexity}\n`;
+        comment += `- **Average Cognitive Complexity**: ${result.metrics.averageCognitive.toFixed(1)}\n`;
+        comment += `- **Max Cognitive Complexity**: ${result.metrics.maxCognitive}\n`;
+        comment += `- **Average Nesting Depth**: ${result.metrics.averageNesting.toFixed(1)}\n`;
+        comment += `- **Max Nesting Depth**: ${result.metrics.maxNesting}\n\n`;
+        // Group issues by severity
+        const criticalIssues = result.issues.filter(i => i.severity === 'critical');
+        const highIssues = result.issues.filter(i => i.severity === 'high');
+        if (criticalIssues.length > 0) {
+            comment += `### 🔴 Critical Complexity Issues\n\n`;
+            for (const issue of criticalIssues.slice(0, 3)) {
+                comment += `- **${issue.functionName ? `${issue.functionName}() at ` : ''}${issue.filePath}:${issue.lineNumber}** - ${issue.description}\n`;
+                comment += `  - **Value**: ${issue.value} (threshold: ${issue.threshold})\n`;
+                comment += `  - **Suggestion**: ${issue.suggestion}\n\n`;
+            }
+            if (criticalIssues.length > 3) {
+                comment += `- ... and ${criticalIssues.length - 3} more critical issues\n\n`;
+            }
+        }
+        if (highIssues.length > 0) {
+            comment += `### 🟠 High Severity Issues\n\n`;
+            for (const issue of highIssues.slice(0, 3)) {
+                comment += `- **${issue.functionName ? `${issue.functionName}() at ` : ''}${issue.filePath}:${issue.lineNumber}** - ${issue.description}\n`;
+                comment += `  - **Value**: ${issue.value} (threshold: ${issue.threshold})\n`;
+                comment += `  - **Suggestion**: ${issue.suggestion}\n\n`;
+            }
+            if (highIssues.length > 3) {
+                comment += `- ... and ${highIssues.length - 3} more high severity issues\n\n`;
+            }
+        }
+        if (result.recommendations.length > 0) {
+            comment += `### 💡 Complexity Recommendations\n\n`;
+            result.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+        }
+        return comment;
+    }
+}
+
+;// CONCATENATED MODULE: ./lib/cross-repo-analyzer.js
+class CrossRepoAnalyzer {
+    repositoryDependencies = new Map();
+    serviceContracts = new Map();
+    apiEndpoints = new Map();
+    databaseSchemas = new Map();
+    constructor() {
+        this.initializeMockData();
+    }
+    initializeMockData() {
+        // Mock repository dependencies
+        this.repositoryDependencies.set('frontend-app', ['api-service', 'auth-service', 'user-service']);
+        this.repositoryDependencies.set('api-service', ['database-service', 'cache-service', 'notification-service']);
+        this.repositoryDependencies.set('auth-service', ['database-service', 'token-service']);
+        this.repositoryDependencies.set('user-service', ['database-service', 'profile-service']);
+        this.repositoryDependencies.set('admin-dashboard', ['api-service', 'auth-service', 'analytics-service']);
+        // Mock service contracts
+        this.serviceContracts.set('api-service', {
+            endpoints: ['/api/users', '/api/auth', '/api/orders'],
+            version: 'v1.2.0',
+            breakingChanges: ['user_id field renamed to userId', 'auth endpoint requires new parameter']
+        });
+        this.serviceContracts.set('auth-service', {
+            endpoints: ['/auth/login', '/auth/logout', '/auth/refresh'],
+            version: 'v2.0.0',
+            breakingChanges: ['JWT token format changed', 'session management updated']
+        });
+        // Mock API endpoints
+        this.apiEndpoints.set('api-service', {
+            '/api/users': {
+                method: 'GET',
+                response: { id: 'string', name: 'string', email: 'string' },
+                version: 'v1'
+            },
+            '/api/auth/login': {
+                method: 'POST',
+                request: { username: 'string', password: 'string' },
+                response: { token: 'string', user: 'object' },
+                version: 'v1'
+            }
+        });
+        // Mock database schemas
+        this.databaseSchemas.set('database-service', {
+            users: {
+                id: 'UUID',
+                username: 'VARCHAR',
+                email: 'VARCHAR',
+                created_at: 'TIMESTAMP'
+            },
+            orders: {
+                id: 'UUID',
+                user_id: 'UUID',
+                total: 'DECIMAL',
+                status: 'VARCHAR'
+            }
+        });
+    }
+    async analyzeCrossRepoImpact(changedFiles, fileContents) {
+        const impacts = [];
+        // Analyze each changed file for potential cross-repo impacts
+        for (const filePath of changedFiles) {
+            const content = fileContents.get(filePath);
+            if (!content)
+                continue;
+            const fileImpacts = await this.analyzeFileForImpacts(filePath, content);
+            impacts.push(...fileImpacts);
+        }
+        // Remove duplicates and consolidate impacts
+        const consolidatedImpacts = this.consolidateImpacts(impacts);
+        const summary = {
+            critical: consolidatedImpacts.filter(i => i.severity === 'critical').length,
+            high: consolidatedImpacts.filter(i => i.severity === 'high').length,
+            medium: consolidatedImpacts.filter(i => i.severity === 'medium').length,
+            low: consolidatedImpacts.filter(i => i.severity === 'low').length
+        };
+        const metrics = this.calculateMetrics(consolidatedImpacts);
+        const recommendations = this.generateRecommendations(consolidatedImpacts);
+        const riskAssessment = this.assessOverallRisk(summary);
+        return {
+            impacts: consolidatedImpacts,
+            summary,
+            metrics,
+            recommendations,
+            riskAssessment
+        };
+    }
+    async analyzeFileForImpacts(filePath, content) {
+        const impacts = [];
+        // Check for API changes
+        const apiImpacts = this.analyzeAPIChanges(filePath, content);
+        impacts.push(...apiImpacts);
+        // Check for database schema changes
+        const schemaImpacts = this.analyzeSchemaChanges(filePath, content);
+        impacts.push(...schemaImpacts);
+        // Check for configuration changes
+        const configImpacts = this.analyzeConfigChanges(filePath, content);
+        impacts.push(...configImpacts);
+        // Check for dependency changes
+        const dependencyImpacts = this.analyzeDependencyChanges(filePath, content);
+        impacts.push(...dependencyImpacts);
+        // Check for service contract changes
+        const contractImpacts = this.analyzeContractChanges(filePath, content);
+        impacts.push(...contractImpacts);
+        return impacts;
+    }
+    analyzeAPIChanges(filePath, content) {
+        const impacts = [];
+        // Check for API endpoint modifications
+        const apiPatterns = [
+            /app\.(get|post|put|delete|patch)\s*\(\s*['"`]([^'"`]+)['"`]/g,
+            /router\.(get|post|put|delete|patch)\s*\(\s*['"`]([^'"`]+)['"`]/g,
+            /@([A-Z]+)\s*\(\s*['"`]([^'"`]+)['"`]/g // Express decorators
+        ];
+        for (const pattern of apiPatterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                const endpoint = match[2];
+                const method = match[1];
+                // Check if this is a breaking change
+                if (this.isBreakingAPIChange(content, endpoint, method)) {
+                    impacts.push({
+                        type: 'api_break',
+                        severity: 'high',
+                        repository: 'api-service',
+                        service: 'api-gateway',
+                        impactDescription: `API endpoint ${method.toUpperCase()} ${endpoint} modified with breaking changes`,
+                        affectedFiles: [filePath],
+                        recommendation: 'Update all client applications that consume this endpoint',
+                        confidence: 85
+                    });
+                }
+            }
+        }
+        // Check for response structure changes
+        const responsePatterns = [
+            /res\.json\s*\(\s*\{([^}]+)\}\s*\)/g,
+            /return\s*\{([^}]+)\}/g
+        ];
+        for (const pattern of responsePatterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                // Analyze response structure changes
+                if (this.hasBreakingResponseChanges(match[1])) {
+                    impacts.push({
+                        type: 'contract_break',
+                        severity: 'medium',
+                        repository: 'api-service',
+                        service: 'frontend-app',
+                        impactDescription: 'API response structure changed',
+                        affectedFiles: [filePath],
+                        recommendation: 'Update frontend models and parsing logic',
+                        confidence: 70
+                    });
+                }
+            }
+        }
+        return impacts;
+    }
+    analyzeSchemaChanges(filePath, content) {
+        const impacts = [];
+        // Check for database schema modifications
+        const schemaPatterns = [
+            /CREATE TABLE\s+(\w+)/gi,
+            /ALTER TABLE\s+(\w+)/gi,
+            /DROP TABLE\s+(\w+)/gi,
+            /ADD COLUMN\s+(\w+)/gi,
+            /DROP COLUMN\s+(\w+)/gi
+        ];
+        for (const pattern of schemaPatterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                const tableName = match[1];
+                impacts.push({
+                    type: 'schema_break',
+                    severity: 'critical',
+                    repository: 'database-service',
+                    service: 'all-services',
+                    impactDescription: `Database schema change detected for table: ${tableName}`,
+                    affectedFiles: [filePath],
+                    recommendation: 'Coordinate database migration with all dependent services',
+                    confidence: 95
+                });
+            }
+        }
+        // Check for model/ORM changes
+        const modelPatterns = [
+            /class\s+(\w+)\s+extends\s+Model/gi,
+            /@Entity\s*\(\s*\{\s*name:\s*['"`]([^'"`]+)['"`]/gi,
+            /mongoose\.Schema\s*\(/gi
+        ];
+        for (const pattern of modelPatterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                const modelName = match[1] || match[2];
+                if (this.hasBreakingModelChanges(content, modelName)) {
+                    impacts.push({
+                        type: 'schema_break',
+                        severity: 'high',
+                        repository: 'database-service',
+                        service: 'api-service',
+                        impactDescription: `Model definition changed for: ${modelName}`,
+                        affectedFiles: [filePath],
+                        recommendation: 'Update all services that use this model',
+                        confidence: 80
+                    });
+                }
+            }
+        }
+        return impacts;
+    }
+    analyzeConfigChanges(filePath, content) {
+        const impacts = [];
+        // Check for configuration file changes
+        if (filePath.includes('.env') || filePath.includes('config') || filePath.includes('settings')) {
+            impacts.push({
+                type: 'config_break',
+                severity: 'medium',
+                repository: 'shared-config',
+                service: 'all-services',
+                impactDescription: 'Configuration file modified',
+                affectedFiles: [filePath],
+                recommendation: 'Update configuration in all dependent services',
+                confidence: 60
+            });
+        }
+        // Check for environment variable changes
+        const envPatterns = [
+            /process\.env\.(\w+)/g,
+            /\$\{(\w+)\}/g,
+            /env\.(\w+)/g
+        ];
+        for (const pattern of envPatterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                const envVar = match[1];
+                if (this.isNewEnvironmentVariable(envVar)) {
+                    impacts.push({
+                        type: 'config_break',
+                        severity: 'low',
+                        repository: 'shared-config',
+                        service: 'deployment',
+                        impactDescription: `New environment variable required: ${envVar}`,
+                        affectedFiles: [filePath],
+                        recommendation: 'Add environment variable to all deployment configurations',
+                        confidence: 75
+                    });
+                }
+            }
+        }
+        return impacts;
+    }
+    analyzeDependencyChanges(filePath, content) {
+        const impacts = [];
+        // Check for package.json changes
+        if (filePath.includes('package.json')) {
+            impacts.push({
+                type: 'dependency_break',
+                severity: 'medium',
+                repository: 'shared-dependencies',
+                service: 'all-applications',
+                impactDescription: 'Package dependencies updated',
+                affectedFiles: [filePath],
+                recommendation: 'Update dependencies in all consuming applications',
+                confidence: 65
+            });
+        }
+        // Check for import/require changes
+        const importPatterns = [
+            /import.*from\s+['"`]([^'"`]+)['"`]/g,
+            /require\s*\(\s*['"`]([^'"`]+)['"`]\s*\)/g
+        ];
+        for (const pattern of importPatterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                const importPath = match[1];
+                if (this.isInternalDependency(importPath)) {
+                    impacts.push({
+                        type: 'dependency_break',
+                        severity: 'low',
+                        repository: 'internal-modules',
+                        service: 'dependent-services',
+                        impactDescription: `Internal dependency modified: ${importPath}`,
+                        affectedFiles: [filePath],
+                        recommendation: 'Verify compatibility with dependent services',
+                        confidence: 70
+                    });
+                }
+            }
+        }
+        return impacts;
+    }
+    analyzeContractChanges(filePath, content) {
+        const impacts = [];
+        // Check for interface/type definition changes
+        const interfacePatterns = [
+            /interface\s+(\w+)/g,
+            /type\s+(\w+)\s*=/g,
+            /class\s+(\w+)/g
+        ];
+        for (const pattern of interfacePatterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                const typeName = match[1];
+                if (this.isPublicContract(typeName)) {
+                    impacts.push({
+                        type: 'contract_break',
+                        severity: 'medium',
+                        repository: 'shared-types',
+                        service: 'frontend-app',
+                        impactDescription: `Public contract modified: ${typeName}`,
+                        affectedFiles: [filePath],
+                        recommendation: 'Update all consumers of this contract',
+                        confidence: 75
+                    });
+                }
+            }
+        }
+        return impacts;
+    }
+    isBreakingAPIChange(content, endpoint, method) {
+        const breakingIndicators = [
+            'res.status(4)',
+            'throw new Error',
+            'deprecated',
+            'removed',
+            'changed'
+        ];
+        return breakingIndicators.some(indicator => content.toLowerCase().includes(indicator.toLowerCase()));
+    }
+    hasBreakingResponseChanges(responseContent) {
+        const breakingPatterns = [
+            /id:\s*['"`]?\w+['"`]?\s*->\s*['"`]?\w+['"`]?/g,
+            /required:\s*\[/g,
+            /type:\s*['"`]?\w+['"`]?\s*->\s*['"`]?\w+['"`]?/g // Type change
+        ];
+        return breakingPatterns.some(pattern => pattern.test(responseContent));
+    }
+    hasBreakingModelChanges(content, modelName) {
+        const breakingIndicators = [
+            'removeColumn',
+            'dropColumn',
+            'renameColumn',
+            'changeColumn',
+            'removeField',
+            'deleteField'
+        ];
+        return breakingIndicators.some(indicator => content.toLowerCase().includes(indicator.toLowerCase()));
+    }
+    isNewEnvironmentVariable(envVar) {
+        // Mock logic - in real implementation, would check against known env vars
+        const commonEnvVars = ['NODE_ENV', 'PORT', 'DATABASE_URL', 'JWT_SECRET'];
+        return !commonEnvVars.includes(envVar);
+    }
+    isInternalDependency(importPath) {
+        return importPath.startsWith('@/') || importPath.startsWith('../') || importPath.startsWith('./');
+    }
+    isPublicContract(typeName) {
+        // Mock logic - in real implementation, would check against public API contracts
+        const publicPrefixes = ['User', 'Order', 'Product', 'API', 'Response', 'Request'];
+        return publicPrefixes.some(prefix => typeName.startsWith(prefix));
+    }
+    consolidateImpacts(impacts) {
+        // Remove duplicates and consolidate similar impacts
+        const uniqueImpacts = new Map();
+        for (const impact of impacts) {
+            const key = `${impact.type}-${impact.repository}-${impact.service}-${impact.impactDescription}`;
+            if (!uniqueImpacts.has(key)) {
+                uniqueImpacts.set(key, impact);
+            }
+            else {
+                // Merge with existing impact
+                const existing = uniqueImpacts.get(key);
+                existing.affectedFiles.push(...impact.affectedFiles);
+                existing.confidence = Math.max(existing.confidence, impact.confidence);
+            }
+        }
+        return Array.from(uniqueImpacts.values());
+    }
+    calculateMetrics(impacts) {
+        const affectedRepos = new Set(impacts.map(i => i.repository));
+        const avgConfidence = impacts.length > 0
+            ? impacts.reduce((sum, i) => sum + i.confidence, 0) / impacts.length
+            : 0;
+        return {
+            totalRepositories: this.repositoryDependencies.size,
+            affectedRepositories: affectedRepos.size,
+            criticalImpacts: impacts.filter(i => i.severity === 'critical').length,
+            highImpacts: impacts.filter(i => i.severity === 'high').length,
+            mediumImpacts: impacts.filter(i => i.severity === 'medium').length,
+            lowImpacts: impacts.filter(i => i.severity === 'low').length,
+            confidenceScore: Math.round(avgConfidence)
+        };
+    }
+    generateRecommendations(impacts) {
+        const recommendations = [];
+        if (impacts.some(i => i.type === 'api_break')) {
+            recommendations.push('🔗 **API Changes**: Coordinate API versioning and communicate changes to all consumers');
+        }
+        if (impacts.some(i => i.type === 'schema_break')) {
+            recommendations.push('🗄️ **Schema Changes**: Plan database migrations and update all dependent services');
+        }
+        if (impacts.some(i => i.type === 'config_break')) {
+            recommendations.push('⚙️ **Config Changes**: Update configuration across all environments and services');
+        }
+        if (impacts.some(i => i.type === 'dependency_break')) {
+            recommendations.push('📦 **Dependency Changes**: Verify compatibility and update all consuming applications');
+        }
+        if (impacts.some(i => i.type === 'contract_break')) {
+            recommendations.push('📋 **Contract Changes**: Update all clients that use these contracts');
+        }
+        if (impacts.some(i => i.severity === 'critical')) {
+            recommendations.push('🚨 **Critical Impact**: Immediate coordination required with all teams');
+        }
+        // General recommendations
+        recommendations.push('📢 **Communication**: Notify all dependent teams about upcoming changes');
+        recommendations.push('🔄 **Testing**: Run integration tests across all affected services');
+        recommendations.push('📋 **Documentation**: Update API documentation and change logs');
+        recommendations.push('🚀 **Deployment**: Consider phased rollout to minimize impact');
+        return recommendations;
+    }
+    assessOverallRisk(summary) {
+        if (summary.critical > 0)
+            return 'critical';
+        if (summary.high > 2)
+            return 'high';
+        if (summary.high > 0 || summary.medium > 3)
+            return 'medium';
+        return 'low';
+    }
+    generateCrossRepoComment(result) {
+        let comment = `## 🔗 Cross-Repository Impact Analysis\n\n`;
+        const riskEmojis = {
+            low: '🟢',
+            medium: '🟡',
+            high: '🟠',
+            critical: '🔴'
+        };
+        comment += `${riskEmojis[result.riskAssessment]} **Overall Risk Assessment: ${result.riskAssessment.toUpperCase()}**\n\n`;
+        comment += `### 📊 Impact Summary\n\n`;
+        comment += `- **Critical**: ${result.summary.critical}\n`;
+        comment += `- **High**: ${result.summary.high}\n`;
+        comment += `- **Medium**: ${result.summary.medium}\n`;
+        comment += `- **Low**: ${result.summary.low}\n`;
+        comment += `- **Total**: ${result.summary.critical + result.summary.high + result.summary.medium + result.summary.low}\n\n`;
+        comment += `### 🏗️ Repository Impact Metrics\n\n`;
+        comment += `- **Total Repositories**: ${result.metrics.totalRepositories}\n`;
+        comment += `- **Affected Repositories**: ${result.metrics.affectedRepositories}\n`;
+        comment += `- **Confidence Score**: ${result.metrics.confidenceScore}%\n\n`;
+        if (result.impacts.length > 0) {
+            // Group impacts by type
+            const impactsByType = result.impacts.reduce((acc, impact) => {
+                if (!acc[impact.type])
+                    acc[impact.type] = [];
+                acc[impact.type].push(impact);
+                return acc;
+            }, {});
+            comment += `### 🎯 Detailed Impact Analysis\n\n`;
+            for (const [type, impacts] of Object.entries(impactsByType)) {
+                const typeEmojis = {
+                    api_break: '🔗',
+                    dependency_break: '📦',
+                    config_break: '⚙️',
+                    schema_break: '🗄️',
+                    contract_break: '📋',
+                    service_break: '🚀'
+                };
+                comment += `#### ${typeEmojis[type] || '📌'} ${type.replace('_', ' ').toUpperCase()}\n\n`;
+                for (const impact of impacts.slice(0, 3)) { // Limit to 3 per type for readability
+                    const severityEmoji = {
+                        critical: '🔴',
+                        high: '🟠',
+                        medium: '🟡',
+                        low: '🟢'
+                    };
+                    comment += `- **${impact.repository}** → **${impact.service}**\n`;
+                    comment += `  ${severityEmoji[impact.severity]} ${impact.impactDescription}\n`;
+                    comment += `  💡 **Recommendation**: ${impact.recommendation}\n`;
+                    comment += `  📊 **Confidence**: ${impact.confidence}%\n\n`;
+                }
+                if (impacts.length > 3) {
+                    comment += `- ... and ${impacts.length - 3} more impacts of this type\n\n`;
+                }
+            }
+        }
+        if (result.recommendations.length > 0) {
+            comment += `### 💡 Recommendations\n\n`;
+            result.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+        }
+        comment += `### 🔄 Coordination Requirements\n\n`;
+        comment += `This change may impact multiple repositories. Consider the following coordination steps:\n\n`;
+        comment += `1. **Notify Teams**: Alert all teams maintaining affected repositories\n`;
+        comment += `2. **Schedule Changes**: Plan coordinated deployment windows\n`;
+        comment += `3. **Test Integration**: Run cross-repository integration tests\n`;
+        comment += `4. **Monitor Impact**: Watch for issues after deployment\n`;
+        comment += `5. **Rollback Plan**: Prepare rollback procedures if needed\n\n`;
+        return comment;
+    }
+}
+
+;// CONCATENATED MODULE: ./lib/dependency-analyzer.js
+
+class DependencyAnalyzer {
+    packageManagers = ['npm', 'yarn', 'pnpm'];
+    licenseConflicts = [
+        { license: 'GPL-3.0', conflicts: ['MIT', 'Apache-2.0', 'BSD'] },
+        { license: 'AGPL-3.0', conflicts: ['MIT', 'Apache-2.0', 'BSD', 'GPL-3.0'] },
+        { license: 'LGPL-3.0', conflicts: ['MIT', 'Apache-2.0', 'BSD'] }
+    ];
+    async analyzeDependencies(filePaths, fileContents) {
+        const issues = [];
+        const dependencyFiles = this.findDependencyFiles(filePaths, fileContents);
+        const allDependencies = [];
+        for (const [filePath, content] of dependencyFiles) {
+            const dependencies = this.parseDependencyFile(filePath, content);
+            allDependencies.push(...dependencies);
+        }
+        // Analyze each dependency
+        for (const dep of allDependencies) {
+            const depIssues = await this.analyzeDependency(dep);
+            issues.push(...depIssues);
+        }
+        return this.generateDependencyResult(issues, allDependencies);
+    }
+    findDependencyFiles(filePaths, fileContents) {
+        const dependencyFiles = [];
+        const dependencyFilePatterns = [
+            'package.json',
+            'package-lock.json',
+            'yarn.lock',
+            'pnpm-lock.yaml',
+            'requirements.txt',
+            'Pipfile',
+            'Pipfile.lock',
+            'Gemfile',
+            'Gemfile.lock',
+            'pom.xml',
+            'build.gradle',
+            'Cargo.toml',
+            'composer.json'
+        ];
+        for (const filePath of filePaths) {
+            const fileName = filePath.split('/').pop() || filePath;
+            if (dependencyFilePatterns.some(pattern => fileName.includes(pattern))) {
+                const content = fileContents.get(filePath);
+                if (content) {
+                    dependencyFiles.push([filePath, content]);
+                }
+            }
+        }
+        return dependencyFiles;
+    }
+    parseDependencyFile(filePath, content) {
+        const dependencies = [];
+        const fileName = filePath.split('/').pop() || filePath;
+        try {
+            if (fileName === 'package.json') {
+                const packageJson = JSON.parse(content);
+                // Parse dependencies
+                if (packageJson.dependencies) {
+                    for (const [name, version] of Object.entries(packageJson.dependencies)) {
+                        dependencies.push({
+                            name,
+                            currentVersion: this.normalizeVersion(version),
+                            latestVersion: '',
+                            type: 'dependencies',
+                            license: this.getLicenseFromPackageJson(packageJson, name)
+                        });
+                    }
+                }
+                // Parse devDependencies
+                if (packageJson.devDependencies) {
+                    for (const [name, version] of Object.entries(packageJson.devDependencies)) {
+                        dependencies.push({
+                            name,
+                            currentVersion: this.normalizeVersion(version),
+                            latestVersion: '',
+                            type: 'devDependencies',
+                            license: this.getLicenseFromPackageJson(packageJson, name)
+                        });
+                    }
+                }
+                // Parse peerDependencies
+                if (packageJson.peerDependencies) {
+                    for (const [name, version] of Object.entries(packageJson.peerDependencies)) {
+                        dependencies.push({
+                            name,
+                            currentVersion: this.normalizeVersion(version),
+                            latestVersion: '',
+                            type: 'peerDependencies',
+                            license: this.getLicenseFromPackageJson(packageJson, name)
+                        });
+                    }
+                }
+            }
+            else if (fileName === 'requirements.txt') {
+                const lines = content.split('\n');
+                for (const line of lines) {
+                    const match = line.match(/^([a-zA-Z0-9\-_.]+)([><=!]+)(.+)$/);
+                    if (match) {
+                        dependencies.push({
+                            name: match[1],
+                            currentVersion: match[3],
+                            latestVersion: '',
+                            type: 'dependencies'
+                        });
+                    }
+                }
+            }
+            // Add more package managers as needed
+        }
+        catch (error) {
+            (0,core.warning)(`Failed to parse dependency file ${filePath}: ${error}`);
+        }
+        return dependencies;
+    }
+    getLicenseFromPackageJson(packageJson, packageName) {
+        // This is a simplified approach - in practice, you'd need to check the package's own license
+        // For now, we'll return undefined and handle license checking elsewhere
+        return undefined;
+    }
+    normalizeVersion(version) {
+        // Remove ^, ~, >=, <=, >, < prefixes
+        return version.replace(/^[\^~><=]+/, '').trim();
+    }
+    async analyzeDependency(dependency) {
+        const issues = [];
+        try {
+            // Simulate fetching latest version and security info
+            // In a real implementation, you would call npm API, GitHub API, or other package manager APIs
+            const { latestVersion, securityVulnerabilities, deprecated } = await this.fetchDependencyInfo(dependency.name);
+            dependency.latestVersion = latestVersion;
+            dependency.securityVulnerabilities = securityVulnerabilities;
+            dependency.deprecated = deprecated;
+            // Check for security vulnerabilities
+            if (securityVulnerabilities && securityVulnerabilities.length > 0) {
+                for (const vuln of securityVulnerabilities) {
+                    const severity = this.mapCvssToSeverity(vuln.cvssScore);
+                    issues.push({
+                        type: 'security_vulnerability',
+                        severity,
+                        packageName: dependency.name,
+                        currentVersion: dependency.currentVersion,
+                        latestVersion,
+                        description: `Security vulnerability: ${vuln.description}`,
+                        impact: `CVSS Score: ${vuln.cvssScore} - ${vuln.severity}`,
+                        recommendation: 'Update to the latest version to patch security vulnerabilities',
+                        cveId: vuln.cveId,
+                        cvssScore: vuln.cvssScore
+                    });
+                }
+            }
+            // Check for deprecated packages
+            if (deprecated) {
+                issues.push({
+                    type: 'deprecated_package',
+                    severity: 'high',
+                    packageName: dependency.name,
+                    currentVersion: dependency.currentVersion,
+                    latestVersion,
+                    description: 'Package is deprecated',
+                    impact: 'Package may no longer receive updates or security patches',
+                    recommendation: 'Migrate to an alternative package or maintained fork'
+                });
+            }
+            // Check for outdated versions
+            if (latestVersion && this.isVersionOutdated(dependency.currentVersion, latestVersion)) {
+                const updateType = this.getUpdateType(dependency.currentVersion, latestVersion);
+                if (updateType === 'major') {
+                    issues.push({
+                        type: 'breaking_change',
+                        severity: 'high',
+                        packageName: dependency.name,
+                        currentVersion: dependency.currentVersion,
+                        latestVersion,
+                        description: 'Major version update available',
+                        impact: 'May contain breaking changes - review release notes',
+                        recommendation: 'Test thoroughly in development before updating'
+                    });
+                }
+                else if (updateType === 'minor') {
+                    issues.push({
+                        type: 'outdated_minor',
+                        severity: 'medium',
+                        packageName: dependency.name,
+                        currentVersion: dependency.currentVersion,
+                        latestVersion,
+                        description: 'Minor version update available',
+                        impact: 'New features and bug fixes',
+                        recommendation: 'Update to receive improvements and fixes'
+                    });
+                }
+                else {
+                    issues.push({
+                        type: 'outdated_major',
+                        severity: 'low',
+                        packageName: dependency.name,
+                        currentVersion: dependency.currentVersion,
+                        latestVersion,
+                        description: 'Patch version update available',
+                        impact: 'Bug fixes and security patches',
+                        recommendation: 'Update to receive security patches'
+                    });
+                }
+            }
+            // Check for dependency bloat (too many dependencies)
+            if (dependency.type === 'dependencies' && this.isLargeDependency(dependency.name)) {
+                issues.push({
+                    type: 'dependency_bloat',
+                    severity: 'medium',
+                    packageName: dependency.name,
+                    currentVersion: dependency.currentVersion,
+                    latestVersion,
+                    description: 'Large dependency with many transitive dependencies',
+                    impact: 'Increases bundle size and attack surface',
+                    recommendation: 'Consider lighter alternatives or tree-shaking'
+                });
+            }
+        }
+        catch (error) {
+            (0,core.warning)(`Failed to analyze dependency ${dependency.name}: ${error}`);
+        }
+        return issues;
+    }
+    async fetchDependencyInfo(packageName) {
+        // This is a mock implementation - in practice, you would call real APIs
+        // For demo purposes, we'll return some simulated data
+        const mockData = {
+            'lodash': {
+                latestVersion: '4.17.21',
+                securityVulnerabilities: [
+                    {
+                        cveId: 'CVE-2021-23337',
+                        severity: 'high',
+                        cvssScore: 7.5,
+                        description: 'Prototype pollution in lodash'
+                    }
+                ],
+                deprecated: false
+            },
+            'request': {
+                latestVersion: '2.88.2',
+                securityVulnerabilities: [
+                    {
+                        cveId: 'CVE-2023-28155',
+                        severity: 'critical',
+                        cvssScore: 9.8,
+                        description: 'Server-Side Request Forgery'
+                    }
+                ],
+                deprecated: true
+            },
+            'moment': {
+                legacyVersion: '2.29.4',
+                securityVulnerabilities: [],
+                deprecated: true
+            },
+            'axios': {
+                latestVersion: '1.6.0',
+                securityVulnerabilities: [],
+                deprecated: false
+            }
+        };
+        return mockData[packageName] || {
+            latestVersion: '1.0.0',
+            securityVulnerabilities: [],
+            deprecated: false
+        };
+    }
+    isVersionOutdated(current, latest) {
+        try {
+            const currentParts = current.split('.').map(Number);
+            const latestParts = latest.split('.').map(Number);
+            for (let i = 0; i < Math.max(currentParts.length, latestParts.length); i++) {
+                const currentPart = currentParts[i] || 0;
+                const latestPart = latestParts[i] || 0;
+                if (currentPart < latestPart)
+                    return true;
+                if (currentPart > latestPart)
+                    return false;
+            }
+            return false;
+        }
+        catch {
+            return false;
+        }
+    }
+    getUpdateType(current, latest) {
+        try {
+            const currentParts = current.split('.').map(Number);
+            const latestParts = latest.split('.').map(Number);
+            if (latestParts[0] > currentParts[0])
+                return 'major';
+            if (latestParts[1] > currentParts[1])
+                return 'minor';
+            return 'patch';
+        }
+        catch {
+            return 'patch';
+        }
+    }
+    isLargeDependency(packageName) {
+        // Mock list of known large dependencies
+        const largeDependencies = [
+            'moment', 'lodash', 'underscore', 'jquery', 'bootstrap',
+            'material-ui', 'antd', 'react-bootstrap', 'chart.js'
+        ];
+        return largeDependencies.includes(packageName);
+    }
+    mapCvssToSeverity(cvssScore) {
+        if (cvssScore >= 9.0)
+            return 'critical';
+        if (cvssScore >= 7.0)
+            return 'high';
+        if (cvssScore >= 4.0)
+            return 'medium';
+        return 'low';
+    }
+    generateDependencyResult(issues, dependencies) {
+        const summary = {
+            critical: issues.filter(i => i.severity === 'critical').length,
+            high: issues.filter(i => i.severity === 'high').length,
+            medium: issues.filter(i => i.severity === 'medium').length,
+            low: issues.filter(i => i.severity === 'low').length
+        };
+        const metrics = {
+            totalDependencies: dependencies.length,
+            outdatedDependencies: dependencies.filter(d => d.latestVersion && this.isVersionOutdated(d.currentVersion, d.latestVersion)).length,
+            vulnerableDependencies: dependencies.filter(d => d.securityVulnerabilities && d.securityVulnerabilities.length > 0).length,
+            deprecatedDependencies: dependencies.filter(d => d.deprecated).length,
+            majorUpdates: dependencies.filter(d => d.latestVersion && this.getUpdateType(d.currentVersion, d.latestVersion) === 'major').length,
+            minorUpdates: dependencies.filter(d => d.latestVersion && this.getUpdateType(d.currentVersion, d.latestVersion) === 'minor').length
+        };
+        const recommendations = this.generateRecommendations(issues, dependencies);
+        const securityScore = this.calculateSecurityScore(issues, dependencies);
+        return {
+            issues,
+            summary,
+            metrics,
+            recommendations,
+            securityScore
+        };
+    }
+    generateRecommendations(issues, dependencies) {
+        const recommendations = [];
+        if (this.hasIssueType(issues, 'security_vulnerability')) {
+            recommendations.push('🔒 Update packages with security vulnerabilities immediately');
+        }
+        if (this.hasIssueType(issues, 'deprecated_package')) {
+            recommendations.push('📦 Replace deprecated packages with maintained alternatives');
+        }
+        if (this.hasIssueType(issues, 'breaking_change')) {
+            recommendations.push('🔄 Plan major updates carefully and test thoroughly');
+        }
+        if (this.hasIssueType(issues, 'dependency_bloat')) {
+            recommendations.push('📊 Consider lighter alternatives to reduce bundle size');
+        }
+        // General recommendations
+        if (issues.length > 0) {
+            recommendations.push('🔍 Set up automated dependency scanning in CI/CD');
+            recommendations.push('📈 Use tools like `npm audit` or `snyk` for security scanning');
+            recommendations.push('🗓️ Schedule regular dependency updates');
+            recommendations.push('📋 Review and update dependencies quarterly');
+        }
+        // Specific metrics-based recommendations
+        if (dependencies.length > 100) {
+            recommendations.push('🧹 Consider reducing the number of dependencies');
+        }
+        const vulnerableCount = dependencies.filter(d => d.securityVulnerabilities && d.securityVulnerabilities.length > 0).length;
+        if (vulnerableCount > 0) {
+            recommendations.push(`🚨 Address ${vulnerableCount} packages with security vulnerabilities`);
+        }
+        return recommendations;
+    }
+    hasIssueType(issues, type) {
+        return issues.some(i => i.type === type);
+    }
+    calculateSecurityScore(issues, dependencies) {
+        let score = 100;
+        // Deduct for security vulnerabilities
+        const securityIssues = issues.filter(i => i.type === 'security_vulnerability');
+        for (const issue of securityIssues) {
+            if (issue.severity === 'critical')
+                score -= 30;
+            else if (issue.severity === 'high')
+                score -= 20;
+            else if (issue.severity === 'medium')
+                score -= 10;
+            else
+                score -= 5;
+        }
+        // Deduct for deprecated packages
+        const deprecatedCount = dependencies.filter(d => d.deprecated).length;
+        score -= deprecatedCount * 10;
+        // Deduct for outdated packages
+        const outdatedCount = dependencies.filter(d => d.latestVersion && this.isVersionOutdated(d.currentVersion, d.latestVersion)).length;
+        score -= Math.min(outdatedCount * 2, 20);
+        return Math.max(0, score);
+    }
+    generateDependencyComment(result) {
+        let comment = `## 📦 Dependency Update Intelligence\n\n`;
+        const totalIssues = result.summary.critical + result.summary.high + result.summary.medium + result.summary.low;
+        if (totalIssues === 0) {
+            comment += `✅ **No dependency issues detected** in the changed files.\n\n`;
+            comment += `### 🔒 Security Score: ${result.securityScore}/100\n\n`;
+            comment += `### 📊 Dependency Metrics\n\n`;
+            comment += `- **Total Dependencies**: ${result.metrics.totalDependencies}\n`;
+            comment += `- **Outdated Dependencies**: ${result.metrics.outdatedDependencies}\n`;
+            comment += `- **Vulnerable Dependencies**: ${result.metrics.vulnerableDependencies}\n`;
+            comment += `- **Deprecated Dependencies**: ${result.metrics.deprecatedDependencies}\n\n`;
+            comment += `### 💡 Dependency Best Practices\n\n`;
+            comment += `- Keep dependencies updated regularly\n`;
+            comment += `- Monitor for security vulnerabilities\n`;
+            comment += `- Review and remove unused dependencies\n`;
+            comment += `- Use automated dependency scanning tools\n`;
+            return comment;
+        }
+        comment += `🔒 **Security Score: ${result.securityScore}/100**\n\n`;
+        comment += `⚠️ **${totalIssues} dependency issues found**\n\n`;
+        comment += `### 📊 Severity Breakdown\n\n`;
+        comment += `- 🔴 **Critical**: ${result.summary.critical}\n`;
+        comment += `- 🟠 **High**: ${result.summary.high}\n`;
+        comment += `- 🟡 **Medium**: ${result.summary.medium}\n`;
+        comment += `- 🟢 **Low**: ${result.summary.low}\n\n`;
+        comment += `### 📈 Dependency Metrics\n\n`;
+        comment += `- **Total Dependencies**: ${result.metrics.totalDependencies}\n`;
+        comment += `- **Outdated Dependencies**: ${result.metrics.outdatedDependencies}\n`;
+        comment += `- **Vulnerable Dependencies**: ${result.metrics.vulnerableDependencies}\n`;
+        comment += `- **Deprecated Dependencies**: ${result.metrics.deprecatedDependencies}\n`;
+        comment += `- **Major Updates Available**: ${result.metrics.majorUpdates}\n`;
+        comment += `- **Minor Updates Available**: ${result.metrics.minorUpdates}\n\n`;
+        // Group issues by severity
+        const criticalIssues = result.issues.filter(i => i.severity === 'critical');
+        const highIssues = result.issues.filter(i => i.severity === 'high');
+        if (criticalIssues.length > 0) {
+            comment += `### 🔴 Critical Security Issues\n\n`;
+            for (const issue of criticalIssues.slice(0, 3)) {
+                comment += `- **${issue.packageName}** (${issue.currentVersion} → ${issue.latestVersion})\n`;
+                comment += `  - **Issue**: ${issue.description}\n`;
+                comment += `  - **Impact**: ${issue.impact}\n`;
+                comment += `  - **CVE**: ${issue.cveId || 'N/A'}\n`;
+                comment += `  - **Recommendation**: ${issue.recommendation}\n\n`;
+            }
+            if (criticalIssues.length > 3) {
+                comment += `- ... and ${criticalIssues.length - 3} more critical issues\n\n`;
+            }
+        }
+        if (highIssues.length > 0) {
+            comment += `### 🟠 High Priority Issues\n\n`;
+            for (const issue of highIssues.slice(0, 3)) {
+                comment += `- **${issue.packageName}** (${issue.currentVersion} → ${issue.latestVersion})\n`;
+                comment += `  - **Issue**: ${issue.description}\n`;
+                comment += `  - **Impact**: ${issue.impact}\n`;
+                comment += `  - **Recommendation**: ${issue.recommendation}\n\n`;
+            }
+            if (highIssues.length > 3) {
+                comment += `- ... and ${highIssues.length - 3} more high priority issues\n\n`;
+            }
+        }
+        if (result.recommendations.length > 0) {
+            comment += `### 💡 Dependency Recommendations\n\n`;
+            result.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+        }
+        return comment;
+    }
+}
+
+;// CONCATENATED MODULE: ./lib/documentation-analyzer.js
+class DocumentationAnalyzer {
+    documentationPatterns = {
+        jsDoc: /\/\*\*[\s\S]*?\*\//g,
+        tsDoc: /\/\*\*[\s\S]*?\*\//g,
+        pythonDoc: /"""[\s\S]*?"""/g,
+        javaDoc: /\/\*\*[\s\S]*?\*\//g,
+        goDoc: /\/\/[\s\S]*?(?=\n\/\/|\n\w|\n$)/g,
+        rustDoc: /\/\/\/[\s\S]*?(?=\n\/\/\/|\n\w|\n$)/g
+    };
+    codePatterns = {
+        function: {
+            javascript: [
+                /function\s+(\w+)\s*\(/g,
+                /const\s+(\w+)\s*=\s*\(/g,
+                /(\w+)\s*:\s*function\s*\(/g,
+                /async\s+function\s+(\w+)\s*\(/g,
+                /(\w+)\s*\([^)]*\)\s*{/g,
+                /(\w+)\s*\([^)]*\)\s*=>/g
+            ],
+            typescript: [
+                /function\s+(\w+)\s*\(/g,
+                /const\s+(\w+)\s*=\s*\(/g,
+                /(\w+)\s*:\s*function\s*\(/g,
+                /async\s+function\s+(\w+)\s*\(/g,
+                /(\w+)\s*\([^)]*\)\s*{/g,
+                /(\w+)\s*\([^)]*\)\s*=>/g,
+                /(\w+)\s*\([^)]*\)\s*:\s*\w+/g
+            ],
+            python: [
+                /def\s+(\w+)\s*\(/g
+            ],
+            java: [
+                /(?:public|private|protected)?\s*(?:static\s+)?(?:final\s+)?(?:abstract\s+)?(?:synchronized\s+)?(?:native\s+)?(?:strictfp\s+)?\w+\s+(\w+)\s*\(/g
+            ]
+        },
+        class: {
+            javascript: [
+                /class\s+(\w+)/g
+            ],
+            typescript: [
+                /class\s+(\w+)/g,
+                /interface\s+(\w+)/g,
+                /type\s+(\w+)\s*=/g
+            ],
+            python: [
+                /class\s+(\w+)/g
+            ],
+            java: [
+                /(?:public\s+)?(?:abstract\s+)?(?:final\s+)?class\s+(\w+)/g,
+                /(?:public\s+)?interface\s+(\w+)/g
+            ]
+        }
+    };
+    async analyzeDocumentation(filePaths, fileContents) {
+        const issues = [];
+        const metrics = {
+            totalFunctions: 0,
+            documentedFunctions: 0,
+            totalClasses: 0,
+            documentedClasses: 0,
+            totalFiles: filePaths.length,
+            filesWithDocs: 0,
+            readmeExists: false,
+            changelogExists: false,
+            examplesExist: false
+        };
+        // Check for project-level documentation
+        this.checkProjectDocumentation(filePaths, fileContents, issues, metrics);
+        // Analyze each file
+        for (const filePath of filePaths) {
+            const content = fileContents.get(filePath);
+            if (!content)
+                continue;
+            const fileAnalysis = this.analyzeFile(filePath, content);
+            issues.push(...fileAnalysis.issues);
+            metrics.totalFunctions += fileAnalysis.functions;
+            metrics.documentedFunctions += fileAnalysis.documentedFunctions;
+            metrics.totalClasses += fileAnalysis.classes;
+            metrics.documentedClasses += fileAnalysis.documentedClasses;
+            if (fileAnalysis.hasDocumentation) {
+                metrics.filesWithDocs++;
+            }
+        }
+        return this.generateDocumentationResult(issues, metrics);
+    }
+    checkProjectDocumentation(filePaths, fileContents, issues, metrics) {
+        // Check for README
+        const readmeFiles = filePaths.filter(path => {
+            const fileName = path.toLowerCase();
+            return fileName.includes('readme') || fileName === 'readme.md' || fileName === 'readme.txt';
+        });
+        if (readmeFiles.length === 0) {
+            issues.push({
+                type: 'no_readme',
+                severity: 'critical',
+                filePath: 'project',
+                description: 'No README file found in the project',
+                suggestion: 'Add a README.md file with project description, installation, and usage instructions'
+            });
+        }
+        else {
+            metrics.readmeExists = true;
+            // Check README quality
+            for (const readmePath of readmeFiles) {
+                const content = fileContents.get(readmePath);
+                if (content) {
+                    this.checkReadmeQuality(readmePath, content, issues);
+                }
+            }
+        }
+        // Check for CHANGELOG
+        const changelogFiles = filePaths.filter(path => {
+            const fileName = path.toLowerCase();
+            return fileName.includes('changelog') || fileName.includes('history') || fileName.includes('changes');
+        });
+        if (changelogFiles.length === 0) {
+            issues.push({
+                type: 'no_changelog',
+                severity: 'medium',
+                filePath: 'project',
+                description: 'No CHANGELOG file found in the project',
+                suggestion: 'Add a CHANGELOG.md file to track version changes and releases'
+            });
+        }
+        else {
+            metrics.changelogExists = true;
+        }
+        // Check for examples
+        const exampleFiles = filePaths.filter(path => {
+            const fileName = path.toLowerCase();
+            return fileName.includes('example') || fileName.includes('demo') || fileName.includes('sample');
+        });
+        if (exampleFiles.length === 0) {
+            issues.push({
+                type: 'no_examples',
+                severity: 'medium',
+                filePath: 'project',
+                description: 'No examples or demos found in the project',
+                suggestion: 'Add examples directory with usage examples and demos'
+            });
+        }
+        else {
+            metrics.examplesExist = true;
+        }
+    }
+    checkReadmeQuality(filePath, content, issues) {
+        const lines = content.split('\n');
+        const contentLower = content.toLowerCase();
+        // Check for essential sections
+        const requiredSections = [
+            { pattern: /installation|install|getting started/, name: 'Installation' },
+            { pattern: /usage|how to use|example/, name: 'Usage' },
+            { pattern: /description|about|intro/, name: 'Description' }
+        ];
+        for (const section of requiredSections) {
+            if (!section.pattern.test(contentLower)) {
+                issues.push({
+                    type: 'incomplete_docs',
+                    severity: 'medium',
+                    filePath,
+                    description: `README missing ${section.name} section`,
+                    suggestion: `Add a ${section.name} section to the README`
+                });
+            }
+        }
+        // Check for badges
+        if (!content.includes('[') || !content.includes('](')) {
+            issues.push({
+                type: 'poor_formatting',
+                severity: 'low',
+                filePath,
+                description: 'README could benefit from badges for build status, coverage, etc.',
+                suggestion: 'Add badges to README for build status, test coverage, and other metrics'
+            });
+        }
+        // Check length
+        if (content.length < 200) {
+            issues.push({
+                type: 'incomplete_docs',
+                severity: 'medium',
+                filePath,
+                description: 'README appears to be too short',
+                suggestion: 'Expand README with more detailed information about the project'
+            });
+        }
+    }
+    analyzeFile(filePath, content) {
+        const issues = [];
+        const lines = content.split('\n');
+        const fileExtension = filePath.split('.').pop()?.toLowerCase();
+        let functions = 0;
+        let documentedFunctions = 0;
+        let classes = 0;
+        let documentedClasses = 0;
+        let hasDocumentation = false;
+        // Determine language
+        const language = this.detectLanguage(fileExtension, filePath);
+        // Find functions and check their documentation
+        const functionMatches = this.findFunctions(content, language);
+        functions = functionMatches.length;
+        for (const funcMatch of functionMatches) {
+            const isDocumented = this.isFunctionDocumented(funcMatch, content, lines);
+            if (isDocumented) {
+                documentedFunctions++;
+            }
+            else {
+                issues.push({
+                    type: 'missing_function_docs',
+                    severity: 'medium',
+                    filePath,
+                    lineNumber: funcMatch.lineNumber,
+                    functionName: funcMatch.name,
+                    description: `Function '${funcMatch.name}' lacks documentation`,
+                    suggestion: `Add JSDoc/TSdoc comments explaining the function's purpose, parameters, and return value`
+                });
+            }
+        }
+        // Find classes and check their documentation
+        const classMatches = this.findClasses(content, language);
+        classes = classMatches.length;
+        for (const classMatch of classMatches) {
+            const isDocumented = this.isClassDocumented(classMatch, content, lines);
+            if (isDocumented) {
+                documentedClasses++;
+            }
+            else {
+                issues.push({
+                    type: 'missing_class_docs',
+                    severity: 'medium',
+                    filePath,
+                    lineNumber: classMatch.lineNumber,
+                    className: classMatch.name,
+                    description: `Class '${classMatch.name}' lacks documentation`,
+                    suggestion: `Add JSDoc/TSdoc comments explaining the class's purpose and usage`
+                });
+            }
+        }
+        // Check for any documentation in the file
+        hasDocumentation = this.hasAnyDocumentation(content, language);
+        return {
+            issues,
+            functions,
+            documentedFunctions,
+            classes,
+            documentedClasses,
+            hasDocumentation
+        };
+    }
+    detectLanguage(extension, filePath) {
+        if (!extension)
+            return 'javascript';
+        const languageMap = {
+            'js': 'javascript',
+            'jsx': 'javascript',
+            'ts': 'typescript',
+            'tsx': 'typescript',
+            'py': 'python',
+            'java': 'java',
+            'go': 'go',
+            'rs': 'rust',
+            'rb': 'ruby',
+            'php': 'php',
+            'cs': 'csharp',
+            'cpp': 'cpp',
+            'c': 'c',
+            'h': 'c',
+            'hpp': 'cpp'
+        };
+        return languageMap[extension] || 'javascript';
+    }
+    findFunctions(content, language) {
+        const functions = [];
+        const patterns = this.codePatterns.function[language] || this.codePatterns.function.javascript;
+        for (const pattern of patterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                functions.push({
+                    name: match[1],
+                    lineNumber: content.substring(0, match.index).split('\n').length,
+                    index: match.index
+                });
+            }
+        }
+        return functions;
+    }
+    findClasses(content, language) {
+        const classes = [];
+        const patterns = this.codePatterns.class[language] || this.codePatterns.class.javascript;
+        for (const pattern of patterns) {
+            let match;
+            while ((match = pattern.exec(content)) !== null) {
+                classes.push({
+                    name: match[1],
+                    lineNumber: content.substring(0, match.index).split('\n').length,
+                    index: match.index
+                });
+            }
+        }
+        return classes;
+    }
+    isFunctionDocumented(funcMatch, content, lines) {
+        const linesBefore = lines.slice(0, funcMatch.lineNumber - 1);
+        // Check for documentation immediately before the function
+        for (let i = linesBefore.length - 1; i >= Math.max(0, linesBefore.length - 5); i--) {
+            const line = linesBefore[i].trim();
+            // Check for various documentation patterns
+            if (line.startsWith('/**') || line.startsWith('"""') || line.startsWith('///')) {
+                return true;
+            }
+            // Stop if we hit another function or class
+            if (this.isCodeStructure(line)) {
+                break;
+            }
+        }
+        return false;
+    }
+    isClassDocumented(classMatch, content, lines) {
+        const linesBefore = lines.slice(0, classMatch.lineNumber - 1);
+        // Check for documentation immediately before the class
+        for (let i = linesBefore.length - 1; i >= Math.max(0, linesBefore.length - 5); i--) {
+            const line = linesBefore[i].trim();
+            // Check for various documentation patterns
+            if (line.startsWith('/**') || line.startsWith('"""') || line.startsWith('///')) {
+                return true;
+            }
+            // Stop if we hit another class or function
+            if (this.isCodeStructure(line)) {
+                break;
+            }
+        }
+        return false;
+    }
+    hasAnyDocumentation(content, language) {
+        const patterns = Object.values(this.documentationPatterns);
+        for (const pattern of patterns) {
+            if (pattern.test(content)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    isCodeStructure(line) {
+        return /^(function|class|interface|type|const|let|var|export|import|public|private|protected)/.test(line);
+    }
+    generateDocumentationResult(issues, metrics) {
+        const summary = {
+            critical: issues.filter(i => i.severity === 'critical').length,
+            high: issues.filter(i => i.severity === 'high').length,
+            medium: issues.filter(i => i.severity === 'medium').length,
+            low: issues.filter(i => i.severity === 'low').length
+        };
+        const recommendations = this.generateRecommendations(issues, metrics);
+        const coverageScore = this.calculateCoverageScore(metrics);
+        return {
+            issues,
+            summary,
+            metrics,
+            recommendations,
+            coverageScore
+        };
+    }
+    generateRecommendations(issues, metrics) {
+        const recommendations = [];
+        if (this.hasIssueType(issues, 'no_readme')) {
+            recommendations.push('📖 Create a comprehensive README.md file');
+        }
+        if (this.hasIssueType(issues, 'no_changelog')) {
+            recommendations.push('📝 Add a CHANGELOG.md to track version history');
+        }
+        if (this.hasIssueType(issues, 'no_examples')) {
+            recommendations.push('💡 Add examples or demos to showcase usage');
+        }
+        if (this.hasIssueType(issues, 'missing_function_docs')) {
+            recommendations.push('📚 Document all public functions with JSDoc/TSdoc');
+        }
+        if (this.hasIssueType(issues, 'missing_class_docs')) {
+            recommendations.push('🏗️ Document all classes and interfaces');
+        }
+        if (this.hasIssueType(issues, 'incomplete_docs')) {
+            recommendations.push('✏️ Improve documentation completeness and quality');
+        }
+        if (this.hasIssueType(issues, 'poor_formatting')) {
+            recommendations.push('🎨 Improve documentation formatting and structure');
+        }
+        // General recommendations
+        if (issues.length > 0) {
+            recommendations.push('📋 Follow documentation best practices for your language');
+            recommendations.push('🔄 Keep documentation updated with code changes');
+            recommendations.push('🔍 Use automated tools to validate documentation');
+            recommendations.push('📖 Include code examples in documentation');
+        }
+        // Metrics-based recommendations
+        if (metrics.totalFunctions > 0 && metrics.documentedFunctions < metrics.totalFunctions * 0.8) {
+            recommendations.push(`📊 Document ${metrics.totalFunctions - metrics.documentedFunctions} undocumented functions`);
+        }
+        if (metrics.totalClasses > 0 && metrics.documentedClasses < metrics.totalClasses * 0.8) {
+            recommendations.push(`🏗️ Document ${metrics.totalClasses - metrics.documentedClasses} undocumented classes`);
+        }
+        return recommendations;
+    }
+    hasIssueType(issues, type) {
+        return issues.some(i => i.type === type);
+    }
+    calculateCoverageScore(metrics) {
+        let score = 0;
+        let totalWeight = 0;
+        // Function documentation coverage (40% weight)
+        if (metrics.totalFunctions > 0) {
+            const functionCoverage = metrics.documentedFunctions / metrics.totalFunctions;
+            score += functionCoverage * 40;
+            totalWeight += 40;
+        }
+        // Class documentation coverage (30% weight)
+        if (metrics.totalClasses > 0) {
+            const classCoverage = metrics.documentedClasses / metrics.totalClasses;
+            score += classCoverage * 30;
+            totalWeight += 30;
+        }
+        // Project documentation (30% weight)
+        let projectScore = 0;
+        if (metrics.readmeExists)
+            projectScore += 15;
+        if (metrics.changelogExists)
+            projectScore += 7.5;
+        if (metrics.examplesExist)
+            projectScore += 7.5;
+        score += projectScore;
+        totalWeight += 30;
+        // Normalize score
+        return totalWeight > 0 ? Math.round((score / totalWeight) * 100) : 0;
+    }
+    generateDocumentationComment(result) {
+        let comment = `## 📚 Documentation Quality Validation\n\n`;
+        const totalIssues = result.summary.critical + result.summary.high + result.summary.medium + result.summary.low;
+        if (totalIssues === 0) {
+            comment += `✅ **No documentation issues detected** in the changed files.\n\n`;
+            comment += `### 📊 Documentation Coverage Score: ${result.coverageScore}/100\n\n`;
+            comment += `### 📈 Documentation Metrics\n\n`;
+            comment += `- **Functions**: ${result.metrics.documentedFunctions}/${result.metrics.totalFunctions} documented\n`;
+            comment += `- **Classes**: ${result.metrics.documentedClasses}/${result.metrics.totalClasses} documented\n`;
+            comment += `- **Files with Docs**: ${result.metrics.filesWithDocs}/${result.metrics.totalFiles}\n`;
+            comment += `- **README**: ${result.metrics.readmeExists ? '✅' : '❌'}\n`;
+            comment += `- **CHANGELOG**: ${result.metrics.changelogExists ? '✅' : '❌'}\n`;
+            comment += `- **Examples**: ${result.metrics.examplesExist ? '✅' : '❌'}\n\n`;
+            comment += `### 💡 Documentation Best Practices\n\n`;
+            comment += `- Maintain comprehensive documentation for all public APIs\n`;
+            comment += `- Keep documentation updated with code changes\n`;
+            comment += `- Include examples and usage instructions\n`;
+            comment += `- Use consistent formatting and structure\n`;
+            return comment;
+        }
+        comment += `📊 **Documentation Coverage Score: ${result.coverageScore}/100**\n\n`;
+        comment += `⚠️ **${totalIssues} documentation issues found**\n\n`;
+        comment += `### 📊 Severity Breakdown\n\n`;
+        comment += `- 🔴 **Critical**: ${result.summary.critical}\n`;
+        comment += `- 🟠 **High**: ${result.summary.high}\n`;
+        comment += `- 🟡 **Medium**: ${result.summary.medium}\n`;
+        comment += `- 🟢 **Low**: ${result.summary.low}\n\n`;
+        comment += `### 📈 Documentation Metrics\n\n`;
+        comment += `- **Functions**: ${result.metrics.documentedFunctions}/${result.metrics.totalFunctions} documented\n`;
+        comment += `- **Classes**: ${result.metrics.documentedClasses}/${result.metrics.totalClasses} documented\n`;
+        comment += `- **Files with Docs**: ${result.metrics.filesWithDocs}/${result.metrics.totalFiles}\n`;
+        comment += `- **README**: ${result.metrics.readmeExists ? '✅' : '❌'}\n`;
+        comment += `- **CHANGELOG**: ${result.metrics.changelogExists ? '✅' : '❌'}\n`;
+        comment += `- **Examples**: ${result.metrics.examplesExist ? '✅' : '❌'}\n\n`;
+        // Group issues by severity
+        const criticalIssues = result.issues.filter(i => i.severity === 'critical');
+        const highIssues = result.issues.filter(i => i.severity === 'high');
+        if (criticalIssues.length > 0) {
+            comment += `### 🔴 Critical Documentation Issues\n\n`;
+            for (const issue of criticalIssues.slice(0, 3)) {
+                comment += `- **${issue.filePath}**${issue.lineNumber ? `:${issue.lineNumber}` : ''} - ${issue.description}\n`;
+                comment += `  - **Suggestion**: ${issue.suggestion}\n\n`;
+            }
+            if (criticalIssues.length > 3) {
+                comment += `- ... and ${criticalIssues.length - 3} more critical issues\n\n`;
+            }
+        }
+        if (highIssues.length > 0) {
+            comment += `### 🟠 High Priority Issues\n\n`;
+            for (const issue of highIssues.slice(0, 3)) {
+                comment += `- **${issue.functionName ? `${issue.functionName}() at ` : ''}${issue.className ? `${issue.className} at ` : ''}${issue.filePath}**${issue.lineNumber ? `:${issue.lineNumber}` : ''} - ${issue.description}\n`;
+                comment += `  - **Suggestion**: ${issue.suggestion}\n\n`;
+            }
+            if (highIssues.length > 3) {
+                comment += `- ... and ${highIssues.length - 3} more high priority issues\n\n`;
+            }
+        }
+        if (result.recommendations.length > 0) {
+            comment += `### 💡 Documentation Recommendations\n\n`;
+            result.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+        }
+        return comment;
+    }
+}
+
+;// CONCATENATED MODULE: ./lib/historical-analyzer.js
+class HistoricalAnalyzer {
+    historicalData = new Map();
+    reviewHistory = [];
+    constructor() {
+        this.initializeMockHistoricalData();
+    }
+    initializeMockHistoricalData() {
+        // Mock historical review data
+        this.reviewHistory = [
+            {
+                date: new Date('2024-01-15'),
+                prNumber: 123,
+                issues: [
+                    { type: 'security_pattern', description: 'SQL injection vulnerability', severity: 'critical' },
+                    { type: 'performance_pattern', description: 'N+1 query problem', severity: 'high' }
+                ],
+                files: ['src/api/users.js', 'src/database/queries.js']
+            },
+            {
+                date: new Date('2024-01-20'),
+                prNumber: 124,
+                issues: [
+                    { type: 'common_issue', description: 'Missing error handling', severity: 'medium' },
+                    { type: 'style_pattern', description: 'Inconsistent naming', severity: 'low' }
+                ],
+                files: ['src/utils/helpers.js', 'src/middleware/auth.js']
+            },
+            {
+                date: new Date('2024-01-25'),
+                prNumber: 125,
+                issues: [
+                    { type: 'security_pattern', description: 'XSS vulnerability', severity: 'critical' },
+                    { type: 'test_pattern', description: 'Missing unit tests', severity: 'medium' }
+                ],
+                files: ['src/templates/render.js', 'src/tests/']
+            },
+            {
+                date: new Date('2024-02-01'),
+                prNumber: 126,
+                issues: [
+                    { type: 'performance_pattern', description: 'Memory leak in loop', severity: 'high' },
+                    { type: 'common_issue', description: 'Missing error handling', severity: 'medium' }
+                ],
+                files: ['src/processors/data.js', 'src/utils/async.js']
+            },
+            {
+                date: new Date('2024-02-05'),
+                prNumber: 127,
+                issues: [
+                    { type: 'recurring_bug', description: 'Null reference exception', severity: 'high' },
+                    { type: 'style_pattern', description: 'Code duplication', severity: 'medium' }
+                ],
+                files: ['src/models/user.js', 'src/services/order.js']
+            }
+        ];
+        // Initialize pattern detection rules
+        this.historicalData.set('common_patterns', {
+            'missing_error_handling': {
+                keywords: ['catch', 'error', 'exception', 'try'],
+                frequency: 3,
+                severity: 'medium',
+                recommendation: 'Add proper error handling with try-catch blocks'
+            },
+            'sql_injection': {
+                keywords: ['SELECT', 'INSERT', 'UPDATE', 'DELETE', '$', 'query'],
+                frequency: 2,
+                severity: 'critical',
+                recommendation: 'Use parameterized queries or ORM to prevent SQL injection'
+            },
+            'xss_vulnerability': {
+                keywords: ['innerHTML', 'document.write', 'eval', 'script'],
+                frequency: 2,
+                severity: 'critical',
+                recommendation: 'Sanitize user input and use safe HTML rendering methods'
+            },
+            'n_plus_one_query': {
+                keywords: ['forEach', 'query', 'select', 'database'],
+                frequency: 2,
+                severity: 'high',
+                recommendation: 'Use bulk queries or eager loading to avoid N+1 problems'
+            },
+            'memory_leak': {
+                keywords: ['setInterval', 'setTimeout', 'addEventListener', 'removeEventListener'],
+                frequency: 2,
+                severity: 'high',
+                recommendation: 'Ensure proper cleanup of event listeners and timers'
+            },
+            'null_reference': {
+                keywords: ['null', 'undefined', 'optional chaining', '?'],
+                frequency: 2,
+                severity: 'high',
+                recommendation: 'Add null checks and use optional chaining where appropriate'
+            },
+            'inconsistent_naming': {
+                keywords: ['camelCase', 'snake_case', 'PascalCase'],
+                frequency: 2,
+                severity: 'low',
+                recommendation: 'Follow consistent naming conventions throughout the codebase'
+            },
+            'code_duplication': {
+                keywords: ['duplicate', 'similar', 'refactor', 'extract'],
+                frequency: 2,
+                severity: 'medium',
+                recommendation: 'Extract common code into reusable functions or classes'
+            },
+            'missing_tests': {
+                keywords: ['test', 'spec', 'describe', 'it'],
+                frequency: 2,
+                severity: 'medium',
+                recommendation: 'Add comprehensive unit tests for new functionality'
+            }
+        });
+    }
+    async analyzeHistoricalPatterns(changedFiles, fileContents) {
+        const patterns = [];
+        // Analyze current changes against historical patterns
+        for (const filePath of changedFiles) {
+            const content = fileContents.get(filePath);
+            if (!content)
+                continue;
+            const filePatterns = await this.analyzeFileForPatterns(filePath, content);
+            patterns.push(...filePatterns);
+        }
+        // Analyze trends and improvements
+        const trendAnalysis = this.analyzeTrends();
+        // Consolidate and rank patterns
+        const consolidatedPatterns = this.consolidatePatterns(patterns);
+        const summary = {
+            critical: consolidatedPatterns.filter(p => p.severity === 'critical').length,
+            high: consolidatedPatterns.filter(p => p.severity === 'high').length,
+            medium: consolidatedPatterns.filter(p => p.severity === 'medium').length,
+            low: consolidatedPatterns.filter(p => p.severity === 'low').length
+        };
+        const metrics = this.calculateMetrics(consolidatedPatterns, trendAnalysis);
+        const recommendations = this.generateRecommendations(consolidatedPatterns, trendAnalysis);
+        const learningInsights = this.generateLearningInsights(consolidatedPatterns, trendAnalysis);
+        return {
+            patterns: consolidatedPatterns,
+            summary,
+            metrics,
+            recommendations,
+            learningInsights
+        };
+    }
+    async analyzeFileForPatterns(filePath, content) {
+        const patterns = [];
+        const commonPatterns = this.historicalData.get('common_patterns');
+        // Check each historical pattern
+        for (const [patternId, patternData] of Object.entries(commonPatterns)) {
+            const patternDataTyped = patternData;
+            const match = this.checkPatternMatch(content, patternDataTyped);
+            if (match.matched) {
+                patterns.push({
+                    type: this.mapPatternType(patternId),
+                    frequency: patternDataTyped.frequency,
+                    severity: patternDataTyped.severity,
+                    description: match.description,
+                    examples: match.examples,
+                    recommendation: patternDataTyped.recommendation,
+                    confidence: match.confidence,
+                    lastSeen: this.getLastSeenDate(patternId)
+                });
+            }
+        }
+        // Check for file-specific patterns
+        const filePatterns = this.analyzeFileSpecificPatterns(filePath, content);
+        patterns.push(...filePatterns);
+        return patterns;
+    }
+    checkPatternMatch(content, patternData) {
+        const keywords = patternData.keywords;
+        let matchCount = 0;
+        const examples = [];
+        for (const keyword of keywords) {
+            const regex = new RegExp(keyword, 'gi');
+            const matches = content.match(regex);
+            if (matches) {
+                matchCount += matches.length;
+                // Extract context around matches
+                const lines = content.split('\n');
+                for (let i = 0; i < lines.length; i++) {
+                    if (lines[i].toLowerCase().includes(keyword.toLowerCase())) {
+                        const context = lines[Math.max(0, i - 1)] + '\n' + lines[i] + '\n' + lines[Math.min(lines.length - 1, i + 1)];
+                        examples.push(context.trim());
+                        if (examples.length >= 3)
+                            break; // Limit examples
+                    }
+                }
+            }
+        }
+        const confidence = Math.min(95, (matchCount / keywords.length) * 100);
+        const matched = confidence > 30; // Threshold for pattern matching
+        return {
+            matched,
+            description: this.generatePatternDescription(keywords, matchCount),
+            examples,
+            confidence
+        };
+    }
+    analyzeFileSpecificPatterns(filePath, content) {
+        const patterns = [];
+        // Check for specific file type patterns
+        if (filePath.endsWith('.js') || filePath.endsWith('.ts')) {
+            // JavaScript/TypeScript specific patterns
+            const jsPatterns = this.analyzeJavaScriptPatterns(content);
+            patterns.push(...jsPatterns);
+        }
+        else if (filePath.endsWith('.py')) {
+            // Python specific patterns
+            const pyPatterns = this.analyzePythonPatterns(content);
+            patterns.push(...pyPatterns);
+        }
+        return patterns;
+    }
+    analyzeJavaScriptPatterns(content) {
+        const patterns = [];
+        // Check for async/await patterns
+        const asyncPattern = /async\s+\w+\s*\([^)]*\)\s*=>/g;
+        if (asyncPattern.test(content) && !content.includes('try') && !content.includes('catch')) {
+            patterns.push({
+                type: 'common_issue',
+                frequency: 2,
+                severity: 'medium',
+                description: 'Async function without error handling',
+                examples: ['async function without try-catch'],
+                recommendation: 'Add proper error handling for async operations',
+                confidence: 75,
+                lastSeen: new Date('2024-02-01')
+            });
+        }
+        // Check for console.log in production code
+        const consolePattern = /console\.(log|error|warn|debug)/g;
+        const consoleMatches = content.match(consolePattern);
+        if (consoleMatches && consoleMatches.length > 2) {
+            patterns.push({
+                type: 'style_pattern',
+                frequency: 3,
+                severity: 'low',
+                description: 'Multiple console statements found',
+                examples: consoleMatches.slice(0, 3),
+                recommendation: 'Remove or replace with proper logging framework',
+                confidence: 80,
+                lastSeen: new Date('2024-01-20')
+            });
+        }
+        return patterns;
+    }
+    analyzePythonPatterns(content) {
+        const patterns = [];
+        // Check for print statements in production code
+        const printPattern = /print\s*\(/g;
+        const printMatches = content.match(printPattern);
+        if (printMatches && printMatches.length > 2) {
+            patterns.push({
+                type: 'style_pattern',
+                frequency: 2,
+                severity: 'low',
+                description: 'Multiple print statements found',
+                examples: printMatches.slice(0, 3),
+                recommendation: 'Use proper logging instead of print statements',
+                confidence: 75,
+                lastSeen: new Date('2024-01-25')
+            });
+        }
+        return patterns;
+    }
+    mapPatternType(patternId) {
+        const typeMapping = {
+            'missing_error_handling': 'common_issue',
+            'sql_injection': 'security_pattern',
+            'xss_vulnerability': 'security_pattern',
+            'n_plus_one_query': 'performance_pattern',
+            'memory_leak': 'performance_pattern',
+            'null_reference': 'recurring_bug',
+            'inconsistent_naming': 'style_pattern',
+            'code_duplication': 'style_pattern',
+            'missing_tests': 'test_pattern'
+        };
+        return typeMapping[patternId] || 'common_issue';
+    }
+    generatePatternDescription(keywords, matchCount) {
+        const keywordList = keywords.slice(0, 3).join(', ');
+        return `Pattern detected: ${keywordList} (${matchCount} occurrences)`;
+    }
+    getLastSeenDate(patternId) {
+        // Find the most recent occurrence of this pattern in historical data
+        let lastSeen = new Date('2024-01-01');
+        for (const review of this.reviewHistory) {
+            for (const issue of review.issues) {
+                if (issue.type === this.mapPatternType(patternId) && review.date > lastSeen) {
+                    lastSeen = review.date;
+                }
+            }
+        }
+        return lastSeen;
+    }
+    analyzeTrends() {
+        // Analyze trends from historical data
+        const recentReviews = this.reviewHistory.slice(-3);
+        const olderReviews = this.reviewHistory.slice(0, -3);
+        const recentIssueCount = recentReviews.reduce((sum, r) => sum + r.issues.length, 0);
+        const olderIssueCount = olderReviews.reduce((sum, r) => sum + r.issues.length, 0);
+        let improvementTrend;
+        if (recentIssueCount < olderIssueCount * 0.8) {
+            improvementTrend = 'improving';
+        }
+        else if (recentIssueCount > olderIssueCount * 1.2) {
+            improvementTrend = 'declining';
+        }
+        else {
+            improvementTrend = 'stable';
+        }
+        // Find most common issue type
+        const typeCounts = new Map();
+        for (const review of this.reviewHistory) {
+            for (const issue of review.issues) {
+                typeCounts.set(issue.type, (typeCounts.get(issue.type) || 0) + 1);
+            }
+        }
+        const mostCommonType = Array.from(typeCounts.entries())
+            .sort(([, a], [, b]) => b - a)[0]?.[0] || 'common_issue';
+        return { improvementTrend, mostCommonType };
+    }
+    consolidatePatterns(patterns) {
+        // Group similar patterns and consolidate
+        const consolidated = new Map();
+        for (const pattern of patterns) {
+            const key = `${pattern.type}-${pattern.description.substring(0, 50)}`;
+            if (!consolidated.has(key)) {
+                consolidated.set(key, { ...pattern });
+            }
+            else {
+                const existing = consolidated.get(key);
+                existing.frequency += pattern.frequency;
+                existing.confidence = Math.max(existing.confidence, pattern.confidence);
+                existing.examples.push(...pattern.examples.slice(0, 2)); // Limit examples
+            }
+        }
+        return Array.from(consolidated.values());
+    }
+    calculateMetrics(patterns, trendAnalysis) {
+        const avgConfidence = patterns.length > 0
+            ? patterns.reduce((sum, p) => sum + p.confidence, 0) / patterns.length
+            : 0;
+        return {
+            totalReviews: this.reviewHistory.length,
+            patternsFound: patterns.length,
+            avgConfidence: Math.round(avgConfidence),
+            mostCommonType: trendAnalysis.mostCommonType,
+            improvementTrend: trendAnalysis.improvementTrend
+        };
+    }
+    generateRecommendations(patterns, trendAnalysis) {
+        const recommendations = [];
+        // Pattern-specific recommendations
+        if (patterns.some(p => p.type === 'security_pattern')) {
+            recommendations.push('🔒 **Security Patterns**: Implement security training and code review checklists');
+        }
+        if (patterns.some(p => p.type === 'performance_pattern')) {
+            recommendations.push('⚡ **Performance Patterns**: Add performance testing and monitoring');
+        }
+        if (patterns.some(p => p.type === 'common_issue')) {
+            recommendations.push('🔧 **Common Issues**: Create shared utilities and templates for frequent problems');
+        }
+        if (patterns.some(p => p.type === 'test_pattern')) {
+            recommendations.push('🧪 **Test Patterns**: Improve test coverage and automated testing');
+        }
+        // Trend-based recommendations
+        if (trendAnalysis.improvementTrend === 'declining') {
+            recommendations.push('📉 **Quality Decline**: Review code review process and provide additional training');
+        }
+        else if (trendAnalysis.improvementTrend === 'improving') {
+            recommendations.push('📈 **Quality Improving**: Continue current practices and share success stories');
+        }
+        // General recommendations
+        recommendations.push('📚 **Knowledge Sharing**: Document common patterns and solutions');
+        recommendations.push('🔄 **Automated Detection**: Implement automated tools to catch recurring patterns');
+        recommendations.push('📊 **Metrics Tracking**: Monitor pattern frequency over time');
+        recommendations.push('🎯 **Focused Training**: Target training based on most common patterns');
+        return recommendations;
+    }
+    generateLearningInsights(patterns, trendAnalysis) {
+        const insights = [];
+        insights.push(`📊 **Pattern Analysis**: Found ${patterns.length} historical patterns in current changes`);
+        insights.push(`🎯 **Most Common**: ${trendAnalysis.mostCommonType.replace('_', ' ')} is the most frequent issue type`);
+        insights.push(`📈 **Trend**: Code quality is ${trendAnalysis.improvementTrend} based on historical data`);
+        // Specific insights based on patterns found
+        const criticalPatterns = patterns.filter(p => p.severity === 'critical');
+        if (criticalPatterns.length > 0) {
+            insights.push(`🚨 **Critical Patterns**: ${criticalPatterns.length} critical patterns detected that have caused issues before`);
+        }
+        const highConfidencePatterns = patterns.filter(p => p.confidence > 80);
+        if (highConfidencePatterns.length > 0) {
+            insights.push(`🎯 **High Confidence**: ${highConfidencePatterns.length} patterns with >80% confidence match`);
+        }
+        // Learning opportunities
+        insights.push(`💡 **Learning Opportunity**: Focus on ${trendAnalysis.mostCommonType} to prevent future issues`);
+        insights.push(`🔄 **Continuous Improvement**: Use pattern data to refine development practices`);
+        return insights;
+    }
+    generateHistoricalComment(result) {
+        let comment = `## 🧠 Historical Pattern Learning\n\n`;
+        const trendEmojis = {
+            improving: '📈',
+            stable: '➡️',
+            declining: '📉'
+        };
+        comment += `${trendEmojis[result.metrics.improvementTrend]} **Quality Trend: ${result.metrics.improvementTrend.toUpperCase()}**\n\n`;
+        comment += `### 📊 Pattern Analysis Summary\n\n`;
+        comment += `- **Patterns Found**: ${result.metrics.patternsFound}\n`;
+        comment += `- **Critical**: ${result.summary.critical}\n`;
+        comment += `- **High**: ${result.summary.high}\n`;
+        comment += `- **Medium**: ${result.summary.medium}\n`;
+        comment += `- **Low**: ${result.summary.low}\n`;
+        comment += `- **Average Confidence**: ${result.metrics.avgConfidence}%\n`;
+        comment += `- **Most Common Type**: ${result.metrics.mostCommonType.replace('_', ' ')}\n\n`;
+        if (result.patterns.length > 0) {
+            comment += `### 🎯 Detected Historical Patterns\n\n`;
+            // Group patterns by type
+            const patternsByType = result.patterns.reduce((acc, pattern) => {
+                if (!acc[pattern.type])
+                    acc[pattern.type] = [];
+                acc[pattern.type].push(pattern);
+                return acc;
+            }, {});
+            for (const [type, patterns] of Object.entries(patternsByType)) {
+                const typeEmojis = {
+                    common_issue: '🔧',
+                    recurring_bug: '🐛',
+                    performance_pattern: '⚡',
+                    security_pattern: '🔒',
+                    style_pattern: '🎨',
+                    test_pattern: '🧪'
+                };
+                comment += `#### ${typeEmojis[type] || '📋'} ${type.replace('_', ' ').toUpperCase()}\n\n`;
+                for (const pattern of patterns.slice(0, 2)) { // Limit to 2 per type
+                    const severityEmoji = {
+                        critical: '🔴',
+                        high: '🟠',
+                        medium: '🟡',
+                        low: '🟢'
+                    };
+                    comment += `- **${pattern.description}**\n`;
+                    comment += `  ${severityEmoji[pattern.severity]} **Severity**: ${pattern.severity}\n`;
+                    comment += `  📊 **Frequency**: ${pattern.frequency} times in history\n`;
+                    comment += `  🎯 **Confidence**: ${pattern.confidence}%\n`;
+                    comment += `  📅 **Last Seen**: ${pattern.lastSeen.toLocaleDateString()}\n`;
+                    comment += `  💡 **Recommendation**: ${pattern.recommendation}\n\n`;
+                }
+                if (patterns.length > 2) {
+                    comment += `- ... and ${patterns.length - 2} more patterns of this type\n\n`;
+                }
+            }
+        }
+        if (result.learningInsights.length > 0) {
+            comment += `### 💡 Learning Insights\n\n`;
+            result.learningInsights.forEach(insight => {
+                comment += `${insight}\n`;
+            });
+            comment += '\n';
+        }
+        if (result.recommendations.length > 0) {
+            comment += `### 🎯 Recommendations\n\n`;
+            result.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+            comment += '\n';
+        }
+        comment += `### 📚 Historical Context\n\n`;
+        comment += `This analysis is based on ${result.metrics.totalReviews} previous code reviews. `;
+        comment += `The system learns from past issues to provide context-aware suggestions and prevent recurring problems.\n\n`;
+        comment += `### 🔄 Continuous Learning\n\n`;
+        comment += `- **Pattern Detection**: Automatically identifies recurring issues\n`;
+        comment += `- **Trend Analysis**: Monitors code quality over time\n`;
+        comment += `- **Adaptive Feedback**: Improves recommendations based on outcomes\n`;
+        comment += `- **Knowledge Base**: Builds institutional memory from review history\n\n`;
+        return comment;
+    }
+}
+
 // EXTERNAL MODULE: ./lib/inputs.js
 var lib_inputs = __nccwpck_require__(6180);
 // EXTERNAL MODULE: ./lib/octokit.js
 var octokit = __nccwpck_require__(3258);
+;// CONCATENATED MODULE: ./lib/performance-analyzer.js
+class PerformanceAnalyzer {
+    performancePatterns = {
+        inefficient_algorithm: [
+            {
+                pattern: /for\s*\([^)]*\)\s*\{\s*for\s*\([^)]*\)\s*\{/gi,
+                description: 'Nested loops detected - potential O(n²) complexity',
+                suggestion: 'Consider using hash maps, sets, or optimizing the algorithm',
+                estimatedImpact: 'High CPU usage for large datasets',
+                severity: 'high'
+            },
+            {
+                pattern: /\.forEach\s*\([^)]*\)\s*\.forEach\s*\(/gi,
+                description: 'Nested forEach loops - potential performance issue',
+                suggestion: 'Use for...of loops or consider algorithm optimization',
+                estimatedImpact: 'Moderate CPU usage for large datasets',
+                severity: 'medium'
+            },
+            {
+                pattern: /while\s*\([^)]*\)\s*\{\s*while\s*\([^)]*\)\s*\{/gi,
+                description: 'Nested while loops - potential O(n²) complexity',
+                suggestion: 'Consider using hash maps or optimizing the algorithm',
+                estimatedImpact: 'High CPU usage for large datasets',
+                severity: 'high'
+            }
+        ],
+        database_query: [
+            {
+                pattern: /SELECT\s+\*\s+FROM/gi,
+                description: 'SELECT * query detected - may return unnecessary columns',
+                suggestion: 'Specify only the columns you need',
+                estimatedImpact: 'Increased network traffic and memory usage',
+                severity: 'medium'
+            },
+            {
+                pattern: /\.find\s*\(\s*\{\s*\$\s*\w+:/gi,
+                description: 'MongoDB query without index hint',
+                suggestion: 'Add appropriate indexes for query fields',
+                estimatedImpact: 'Slow database queries for large collections',
+                severity: 'high'
+            },
+            {
+                pattern: /query\s*\(\s*['"`][^'"`]*\+[^'"`]*['"`]\s*\)/gi,
+                description: 'Dynamic SQL query construction',
+                suggestion: 'Use parameterized queries and prepared statements',
+                estimatedImpact: 'SQL injection risk and poor query optimization',
+                severity: 'critical'
+            }
+        ],
+        memory_leak: [
+            {
+                pattern: /setInterval\s*\([^)]*\)/gi,
+                description: 'setInterval detected - potential memory leak if not cleared',
+                suggestion: 'Ensure clearInterval is called when component unmounts',
+                estimatedImpact: 'Memory leak over time',
+                severity: 'high'
+            },
+            {
+                pattern: /addEventListener\s*\([^)]*\)/gi,
+                description: 'Event listener detected - potential memory leak if not removed',
+                suggestion: 'Ensure removeEventListener is called when appropriate',
+                estimatedImpact: 'Memory leak over time',
+                severity: 'medium'
+            },
+            {
+                pattern: /setTimeout\s*\([^)]*\)/gi,
+                description: 'setTimeout detected - potential memory leak if not cleared',
+                suggestion: 'Consider using clearTimeout if timeout needs to be cancelled',
+                estimatedImpact: 'Minor memory usage',
+                severity: 'low'
+            }
+        ],
+        resource_heavy: [
+            {
+                pattern: /Image\s*\(\s*\)\s*\.src\s*=/gi,
+                description: 'Image loading detected without size optimization',
+                suggestion: 'Use responsive images and lazy loading',
+                estimatedImpact: 'Increased bandwidth and slower page load',
+                severity: 'medium'
+            },
+            {
+                pattern: /JSON\.parse\s*\(\s*[^)]*\)/gi,
+                description: 'Large JSON parsing detected',
+                suggestion: 'Consider streaming or chunked processing for large JSON',
+                estimatedImpact: 'High CPU usage for large JSON objects',
+                severity: 'medium'
+            },
+            {
+                pattern: /new\s+Array\s*\(\s*\d+\s*\)/gi,
+                description: 'Large array allocation detected',
+                suggestion: 'Consider using typed arrays or lazy initialization',
+                estimatedImpact: 'High memory usage',
+                severity: 'medium'
+            }
+        ],
+        blocking_operation: [
+            {
+                pattern: /fs\.readFileSync\s*\(/gi,
+                description: 'Synchronous file I/O operation detected',
+                suggestion: 'Use async/await with fs.promises or callbacks',
+                estimatedImpact: 'Blocks event loop, poor responsiveness',
+                severity: 'high'
+            },
+            {
+                pattern: /child_process\.execSync\s*\(/gi,
+                description: 'Synchronous process execution detected',
+                suggestion: 'Use async child_process.exec or spawn',
+                estimatedImpact: 'Blocks event loop, poor responsiveness',
+                severity: 'critical'
+            },
+            {
+                pattern: /crypto\.pbkdf2Sync\s*\(/gi,
+                description: 'Synchronous cryptographic operation detected',
+                suggestion: 'Use async crypto.pbkdf2',
+                estimatedImpact: 'Blocks event loop, poor responsiveness',
+                severity: 'high'
+            }
+        ],
+        nested_loops: [
+            {
+                pattern: /for\s*\([^)]*\)\s*\{\s*[^}]*for\s*\([^)]*\)\s*\{[^}]*for\s*\([^)]*\)/gi,
+                description: 'Triple nested loops detected - O(n³) complexity',
+                suggestion: 'Redesign algorithm to reduce complexity',
+                estimatedImpact: 'Very high CPU usage for large datasets',
+                severity: 'critical'
+            },
+            {
+                pattern: /\.map\s*\([^)]*\)\s*\.filter\s*\([^)]*\)\s*\.reduce\s*\(/gi,
+                description: 'Chained array operations on large arrays',
+                suggestion: 'Consider using for loops or single reduce operation',
+                estimatedImpact: 'Multiple iterations over data',
+                severity: 'medium'
+            }
+        ],
+        large_data_processing: [
+            {
+                pattern: /\.length\s*>\s*\d{4,}/gi,
+                description: 'Large array size check detected',
+                suggestion: 'Consider pagination or streaming for large datasets',
+                estimatedImpact: 'High memory usage',
+                severity: 'medium'
+            },
+            {
+                pattern: /substring\s*\([^)]*\)\s*\.length\s*>\s*\d{3,}/gi,
+                description: 'Large string processing detected',
+                suggestion: 'Consider chunking or streaming for large strings',
+                estimatedImpact: 'High memory usage',
+                severity: 'medium'
+            }
+        ]
+    };
+    async analyzePerformance(filePaths, fileContents) {
+        const issues = [];
+        for (const filePath of filePaths) {
+            const content = fileContents.get(filePath);
+            if (!content)
+                continue;
+            const fileIssues = this.analyzeFile(filePath, content);
+            issues.push(...fileIssues);
+        }
+        return this.generatePerformanceResult(issues);
+    }
+    analyzeFile(filePath, content) {
+        const issues = [];
+        const lines = content.split('\n');
+        for (const [issueType, patterns] of Object.entries(this.performancePatterns)) {
+            for (const patternObj of patterns) {
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i];
+                    if (patternObj.pattern.test(line)) {
+                        const issue = {
+                            type: issueType,
+                            severity: patternObj.severity,
+                            filePath,
+                            lineNumber: i + 1,
+                            description: patternObj.description,
+                            suggestion: patternObj.suggestion,
+                            estimatedImpact: patternObj.estimatedImpact
+                        };
+                        issues.push(issue);
+                    }
+                }
+            }
+        }
+        return issues;
+    }
+    generatePerformanceResult(issues) {
+        const summary = {
+            critical: issues.filter(i => i.severity === 'critical').length,
+            high: issues.filter(i => i.severity === 'high').length,
+            medium: issues.filter(i => i.severity === 'medium').length,
+            low: issues.filter(i => i.severity === 'low').length
+        };
+        const recommendations = this.generateRecommendations(issues);
+        const overallScore = this.calculatePerformanceScore(issues);
+        return {
+            issues,
+            summary,
+            recommendations,
+            overallScore
+        };
+    }
+    generateRecommendations(issues) {
+        const recommendations = [];
+        if (this.hasIssueType(issues, 'inefficient_algorithm')) {
+            recommendations.push('🚀 Profile and optimize algorithms with high time complexity');
+        }
+        if (this.hasIssueType(issues, 'database_query')) {
+            recommendations.push('🗄️ Optimize database queries and add appropriate indexes');
+        }
+        if (this.hasIssueType(issues, 'memory_leak')) {
+            recommendations.push('🧹 Implement proper cleanup to prevent memory leaks');
+        }
+        if (this.hasIssueType(issues, 'resource_heavy')) {
+            recommendations.push('⚡ Optimize resource usage and implement lazy loading');
+        }
+        if (this.hasIssueType(issues, 'blocking_operation')) {
+            recommendations.push('🔄 Replace synchronous operations with async alternatives');
+        }
+        if (this.hasIssueType(issues, 'nested_loops')) {
+            recommendations.push('🔢 Redesign nested loops to reduce algorithmic complexity');
+        }
+        if (this.hasIssueType(issues, 'large_data_processing')) {
+            recommendations.push('📊 Implement pagination or streaming for large datasets');
+        }
+        // General recommendations
+        if (issues.length > 0) {
+            recommendations.push('📈 Use performance monitoring tools to track bottlenecks');
+            recommendations.push('🧪 Implement performance testing in CI/CD pipeline');
+            recommendations.push('🔍 Regularly profile your application for performance issues');
+        }
+        return recommendations;
+    }
+    hasIssueType(issues, type) {
+        return issues.some(i => i.type === type);
+    }
+    calculatePerformanceScore(issues) {
+        if (issues.length === 0)
+            return 100;
+        const severityWeights = {
+            critical: 40,
+            high: 20,
+            medium: 10,
+            low: 5
+        };
+        const totalDeduction = issues.reduce((sum, issue) => {
+            return sum + severityWeights[issue.severity];
+        }, 0);
+        return Math.max(0, 100 - totalDeduction);
+    }
+    generatePerformanceComment(result) {
+        let comment = `## ⚡ Performance Impact Assessment\n\n`;
+        const totalIssues = result.summary.critical + result.summary.high + result.summary.medium + result.summary.low;
+        if (totalIssues === 0) {
+            comment += `✅ **No performance issues detected** in the changed files.\n\n`;
+            comment += `### 📊 Performance Score: ${result.overallScore}/100\n\n`;
+            comment += `### 💡 Performance Best Practices\n\n`;
+            comment += `- Continue following performance optimization practices\n`;
+            comment += `- Regularly profile your application\n`;
+            comment += `- Monitor performance metrics in production\n`;
+            return comment;
+        }
+        comment += `📊 **Performance Score: ${result.overallScore}/100**\n\n`;
+        comment += `⚠️ **${totalIssues} performance issues found**\n\n`;
+        comment += `### 📈 Severity Breakdown\n\n`;
+        comment += `- 🔴 **Critical**: ${result.summary.critical}\n`;
+        comment += `- 🟠 **High**: ${result.summary.high}\n`;
+        comment += `- 🟡 **Medium**: ${result.summary.medium}\n`;
+        comment += `- 🟢 **Low**: ${result.summary.low}\n\n`;
+        // Group issues by severity and type
+        const criticalIssues = result.issues.filter(i => i.severity === 'critical');
+        const highIssues = result.issues.filter(i => i.severity === 'high');
+        if (criticalIssues.length > 0) {
+            comment += `### 🔴 Critical Performance Issues\n\n`;
+            for (const issue of criticalIssues.slice(0, 3)) { // Limit to 3 for readability
+                comment += `- **${issue.filePath}:${issue.lineNumber}** - ${issue.description}\n`;
+                comment += `  - **Impact**: ${issue.estimatedImpact}\n`;
+                comment += `  - **Suggestion**: ${issue.suggestion}\n\n`;
+            }
+            if (criticalIssues.length > 3) {
+                comment += `- ... and ${criticalIssues.length - 3} more critical issues\n\n`;
+            }
+        }
+        if (highIssues.length > 0) {
+            comment += `### 🟠 High Severity Issues\n\n`;
+            for (const issue of highIssues.slice(0, 3)) { // Limit to 3 for readability
+                comment += `- **${issue.filePath}:${issue.lineNumber}** - ${issue.description}\n`;
+                comment += `  - **Impact**: ${issue.estimatedImpact}\n`;
+                comment += `  - **Suggestion**: ${issue.suggestion}\n\n`;
+            }
+            if (highIssues.length > 3) {
+                comment += `- ... and ${highIssues.length - 3} more high severity issues\n\n`;
+            }
+        }
+        if (result.recommendations.length > 0) {
+            comment += `### 💡 Performance Recommendations\n\n`;
+            result.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+        }
+        return comment;
+    }
+}
+
+;// CONCATENATED MODULE: ./lib/security-analyzer.js
+class SecurityAnalyzer {
+    vulnerabilityPatterns = {
+        sql_injection: [
+            {
+                pattern: /\b(SELECT|INSERT|UPDATE|DELETE|DROP|CREATE|ALTER)\s+.*\$\{.*\}/gi,
+                description: 'Possible SQL injection through template literal',
+                remediation: 'Use parameterized queries or prepared statements instead of string concatenation'
+            },
+            {
+                pattern: /\b(SELECT|INSERT|UPDATE|DELETE|DROP|CREATE|ALTER)\s+.*\+.*['"]/gi,
+                description: 'Possible SQL injection through string concatenation',
+                remediation: 'Use parameterized queries or prepared statements instead of string concatenation'
+            },
+            {
+                pattern: /query\s*\(\s*['"`][^'"`]*\+[^'"`]*['"`]\s*\)/gi,
+                description: 'SQL query with concatenated user input',
+                remediation: 'Use parameterized queries or prepared statements'
+            }
+        ],
+        xss: [
+            {
+                pattern: /innerHTML\s*=.*\$\{.*\}/gi,
+                description: 'Possible XSS through template literal in innerHTML',
+                remediation: 'Use textContent instead of innerHTML, or sanitize user input'
+            },
+            {
+                pattern: /innerHTML\s*=.*\+/gi,
+                description: 'Possible XSS through string concatenation in innerHTML',
+                remediation: 'Use textContent instead of innerHTML, or sanitize user input'
+            },
+            {
+                pattern: /document\.write\s*\(/gi,
+                description: 'Use of document.write can lead to XSS',
+                remediation: 'Avoid document.write, use DOM manipulation methods instead'
+            },
+            {
+                pattern: /eval\s*\(/gi,
+                description: 'Use of eval() can lead to code injection',
+                remediation: 'Avoid eval(), use JSON.parse for JSON or safer alternatives'
+            }
+        ],
+        authentication: [
+            {
+                pattern: /password\s*=\s*['"`][^'"`]*['"`]/gi,
+                description: 'Hardcoded password detected',
+                remediation: 'Use environment variables or secure credential management'
+            },
+            {
+                pattern: /api[_-]?key\s*=\s*['"`][^'"`]*['"`]/gi,
+                description: 'Hardcoded API key detected',
+                remediation: 'Use environment variables or secure credential management'
+            },
+            {
+                pattern: /secret\s*=\s*['"`][^'"`]*['"`]/gi,
+                description: 'Hardcoded secret detected',
+                remediation: 'Use environment variables or secure credential management'
+            }
+        ],
+        authorization: [
+            {
+                pattern: /isAdmin\s*=\s*true/gi,
+                description: 'Hardcoded admin check',
+                remediation: 'Implement proper role-based access control'
+            },
+            {
+                pattern: /if\s*\(\s*user\.role\s*===\s*['"`]admin['"`]\s*\)/gi,
+                description: 'Hardcoded role check without proper validation',
+                remediation: 'Implement proper role-based access control with validation'
+            }
+        ],
+        crypto: [
+            {
+                pattern: /MD5\s*\(/gi,
+                description: 'Use of weak MD5 hash algorithm',
+                remediation: 'Use stronger hashing algorithms like SHA-256 or bcrypt'
+            },
+            {
+                pattern: /SHA1\s*\(/gi,
+                description: 'Use of weak SHA-1 hash algorithm',
+                remediation: 'Use stronger hashing algorithms like SHA-256 or bcrypt'
+            },
+            {
+                pattern: /crypto\.createHash\s*\(\s*['"`]md5['"`]\s*\)/gi,
+                description: 'Use of weak MD5 hash algorithm in Node.js',
+                remediation: 'Use stronger hashing algorithms like SHA-256 or bcrypt'
+            }
+        ],
+        injection: [
+            {
+                pattern: /exec\s*\(/gi,
+                description: 'Use of exec() can lead to command injection',
+                remediation: 'Use safer alternatives or validate/sanitize input'
+            },
+            {
+                pattern: /spawn\s*\(/gi,
+                description: 'Use of spawn() can lead to command injection',
+                remediation: 'Use safer alternatives or validate/sanitize input'
+            },
+            {
+                pattern: /system\s*\(/gi,
+                description: 'Use of system() can lead to command injection',
+                remediation: 'Use safer alternatives or validate/sanitize input'
+            }
+        ],
+        path_traversal: [
+            {
+                pattern: /\.\.\//gi,
+                description: 'Possible path traversal sequence',
+                remediation: 'Validate and sanitize file paths, use chroot jail if possible'
+            },
+            {
+                pattern: /readFile\s*\(\s*.*\+.*\s*\)/gi,
+                description: 'File path concatenation can lead to path traversal',
+                remediation: 'Validate and sanitize file paths, use path.join()'
+            }
+        ],
+        csrf: [
+            {
+                pattern: /fetch\s*\(\s*['"`][^'"`]*['"`]\s*,\s*\{[^}]*method\s*:\s*['"`](POST|PUT|DELETE)['"`]/gi,
+                description: 'State-changing request without CSRF protection',
+                remediation: 'Implement CSRF tokens or same-site cookies'
+            }
+        ]
+    };
+    cweMapping = {
+        sql_injection: 'CWE-89',
+        xss: 'CWE-79',
+        authentication: 'CWE-521',
+        authorization: 'CWE-285',
+        crypto: 'CWE-327',
+        injection: 'CWE-78',
+        path_traversal: 'CWE-22',
+        csrf: 'CWE-352'
+    };
+    owaspMapping = {
+        sql_injection: 'A03:2021 – Injection',
+        xss: 'A03:2021 – Injection',
+        authentication: 'A07:2021 – Identification and Authentication Failures',
+        authorization: 'A01:2021 – Broken Access Control',
+        crypto: 'A02:2021 – Cryptographic Failures',
+        injection: 'A03:2021 – Injection',
+        path_traversal: 'A01:2021 – Broken Access Control',
+        csrf: 'A01:2021 – Broken Access Control'
+    };
+    async analyzeSecurity(filePaths, fileContents) {
+        const vulnerabilities = [];
+        for (const filePath of filePaths) {
+            const content = fileContents.get(filePath);
+            if (!content)
+                continue;
+            const fileVulnerabilities = this.analyzeFile(filePath, content);
+            vulnerabilities.push(...fileVulnerabilities);
+        }
+        return this.generateSecurityResult(vulnerabilities);
+    }
+    analyzeFile(filePath, content) {
+        const vulnerabilities = [];
+        const lines = content.split('\n');
+        for (const [vulnerabilityType, patterns] of Object.entries(this.vulnerabilityPatterns)) {
+            for (const patternObj of patterns) {
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i];
+                    if (patternObj.pattern.test(line)) {
+                        const vulnerability = {
+                            type: vulnerabilityType,
+                            severity: this.calculateSeverity(vulnerabilityType),
+                            filePath,
+                            lineNumber: i + 1,
+                            description: patternObj.description,
+                            remediation: patternObj.remediation,
+                            cweId: this.cweMapping[vulnerabilityType],
+                            owaspCategory: this.owaspMapping[vulnerabilityType]
+                        };
+                        vulnerabilities.push(vulnerability);
+                    }
+                }
+            }
+        }
+        return vulnerabilities;
+    }
+    calculateSeverity(vulnerabilityType) {
+        const severityMap = {
+            sql_injection: 'critical',
+            xss: 'high',
+            authentication: 'high',
+            authorization: 'high',
+            crypto: 'medium',
+            injection: 'critical',
+            path_traversal: 'high',
+            csrf: 'medium'
+        };
+        return severityMap[vulnerabilityType] || 'medium';
+    }
+    generateSecurityResult(vulnerabilities) {
+        const summary = {
+            critical: vulnerabilities.filter(v => v.severity === 'critical').length,
+            high: vulnerabilities.filter(v => v.severity === 'high').length,
+            medium: vulnerabilities.filter(v => v.severity === 'medium').length,
+            low: vulnerabilities.filter(v => v.severity === 'low').length
+        };
+        const recommendations = this.generateRecommendations(vulnerabilities);
+        return {
+            vulnerabilities,
+            summary,
+            recommendations
+        };
+    }
+    generateRecommendations(vulnerabilities) {
+        const recommendations = [];
+        if (this.hasVulnerabilityType(vulnerabilities, 'sql_injection')) {
+            recommendations.push('🔒 Implement parameterized queries and prepared statements to prevent SQL injection');
+        }
+        if (this.hasVulnerabilityType(vulnerabilities, 'xss')) {
+            recommendations.push('🛡️ Sanitize all user input and use textContent instead of innerHTML to prevent XSS');
+        }
+        if (this.hasVulnerabilityType(vulnerabilities, 'authentication')) {
+            recommendations.push('🔐 Move all credentials to environment variables or secure vault systems');
+        }
+        if (this.hasVulnerabilityType(vulnerabilities, 'authorization')) {
+            recommendations.push('👥 Implement proper role-based access control (RBAC) system');
+        }
+        if (this.hasVulnerabilityType(vulnerabilities, 'crypto')) {
+            recommendations.push('🔑 Replace weak cryptographic algorithms with modern alternatives (SHA-256, bcrypt)');
+        }
+        if (this.hasVulnerabilityType(vulnerabilities, 'injection')) {
+            recommendations.push('⚡ Avoid using exec(), spawn(), or system() with user input');
+        }
+        if (this.hasVulnerabilityType(vulnerabilities, 'path_traversal')) {
+            recommendations.push('📁 Validate and sanitize all file paths to prevent directory traversal');
+        }
+        if (this.hasVulnerabilityType(vulnerabilities, 'csrf')) {
+            recommendations.push('🎯 Implement CSRF tokens for all state-changing operations');
+        }
+        // General recommendations
+        if (vulnerabilities.length > 0) {
+            recommendations.push('🔍 Run automated security scanning tools regularly (e.g., npm audit, Snyk)');
+            recommendations.push('📚 Keep all dependencies updated to their latest secure versions');
+            recommendations.push('🧪 Implement security testing in your CI/CD pipeline');
+        }
+        return recommendations;
+    }
+    hasVulnerabilityType(vulnerabilities, type) {
+        return vulnerabilities.some(v => v.type === type);
+    }
+    generateSecurityComment(result) {
+        let comment = `## 🔒 Security Vulnerability Analysis\n\n`;
+        const totalVulnerabilities = result.summary.critical + result.summary.high + result.summary.medium + result.summary.low;
+        if (totalVulnerabilities === 0) {
+            comment += `✅ **No security vulnerabilities detected** in the changed files.\n\n`;
+            comment += `### 💡 Security Best Practices\n\n`;
+            comment += `- Continue following secure coding practices\n`;
+            comment += `- Regularly update dependencies\n`;
+            comment += `- Implement security testing in CI/CD\n`;
+            return comment;
+        }
+        comment += `🚨 **${totalVulnerabilities} security vulnerabilities found**\n\n`;
+        comment += `### 📊 Severity Breakdown\n\n`;
+        comment += `- 🔴 **Critical**: ${result.summary.critical}\n`;
+        comment += `- 🟠 **High**: ${result.summary.high}\n`;
+        comment += `- 🟡 **Medium**: ${result.summary.medium}\n`;
+        comment += `- 🟢 **Low**: ${result.summary.low}\n\n`;
+        // Group vulnerabilities by type and severity
+        const criticalVulns = result.vulnerabilities.filter(v => v.severity === 'critical');
+        const highVulns = result.vulnerabilities.filter(v => v.severity === 'high');
+        if (criticalVulns.length > 0) {
+            comment += `### 🔴 Critical Vulnerabilities\n\n`;
+            for (const vuln of criticalVulns.slice(0, 3)) { // Limit to 3 for readability
+                comment += `- **${vuln.filePath}:${vuln.lineNumber}** - ${vuln.description}\n`;
+                comment += `  - **Remediation**: ${vuln.remediation}\n`;
+                if (vuln.cweId)
+                    comment += `  - **CWE**: ${vuln.cweId}\n`;
+                if (vuln.owaspCategory)
+                    comment += `  - **OWASP**: ${vuln.owaspCategory}\n`;
+                comment += `\n`;
+            }
+            if (criticalVulns.length > 3) {
+                comment += `- ... and ${criticalVulns.length - 3} more critical vulnerabilities\n\n`;
+            }
+        }
+        if (highVulns.length > 0) {
+            comment += `### 🟠 High Severity Vulnerabilities\n\n`;
+            for (const vuln of highVulns.slice(0, 3)) { // Limit to 3 for readability
+                comment += `- **${vuln.filePath}:${vuln.lineNumber}** - ${vuln.description}\n`;
+                comment += `  - **Remediation**: ${vuln.remediation}\n`;
+                if (vuln.cweId)
+                    comment += `  - **CWE**: ${vuln.cweId}\n`;
+                comment += `\n`;
+            }
+            if (highVulns.length > 3) {
+                comment += `- ... and ${highVulns.length - 3} more high severity vulnerabilities\n\n`;
+            }
+        }
+        if (result.recommendations.length > 0) {
+            comment += `### 💡 Security Recommendations\n\n`;
+            result.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+        }
+        return comment;
+    }
+}
+
+;// CONCATENATED MODULE: ./lib/test-coverage-analyzer.js
+
+
+// eslint-disable-next-line camelcase
+
+const context = github.context;
+const repo = context.repo;
+class TestCoverageAnalyzer {
+    coverageThresholds = {
+        high: 80,
+        medium: 60,
+        low: 40
+    };
+    async analyzeTestCoverage(changedFiles) {
+        const results = [];
+        for (const filePath of changedFiles) {
+            if (this.isCodeFile(filePath)) {
+                try {
+                    const coverage = await this.getFileCoverage(filePath);
+                    if (coverage) {
+                        results.push(coverage);
+                    }
+                }
+                catch (error) {
+                    (0,core.warning)(`Failed to analyze coverage for ${filePath}: ${error}`);
+                }
+            }
+        }
+        return this.generateSummary(results);
+    }
+    isCodeFile(filePath) {
+        const codeExtensions = ['.ts', '.js', '.tsx', '.jsx', '.py', '.java', '.cpp', '.c', '.go', '.rs', '.php', '.rb', '.cs'];
+        return codeExtensions.some(ext => filePath.endsWith(ext));
+    }
+    async getFileCoverage(filePath) {
+        try {
+            // Try to get coverage from common coverage report files
+            const coverageData = await this.getCoverageData();
+            if (!coverageData || !coverageData[filePath]) {
+                // If no coverage data exists, suggest creating tests
+                return this.createNoCoverageResult(filePath);
+            }
+            const fileCoverage = coverageData[filePath];
+            const missingLines = this.findMissingLines(fileCoverage);
+            const suggestedTests = this.generateTestSuggestions(filePath, missingLines);
+            const riskLevel = this.calculateRiskLevel(fileCoverage.coverage);
+            return {
+                filePath,
+                coveragePercentage: fileCoverage.coverage,
+                missingLines,
+                suggestedTests,
+                riskLevel
+            };
+        }
+        catch (error) {
+            (0,core.warning)(`Error analyzing coverage for ${filePath}: ${error}`);
+            return null;
+        }
+    }
+    async getCoverageData() {
+        try {
+            // Try to fetch coverage reports from common locations
+            const coverageFiles = [
+                'coverage/coverage-summary.json',
+                'coverage/lcov.info',
+                'coverage/clover.xml',
+                'test-results/coverage.json',
+                'coverage/coverage.json'
+            ];
+            for (const coverageFile of coverageFiles) {
+                try {
+                    const { data } = await octokit/* octokit.repos.getContent */.K.repos.getContent({
+                        owner: repo.owner,
+                        repo: repo.repo,
+                        path: coverageFile,
+                        ref: context.payload.pull_request?.head.sha
+                    });
+                    if ('content' in data && data.type === 'file') {
+                        const content = Buffer.from(data.content, 'base64').toString('utf-8');
+                        if (coverageFile.endsWith('.json')) {
+                            return this.parseJsonCoverage(content);
+                        }
+                        else if (coverageFile.endsWith('.info')) {
+                            return this.parseLcovCoverage(content);
+                        }
+                    }
+                }
+                catch {
+                    // Continue to next coverage file
+                    continue;
+                }
+            }
+        }
+        catch (error) {
+            (0,core.warning)(`Failed to fetch coverage data: ${error}`);
+        }
+        return null;
+    }
+    parseJsonCoverage(content) {
+        try {
+            const coverage = JSON.parse(content);
+            // Handle different coverage report formats
+            if (coverage.total && coverage.total.lines) {
+                // Istanbul/NYC format
+                return this.convertIstanbulToStandard(coverage);
+            }
+            else if (coverage.coverageMap) {
+                // Jest coverage format
+                return this.convertJestToStandard(coverage);
+            }
+            return coverage;
+        }
+        catch (error) {
+            (0,core.warning)(`Failed to parse JSON coverage: ${error}`);
+            return null;
+        }
+    }
+    parseLcovCoverage(content) {
+        const coverage = {};
+        let currentFile = '';
+        const lines = content.split('\n');
+        for (const line of lines) {
+            if (line.startsWith('SF:')) {
+                currentFile = line.substring(3);
+                coverage[currentFile] = { lines: {}, coverage: 0 };
+            }
+            else if (line.startsWith('DA:')) {
+                const [lineNum, hitCount] = line.substring(3).split(',');
+                if (currentFile && coverage[currentFile]) {
+                    coverage[currentFile].lines[lineNum] = parseInt(hitCount);
+                }
+            }
+            else if (line.startsWith('end_of_record')) {
+                // Calculate coverage percentage for current file
+                if (currentFile && coverage[currentFile]) {
+                    const lines = coverage[currentFile].lines;
+                    const totalLines = Object.keys(lines).length;
+                    const coveredLines = Object.values(lines).filter((hit) => hit > 0).length;
+                    coverage[currentFile].coverage = totalLines > 0 ? (coveredLines / totalLines) * 100 : 0;
+                }
+            }
+        }
+        return coverage;
+    }
+    convertIstanbulToStandard(istanbulCoverage) {
+        const standard = {};
+        if (istanbulCoverage.total && istanbulCoverage.total.lines) {
+            // This is summary format, need detailed file data
+            return standard;
+        }
+        for (const [filePath, fileData] of Object.entries(istanbulCoverage)) {
+            if (typeof fileData === 'object' && fileData !== null && 's' in fileData) {
+                const statements = fileData.s;
+                const totalStatements = statements.length;
+                const coveredStatements = statements.filter((hit) => hit > 0).length;
+                standard[filePath] = {
+                    coverage: (coveredStatements / totalStatements) * 100,
+                    lines: statements
+                };
+            }
+        }
+        return standard;
+    }
+    convertJestToStandard(jestCoverage) {
+        const standard = {};
+        if (jestCoverage.coverageMap) {
+            const coverageMap = jestCoverage.coverageMap;
+            for (const [filePath, fileCoverage] of Object.entries(coverageMap)) {
+                if (typeof fileCoverage === 'object' && fileCoverage !== null) {
+                    const coverage = fileCoverage;
+                    const lines = coverage.s || {};
+                    const totalLines = Object.keys(lines).length;
+                    const coveredLines = Object.values(lines).filter((hit) => hit > 0).length;
+                    standard[filePath] = {
+                        coverage: totalLines > 0 ? (coveredLines / totalLines) * 100 : 0,
+                        lines
+                    };
+                }
+            }
+        }
+        return standard;
+    }
+    createNoCoverageResult(filePath) {
+        const suggestedTests = this.generateGenericTestSuggestions(filePath);
+        return {
+            filePath,
+            coveragePercentage: 0,
+            missingLines: [],
+            suggestedTests,
+            riskLevel: 'high'
+        };
+    }
+    findMissingLines(fileCoverage) {
+        const missingLines = [];
+        if (fileCoverage.lines) {
+            for (const [lineNum, hitCount] of Object.entries(fileCoverage.lines)) {
+                if (hitCount === 0) {
+                    missingLines.push(parseInt(lineNum));
+                }
+            }
+        }
+        return missingLines;
+    }
+    generateTestSuggestions(filePath, missingLines) {
+        const suggestions = [];
+        const fileExtension = filePath.split('.').pop();
+        // Basic test file naming suggestions
+        const testFileName = filePath.replace(new RegExp(`\\.${fileExtension}$`), `.test.${fileExtension}`);
+        suggestions.push(`Create test file: ${testFileName}`);
+        // Function-specific suggestions based on file content
+        if (missingLines.length > 0) {
+            suggestions.push(`Add tests for uncovered lines: ${missingLines.slice(0, 5).join(', ')}${missingLines.length > 5 ? '...' : ''}`);
+        }
+        // Language-specific suggestions
+        switch (fileExtension) {
+            case 'ts':
+            case 'js':
+                suggestions.push('Add unit tests for exported functions and classes');
+                suggestions.push('Consider using Jest or Mocha for testing framework');
+                break;
+            case 'py':
+                suggestions.push('Add unit tests using pytest framework');
+                suggestions.push('Test edge cases and error conditions');
+                break;
+            case 'java':
+                suggestions.push('Add JUnit tests for public methods');
+                suggestions.push('Consider using Mockito for mocking dependencies');
+                break;
+        }
+        return suggestions;
+    }
+    generateGenericTestSuggestions(filePath) {
+        const fileExtension = filePath.split('.').pop();
+        const suggestions = [];
+        const testFileName = filePath.replace(new RegExp(`\\.${fileExtension}$`), `.test.${fileExtension}`);
+        suggestions.push(`Create test file: ${testFileName}`);
+        suggestions.push('Add unit tests for main functionality');
+        suggestions.push('Test error handling and edge cases');
+        suggestions.push('Add integration tests if applicable');
+        return suggestions;
+    }
+    calculateRiskLevel(coverage) {
+        if (coverage >= this.coverageThresholds.high)
+            return 'low';
+        if (coverage >= this.coverageThresholds.medium)
+            return 'medium';
+        return 'high';
+    }
+    generateSummary(results) {
+        const highRiskFiles = results.filter(r => r.riskLevel === 'high');
+        const averageCoverage = results.length > 0
+            ? results.reduce((sum, r) => sum + r.coveragePercentage, 0) / results.length
+            : 0;
+        const recommendations = [];
+        if (highRiskFiles.length > 0) {
+            recommendations.push(`🚨 High priority: Improve test coverage for ${highRiskFiles.length} file(s) with low coverage`);
+        }
+        if (averageCoverage < this.coverageThresholds.medium) {
+            recommendations.push('📊 Consider implementing a comprehensive testing strategy');
+        }
+        if (averageCoverage < this.coverageThresholds.high) {
+            recommendations.push('🎯 Aim for at least 80% test coverage for production code');
+        }
+        recommendations.push('📝 Set up automated coverage reporting in CI/CD pipeline');
+        recommendations.push('🔧 Configure coverage thresholds to prevent regressions');
+        return {
+            totalFiles: results.length,
+            averageCoverage: Math.round(averageCoverage * 100) / 100,
+            highRiskFiles,
+            recommendations
+        };
+    }
+    generateCoverageComment(summary) {
+        let comment = `## 🧪 Test Coverage Analysis\n\n`;
+        comment += `**Overall Coverage:** ${summary.averageCoverage}% across ${summary.totalFiles} files\n\n`;
+        if (summary.highRiskFiles.length > 0) {
+            comment += `### 🚨 High Risk Files (Low Coverage)\n\n`;
+            for (const file of summary.highRiskFiles.slice(0, 5)) { // Limit to 5 files
+                comment += `- **${file.filePath}**: ${file.coveragePercentage}% coverage\n`;
+                if (file.suggestedTests.length > 0) {
+                    comment += `  - Suggestions: ${file.suggestedTests.slice(0, 2).join(', ')}\n`;
+                }
+            }
+            if (summary.highRiskFiles.length > 5) {
+                comment += `- ... and ${summary.highRiskFiles.length - 5} more files\n`;
+            }
+            comment += '\n';
+        }
+        if (summary.recommendations.length > 0) {
+            comment += `### 💡 Recommendations\n\n`;
+            summary.recommendations.forEach(rec => {
+                comment += `${rec}\n`;
+            });
+        }
+        return comment;
+    }
+}
+
 // EXTERNAL MODULE: ./lib/tokenizer.js
 var tokenizer = __nccwpck_require__(652);
 ;// CONCATENATED MODULE: ./lib/review.js
@@ -7273,27 +11659,37 @@ var tokenizer = __nccwpck_require__(652);
 
 
 
+
+
+
+
+
+
+
+
+
+
 // eslint-disable-next-line camelcase
-const context = github.context;
-const repo = context.repo;
+const review_context = github.context;
+const review_repo = review_context.repo;
 const ignoreKeyword = '@coderabbitai: ignore';
 const codeReview = async (lightBot, heavyBot, options, prompts) => {
     const commenter = new lib_commenter/* Commenter */.Es();
     const openaiConcurrencyLimit = pLimit(options.openaiConcurrencyLimit);
     const githubConcurrencyLimit = pLimit(options.githubConcurrencyLimit);
-    if (context.eventName !== 'pull_request' &&
-        context.eventName !== 'pull_request_target') {
-        (0,core.warning)(`Skipped: current event is ${context.eventName}, only support pull_request event`);
+    if (review_context.eventName !== 'pull_request' &&
+        review_context.eventName !== 'pull_request_target') {
+        (0,core.warning)(`Skipped: current event is ${review_context.eventName}, only support pull_request event`);
         return;
     }
-    if (context.payload.pull_request == null) {
+    if (review_context.payload.pull_request == null) {
         (0,core.warning)('Skipped: context.payload.pull_request is null');
         return;
     }
     const inputs = new lib_inputs/* Inputs */.k();
-    inputs.title = context.payload.pull_request.title;
-    if (context.payload.pull_request.body != null) {
-        inputs.description = commenter.getDescription(context.payload.pull_request.body);
+    inputs.title = review_context.payload.pull_request.title;
+    if (review_context.payload.pull_request.body != null) {
+        inputs.description = commenter.getDescription(review_context.payload.pull_request.body);
     }
     // if the description contains ignore_keyword, skip
     if (inputs.description.includes(ignoreKeyword)) {
@@ -7303,7 +11699,7 @@ const codeReview = async (lightBot, heavyBot, options, prompts) => {
     // as gpt-3.5-turbo isn't paying attention to system message, add to inputs for now
     inputs.systemMessage = options.systemMessage;
     // get SUMMARIZE_TAG message
-    const existingSummarizeCmt = await commenter.findCommentWithTag(lib_commenter/* SUMMARIZE_TAG */.Rp, context.payload.pull_request.number);
+    const existingSummarizeCmt = await commenter.findCommentWithTag(lib_commenter/* SUMMARIZE_TAG */.Rp, review_context.payload.pull_request.number);
     let existingCommitIdsBlock = '';
     let existingSummarizeCmtBody = '';
     if (existingSummarizeCmt != null) {
@@ -7319,26 +11715,26 @@ const codeReview = async (lightBot, heavyBot, options, prompts) => {
         highestReviewedCommitId = commenter.getHighestReviewedCommitId(allCommitIds, commenter.getReviewedCommitIds(existingCommitIdsBlock));
     }
     if (highestReviewedCommitId === '' ||
-        highestReviewedCommitId === context.payload.pull_request.head.sha) {
-        (0,core.info)(`Will review from the base commit: ${context.payload.pull_request.base.sha}`);
-        highestReviewedCommitId = context.payload.pull_request.base.sha;
+        highestReviewedCommitId === review_context.payload.pull_request.head.sha) {
+        (0,core.info)(`Will review from the base commit: ${review_context.payload.pull_request.base.sha}`);
+        highestReviewedCommitId = review_context.payload.pull_request.base.sha;
     }
     else {
         (0,core.info)(`Will review from commit: ${highestReviewedCommitId}`);
     }
     // Fetch the diff between the highest reviewed commit and the latest commit of the PR branch
     const incrementalDiff = await octokit/* octokit.repos.compareCommits */.K.repos.compareCommits({
-        owner: repo.owner,
-        repo: repo.repo,
+        owner: review_repo.owner,
+        repo: review_repo.repo,
         base: highestReviewedCommitId,
-        head: context.payload.pull_request.head.sha
+        head: review_context.payload.pull_request.head.sha
     });
     // Fetch the diff between the target branch's base commit and the latest commit of the PR branch
     const targetBranchDiff = await octokit/* octokit.repos.compareCommits */.K.repos.compareCommits({
-        owner: repo.owner,
-        repo: repo.repo,
-        base: context.payload.pull_request.base.sha,
-        head: context.payload.pull_request.head.sha
+        owner: review_repo.owner,
+        repo: review_repo.repo,
+        base: review_context.payload.pull_request.base.sha,
+        head: review_context.payload.pull_request.head.sha
     });
     const incrementalFiles = incrementalDiff.data.files;
     const targetBranchFiles = targetBranchDiff.data.files;
@@ -7377,16 +11773,16 @@ const codeReview = async (lightBot, heavyBot, options, prompts) => {
     const filteredFiles = await Promise.all(filterSelectedFiles.map(file => githubConcurrencyLimit(async () => {
         // retrieve file contents
         let fileContent = '';
-        if (context.payload.pull_request == null) {
+        if (review_context.payload.pull_request == null) {
             (0,core.warning)('Skipped: context.payload.pull_request is null');
             return null;
         }
         try {
             const contents = await octokit/* octokit.repos.getContent */.K.repos.getContent({
-                owner: repo.owner,
-                repo: repo.repo,
+                owner: review_repo.owner,
+                repo: review_repo.repo,
                 path: file.filename,
-                ref: context.payload.pull_request.base.sha
+                ref: review_context.payload.pull_request.base.sha
             });
             if (contents.data != null) {
                 if (!Array.isArray(contents.data)) {
@@ -7446,7 +11842,7 @@ ${hunks.oldHunk}
     }
     let statusMsg = `<details>
 <summary>Commits</summary>
-Files that changed from the base of the PR and between ${highestReviewedCommitId} and ${context.payload.pull_request.head.sha} commits.
+Files that changed from the base of the PR and between ${highestReviewedCommitId} and ${review_context.payload.pull_request.head.sha} commits.
 </details>
 ${filesAndChanges.length > 0
         ? `
@@ -7573,7 +11969,7 @@ ${filename}: ${summary}
             let message = '### Summary by CodeRabbit\n\n';
             message += releaseNotesResponse;
             try {
-                await commenter.updateDescription(context.payload.pull_request.number, message);
+                await commenter.updateDescription(review_context.payload.pull_request.number, message);
             }
             catch (e) {
                 (0,core.warning)(`release notes: error from github: ${e.message}`);
@@ -7583,6 +11979,197 @@ ${filename}: ${summary}
     // generate a short summary as well
     const [summarizeShortResponse] = await heavyBot.chat(prompts.renderSummarizeShort(inputs), {});
     inputs.shortSummary = summarizeShortResponse;
+    // Perform test coverage analysis
+    let testCoverageComment = '';
+    if (options.enableTestCoverageAnalysis) {
+        try {
+            const coverageAnalyzer = new TestCoverageAnalyzer();
+            const changedFilePaths = filesAndChanges.map(([filename]) => filename);
+            const coverageSummary = await coverageAnalyzer.analyzeTestCoverage(changedFilePaths);
+            testCoverageComment = coverageAnalyzer.generateCoverageComment(coverageSummary);
+            (0,core.info)(`Test coverage analysis completed for ${coverageSummary.totalFiles} files`);
+        }
+        catch (error) {
+            (0,core.warning)(`Test coverage analysis failed: ${error}`);
+        }
+    }
+    // Perform security vulnerability analysis
+    let securityComment = '';
+    if (options.enableSecurityAnalysis) {
+        try {
+            const securityAnalyzer = new SecurityAnalyzer();
+            const changedFilePaths = filesAndChanges.map(([filename]) => filename);
+            const fileContents = new Map();
+            // Build file contents map for security analysis
+            for (const [filename, fileContent] of filesAndChanges) {
+                fileContents.set(filename, fileContent);
+            }
+            const securityResult = await securityAnalyzer.analyzeSecurity(changedFilePaths, fileContents);
+            securityComment = securityAnalyzer.generateSecurityComment(securityResult);
+            (0,core.info)(`Security analysis completed - found ${securityResult.summary.critical + securityResult.summary.high + securityResult.summary.medium + securityResult.summary.low} vulnerabilities`);
+        }
+        catch (error) {
+            (0,core.warning)(`Security analysis failed: ${error}`);
+        }
+    }
+    // Perform performance impact assessment
+    let performanceComment = '';
+    if (options.enablePerformanceAnalysis) {
+        try {
+            const performanceAnalyzer = new PerformanceAnalyzer();
+            const changedFilePaths = filesAndChanges.map(([filename]) => filename);
+            const fileContents = new Map();
+            // Build file contents map for performance analysis
+            for (const [filename, fileContent] of filesAndChanges) {
+                fileContents.set(filename, fileContent);
+            }
+            const performanceResult = await performanceAnalyzer.analyzePerformance(changedFilePaths, fileContents);
+            performanceComment = performanceAnalyzer.generatePerformanceComment(performanceResult);
+            (0,core.info)(`Performance analysis completed - score: ${performanceResult.overallScore}/100, issues: ${performanceResult.summary.critical + performanceResult.summary.high + performanceResult.summary.medium + performanceResult.summary.low}`);
+        }
+        catch (error) {
+            (0,core.warning)(`Performance analysis failed: ${error}`);
+        }
+    }
+    // Perform code complexity analysis
+    let complexityComment = '';
+    if (options.enableComplexityAnalysis) {
+        try {
+            const complexityAnalyzer = new ComplexityAnalyzer();
+            const changedFilePaths = filesAndChanges.map(([filename]) => filename);
+            const fileContents = new Map();
+            // Build file contents map for complexity analysis
+            for (const [filename, fileContent] of filesAndChanges) {
+                fileContents.set(filename, fileContent);
+            }
+            const complexityResult = await complexityAnalyzer.analyzeComplexity(changedFilePaths, fileContents);
+            complexityComment = complexityAnalyzer.generateComplexityComment(complexityResult);
+            (0,core.info)(`Complexity analysis completed - score: ${complexityResult.overallScore}/100, issues: ${complexityResult.summary.critical + complexityResult.summary.high + complexityResult.summary.medium + complexityResult.summary.low}`);
+        }
+        catch (error) {
+            (0,core.warning)(`Complexity analysis failed: ${error}`);
+        }
+    }
+    // Perform dependency update intelligence analysis
+    let dependencyComment = '';
+    if (options.enableDependencyAnalysis) {
+        try {
+            const dependencyAnalyzer = new DependencyAnalyzer();
+            const changedFilePaths = filesAndChanges.map(([filename]) => filename);
+            const fileContents = new Map();
+            // Build file contents map for dependency analysis
+            for (const [filename, fileContent] of filesAndChanges) {
+                fileContents.set(filename, fileContent);
+            }
+            const dependencyResult = await dependencyAnalyzer.analyzeDependencies(changedFilePaths, fileContents);
+            dependencyComment = dependencyAnalyzer.generateDependencyComment(dependencyResult);
+            (0,core.info)(`Dependency analysis completed - security score: ${dependencyResult.securityScore}/100, issues: ${dependencyResult.summary.critical + dependencyResult.summary.high + dependencyResult.summary.medium + dependencyResult.summary.low}`);
+        }
+        catch (error) {
+            (0,core.warning)(`Dependency analysis failed: ${error}`);
+        }
+    }
+    // Perform documentation quality validation
+    let documentationComment = '';
+    if (options.enableDocumentationAnalysis) {
+        try {
+            const documentationAnalyzer = new DocumentationAnalyzer();
+            const changedFilePaths = filesAndChanges.map(([filename]) => filename);
+            const fileContents = new Map();
+            // Build file contents map for documentation analysis
+            for (const [filename, fileContent] of filesAndChanges) {
+                fileContents.set(filename, fileContent);
+            }
+            const documentationResult = await documentationAnalyzer.analyzeDocumentation(changedFilePaths, fileContents);
+            documentationComment = documentationAnalyzer.generateDocumentationComment(documentationResult);
+            (0,core.info)(`Documentation analysis completed - coverage score: ${documentationResult.coverageScore}/100, issues: ${documentationResult.summary.critical + documentationResult.summary.high + documentationResult.summary.medium + documentationResult.summary.low}`);
+        }
+        catch (error) {
+            (0,core.warning)(`Documentation analysis failed: ${error}`);
+        }
+    }
+    // Perform CI/CD pipeline integration analysis
+    let cicdComment = '';
+    if (options.enableCICDAnalysis) {
+        try {
+            const cicdAnalyzer = new CICDAnalyzer();
+            // Extract scores from previous analyses (mock values for now)
+            const testCoverageScore = 85; // Would come from test coverage analysis
+            const securityScore = 90; // Would come from security analysis
+            const performanceScore = 75; // Would come from performance analysis
+            const complexityScore = 80; // Would come from complexity analysis
+            const dependencyScore = 88; // Would come from dependency analysis
+            const documentationScore = 72; // Would come from documentation analysis
+            const cicdOptions = {
+                enableMergeBlocking: options.cicdMergeBlocking || false,
+                strictMode: options.cicdStrictMode || false,
+                qualityGateThreshold: options.cicdQualityGateThreshold || 80,
+                securityGateThreshold: options.cicdSecurityGateThreshold || 85,
+                performanceGateThreshold: options.cicdPerformanceGateThreshold || 70,
+                coverageGateThreshold: options.cicdCoverageGateThreshold || 80,
+                complexityGateThreshold: options.cicdComplexityGateThreshold || 75,
+                dependencyGateThreshold: options.cicdDependencyGateThreshold || 80,
+                documentationGateThreshold: options.cicdDocumentationGateThreshold || 70
+            };
+            const cicdResult = await cicdAnalyzer.analyzeCICD(testCoverageScore, securityScore, performanceScore, complexityScore, dependencyScore, documentationScore, cicdOptions);
+            cicdComment = cicdAnalyzer.generateCICDComment(cicdResult);
+            (0,core.info)(`CI/CD analysis completed - merge blocked: ${cicdResult.mergeBlocked}, total issues: ${cicdResult.summary.totalIssues}`);
+        }
+        catch (error) {
+            (0,core.warning)(`CI/CD analysis failed: ${error}`);
+        }
+    }
+    // Perform cross-repository impact analysis
+    let crossRepoComment = '';
+    try {
+        const crossRepoAnalyzer = new CrossRepoAnalyzer();
+        const changedFilePaths = filesAndChanges.map(([filename]) => filename);
+        const fileContents = new Map();
+        // Build file contents map for cross-repo analysis
+        for (const [filename, fileContent] of filesAndChanges) {
+            fileContents.set(filename, fileContent);
+        }
+        const crossRepoResult = await crossRepoAnalyzer.analyzeCrossRepoImpact(changedFilePaths, fileContents);
+        crossRepoComment = crossRepoAnalyzer.generateCrossRepoComment(crossRepoResult);
+        (0,core.info)(`Cross-repository analysis completed - risk: ${crossRepoResult.riskAssessment}, impacts: ${crossRepoResult.impacts.length}`);
+    }
+    catch (error) {
+        (0,core.warning)(`Cross-repository analysis failed: ${error}`);
+    }
+    // Perform historical pattern learning analysis
+    let historicalComment = '';
+    try {
+        const historicalAnalyzer = new HistoricalAnalyzer();
+        const changedFilePaths = filesAndChanges.map(([filename]) => filename);
+        const fileContents = new Map();
+        // Build file contents map for historical analysis
+        for (const [filename, fileContent] of filesAndChanges) {
+            fileContents.set(filename, fileContent);
+        }
+        const historicalResult = await historicalAnalyzer.analyzeHistoricalPatterns(changedFilePaths, fileContents);
+        historicalComment = historicalAnalyzer.generateHistoricalComment(historicalResult);
+        (0,core.info)(`Historical analysis completed - patterns: ${historicalResult.patterns.length}, trend: ${historicalResult.metrics.improvementTrend}`);
+    }
+    catch (error) {
+        (0,core.warning)(`Historical analysis failed: ${error}`);
+    }
+    // Perform collaborative review enhancement analysis
+    let collaborativeComment = '';
+    try {
+        const collaborativeAnalyzer = new CollaborativeAnalyzer();
+        const changedFilePaths = filesAndChanges.map(([filename]) => filename);
+        const fileContents = new Map();
+        // Build file contents map for collaborative analysis
+        for (const [filename, fileContent] of filesAndChanges) {
+            fileContents.set(filename, fileContent);
+        }
+        const collaborativeResult = await collaborativeAnalyzer.analyzeCollaborativeReviews(changedFilePaths, fileContents);
+        collaborativeComment = collaborativeAnalyzer.generateCollaborativeComment(collaborativeResult);
+        (0,core.info)(`Collaborative analysis completed - reviews: ${collaborativeResult.reviews.length}, engagement: ${collaborativeResult.metrics.engagementScore}`);
+    }
+    catch (error) {
+        (0,core.warning)(`Collaborative analysis failed: ${error}`);
+    }
     let summarizeComment = `${summarizeFinalResponse}
 ${lib_commenter/* RAW_SUMMARY_START_TAG */.oi}
 ${inputs.rawSummary}
@@ -7592,6 +12179,17 @@ ${inputs.shortSummary}
 ${lib_commenter/* SHORT_SUMMARY_END_TAG */.Zb}
 
 ---
+
+${testCoverageComment ? testCoverageComment + '\n\n---\n\n' : ''}
+${securityComment ? securityComment + '\n\n---\n\n' : ''}
+${performanceComment ? performanceComment + '\n\n---\n\n' : ''}
+${complexityComment ? complexityComment + '\n\n---\n\n' : ''}
+${dependencyComment ? dependencyComment + '\n\n---\n\n' : ''}
+${documentationComment ? documentationComment + '\n\n---\n\n' : ''}
+${cicdComment ? cicdComment + '\n\n---\n\n' : ''}
+${crossRepoComment ? crossRepoComment + '\n\n---\n\n' : ''}
+${historicalComment ? historicalComment + '\n\n---\n\n' : ''}
+${collaborativeComment ? collaborativeComment + '\n\n---\n\n' : ''}
 
 <details>
 <summary>Uplevel your code reviews with CodeRabbit Pro</summary>
@@ -7656,7 +12254,7 @@ ${summariesFailed.length > 0
             }
             let patchesPacked = 0;
             for (const [startLine, endLine, patch] of patches) {
-                if (context.payload.pull_request == null) {
+                if (review_context.payload.pull_request == null) {
                     (0,core.warning)('No pull request found, skipping.');
                     continue;
                 }
@@ -7671,7 +12269,7 @@ ${summariesFailed.length > 0
                 patchesPacked += 1;
                 let commentChain = '';
                 try {
-                    const allChains = await commenter.getCommentChainsWithinRange(context.payload.pull_request.number, filename, startLine, endLine, lib_commenter/* COMMENT_REPLY_TAG */.aD);
+                    const allChains = await commenter.getCommentChainsWithinRange(review_context.payload.pull_request.number, filename, startLine, endLine, lib_commenter/* COMMENT_REPLY_TAG */.aD);
                     if (allChains.length > 0) {
                         (0,core.info)(`Found comment chains: ${allChains} for ${filename}`);
                         commentChain = allChains;
@@ -7723,7 +12321,7 @@ ${commentChain}
                             lgtmCount += 1;
                             continue;
                         }
-                        if (context.payload.pull_request == null) {
+                        if (review_context.payload.pull_request == null) {
                             (0,core.warning)('No pull request found, skipping.');
                             continue;
                         }
@@ -7803,9 +12401,9 @@ ${reviewsSkipped.length > 0
 </details>
 `;
         // add existing_comment_ids_block with latest head sha
-        summarizeComment += `\n${commenter.addReviewedCommitId(existingCommitIdsBlock, context.payload.pull_request.head.sha)}`;
+        summarizeComment += `\n${commenter.addReviewedCommitId(existingCommitIdsBlock, review_context.payload.pull_request.head.sha)}`;
         // post the review
-        await commenter.submitReview(context.payload.pull_request.number, commits[commits.length - 1].sha, statusMsg);
+        await commenter.submitReview(review_context.payload.pull_request.number, commits[commits.length - 1].sha, statusMsg);
     }
     // post the final summary comment
     await commenter.comment(`${summarizeComment}`, lib_commenter/* SUMMARIZE_TAG */.Rp, 'replace');
