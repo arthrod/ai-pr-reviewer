@@ -21,7 +21,7 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5
+      - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
         with:
           # This is to guarantee that the most recent tag is fetched.
           # This can be configured to a more reasonable value by consumers.
