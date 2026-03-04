@@ -11,16 +11,15 @@ export class Options {
   reviewCommentLGTM: boolean
   pathFilters: PathFilter
   systemMessage: string
-  openaiLightModel: string
-  openaiHeavyModel: string
-  openaiModelTemperature: number
-  openaiRetries: number
-  openaiTimeoutMS: number
-  openaiConcurrencyLimit: number
+  geminiLightModel: string
+  geminiHeavyModel: string
+  geminiModelTemperature: number
+  geminiRetries: number
+  geminiTimeoutMS: number
+  geminiConcurrencyLimit: number
   githubConcurrencyLimit: number
   lightTokenLimits: TokenLimits
   heavyTokenLimits: TokenLimits
-  apiBaseUrl: string
   language: string
   enableTestCoverageAnalysis: boolean
   testCoverageThreshold: number
@@ -55,14 +54,13 @@ export class Options {
     reviewCommentLGTM = false,
     pathFilters: string[] | null = null,
     systemMessage = '',
-    openaiLightModel = 'gpt-3.5-turbo',
-    openaiHeavyModel = 'gpt-3.5-turbo',
-    openaiModelTemperature = '0.0',
-    openaiRetries = '3',
-    openaiTimeoutMS = '120000',
-    openaiConcurrencyLimit = '6',
+    geminiLightModel = 'gemini-3.1-pro-preview',
+    geminiHeavyModel = 'gemini-3.1-pro-preview',
+    geminiModelTemperature = '0.0',
+    geminiRetries = '3',
+    geminiTimeoutMS = '120000',
+    geminiConcurrencyLimit = '6',
     githubConcurrencyLimit = '6',
-    apiBaseUrl = 'https://api.openai.com/v1',
     language = 'en-US',
     enableTestCoverageAnalysis = true,
     testCoverageThreshold = '80',
@@ -96,16 +94,15 @@ export class Options {
     this.reviewCommentLGTM = reviewCommentLGTM
     this.pathFilters = new PathFilter(pathFilters)
     this.systemMessage = systemMessage
-    this.openaiLightModel = openaiLightModel
-    this.openaiHeavyModel = openaiHeavyModel
-    this.openaiModelTemperature = parseFloat(openaiModelTemperature)
-    this.openaiRetries = parseInt(openaiRetries)
-    this.openaiTimeoutMS = parseInt(openaiTimeoutMS)
-    this.openaiConcurrencyLimit = parseInt(openaiConcurrencyLimit)
+    this.geminiLightModel = geminiLightModel
+    this.geminiHeavyModel = geminiHeavyModel
+    this.geminiModelTemperature = parseFloat(geminiModelTemperature)
+    this.geminiRetries = parseInt(geminiRetries)
+    this.geminiTimeoutMS = parseInt(geminiTimeoutMS)
+    this.geminiConcurrencyLimit = parseInt(geminiConcurrencyLimit)
     this.githubConcurrencyLimit = parseInt(githubConcurrencyLimit)
-    this.lightTokenLimits = new TokenLimits(openaiLightModel)
-    this.heavyTokenLimits = new TokenLimits(openaiHeavyModel)
-    this.apiBaseUrl = apiBaseUrl
+    this.lightTokenLimits = new TokenLimits(geminiLightModel)
+    this.heavyTokenLimits = new TokenLimits(geminiHeavyModel)
     this.language = language
     this.enableTestCoverageAnalysis = enableTestCoverageAnalysis
     this.testCoverageThreshold = parseInt(testCoverageThreshold)
@@ -146,16 +143,15 @@ export class Options {
     info(`review_comment_lgtm: ${this.reviewCommentLGTM}`)
     info(`path_filters: ${this.pathFilters}`)
     info(`system_message: ${this.systemMessage}`)
-    info(`openai_light_model: ${this.openaiLightModel}`)
-    info(`openai_heavy_model: ${this.openaiHeavyModel}`)
-    info(`openai_model_temperature: ${this.openaiModelTemperature}`)
-    info(`openai_retries: ${this.openaiRetries}`)
-    info(`openai_timeout_ms: ${this.openaiTimeoutMS}`)
-    info(`openai_concurrency_limit: ${this.openaiConcurrencyLimit}`)
+    info(`gemini_light_model: ${this.geminiLightModel}`)
+    info(`gemini_heavy_model: ${this.geminiHeavyModel}`)
+    info(`gemini_model_temperature: ${this.geminiModelTemperature}`)
+    info(`gemini_retries: ${this.geminiRetries}`)
+    info(`gemini_timeout_ms: ${this.geminiTimeoutMS}`)
+    info(`gemini_concurrency_limit: ${this.geminiConcurrencyLimit}`)
     info(`github_concurrency_limit: ${this.githubConcurrencyLimit}`)
     info(`summary_token_limits: ${this.lightTokenLimits.string()}`)
     info(`review_token_limits: ${this.heavyTokenLimits.string()}`)
-    info(`api_base_url: ${this.apiBaseUrl}`)
     info(`language: ${this.language}`)
     info(`enable_test_coverage_analysis: ${this.enableTestCoverageAnalysis}`)
     info(`test_coverage_threshold: ${this.testCoverageThreshold}`)
@@ -240,11 +236,14 @@ export class PathFilter {
   }
 }
 
-export class OpenAIOptions {
+export class GeminiOptions {
   model: string
   tokenLimits: TokenLimits
 
-  constructor(model = 'gpt-3.5-turbo', tokenLimits: TokenLimits | null = null) {
+  constructor(
+    model = 'gemini-3.1-pro-preview',
+    tokenLimits: TokenLimits | null = null
+  ) {
     this.model = model
     if (tokenLimits != null) {
       this.tokenLimits = tokenLimits

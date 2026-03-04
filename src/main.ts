@@ -5,13 +5,52 @@ import {
   setFailed,
   warning
 } from '@actions/core'
+import * as fs from 'fs'
+import * as path from 'path'
 import {Bot} from './bot'
-import {OpenAIOptions, Options} from './options'
+import {GeminiOptions, Options} from './options'
 import {Prompts} from './prompts'
 import {codeReview} from './review'
 import {handleReviewComment} from './review-comment'
 
+// Load GEMINI_API_KEY from ~/.env/.env if not already set
+function loadEnvFile(): void {
+  if (!process.env.GEMINI_API_KEY) {
+    const envPath = path.join(
+      process.env.HOME || process.env.USERPROFILE || '',
+      '.env',
+      '.env'
+    )
+    try {
+      if (fs.existsSync(envPath)) {
+        const content = fs.readFileSync(envPath, 'utf-8')
+        for (const line of content.split('\n')) {
+          const trimmed = line.trim()
+          if (trimmed && !trimmed.startsWith('#') && trimmed.includes('=')) {
+            const eqIndex = trimmed.indexOf('=')
+            const key = trimmed.substring(0, eqIndex).trim()
+            const value = trimmed.substring(eqIndex + 1).trim()
+            if (!process.env[key]) {
+              process.env[key] = value
+            }
+          }
+        }
+      }
+    } catch {
+      // ignore errors reading env file
+    }
+  }
+}
+
+loadEnvFile()
+
 async function run(): Promise<void> {
+  // Set GEMINI_API_KEY from action input if provided
+  const geminiApiKey = getInput('gemini_api_key')
+  if (geminiApiKey) {
+    process.env.GEMINI_API_KEY = geminiApiKey
+  }
+
   const options: Options = new Options(
     getBooleanInput('debug'),
     getBooleanInput('disable_review'),
@@ -21,14 +60,13 @@ async function run(): Promise<void> {
     getBooleanInput('review_comment_lgtm'),
     getMultilineInput('path_filters'),
     getInput('system_message'),
-    getInput('openai_light_model'),
-    getInput('openai_heavy_model'),
-    getInput('openai_model_temperature'),
-    getInput('openai_retries'),
-    getInput('openai_timeout_ms'),
-    getInput('openai_concurrency_limit'),
+    getInput('gemini_light_model'),
+    getInput('gemini_heavy_model'),
+    getInput('gemini_model_temperature'),
+    getInput('gemini_retries'),
+    getInput('gemini_timeout_ms'),
+    getInput('gemini_concurrency_limit'),
     getInput('github_concurrency_limit'),
-    getInput('openai_base_url'),
     getInput('language'),
     getBooleanInput('enable_test_coverage_analysis'),
     getInput('test_coverage_threshold'),
@@ -69,11 +107,11 @@ async function run(): Promise<void> {
   try {
     lightBot = new Bot(
       options,
-      new OpenAIOptions(options.openaiLightModel, options.lightTokenLimits)
+      new GeminiOptions(options.geminiLightModel, options.lightTokenLimits)
     )
   } catch (e: any) {
     warning(
-      `Skipped: failed to create summary bot, please check your openai_api_key: ${e}, backtrace: ${e.stack}`
+      `Skipped: failed to create summary bot, please check your GEMINI_API_KEY: ${e}, backtrace: ${e.stack}`
     )
     return
   }
@@ -82,11 +120,11 @@ async function run(): Promise<void> {
   try {
     heavyBot = new Bot(
       options,
-      new OpenAIOptions(options.openaiHeavyModel, options.heavyTokenLimits)
+      new GeminiOptions(options.geminiHeavyModel, options.heavyTokenLimits)
     )
   } catch (e: any) {
     warning(
-      `Skipped: failed to create review bot, please check your openai_api_key: ${e}, backtrace: ${e.stack}`
+      `Skipped: failed to create review bot, please check your GEMINI_API_KEY: ${e}, backtrace: ${e.stack}`
     )
     return
   }

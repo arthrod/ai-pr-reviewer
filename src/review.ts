@@ -42,7 +42,7 @@ export const codeReview = async (
 ): Promise<void> => {
   const commenter: Commenter = new Commenter()
 
-  const openaiConcurrencyLimit = pLimit(options.openaiConcurrencyLimit)
+  const geminiConcurrencyLimit = pLimit(options.geminiConcurrencyLimit)
   const githubConcurrencyLimit = pLimit(options.githubConcurrencyLimit)
 
   if (
@@ -350,8 +350,8 @@ ${
       const [summarizeResp] = await lightBot.chat(summarizePrompt, {})
 
       if (summarizeResp === '') {
-        info('summarize: nothing obtained from openai')
-        summariesFailed.push(`${filename} (nothing obtained from openai)`)
+        info('summarize: nothing obtained from gemini')
+        summariesFailed.push(`${filename} (nothing obtained from gemini)`)
         return null
       } else {
         if (options.reviewSimpleChanges === false) {
@@ -374,8 +374,8 @@ ${
         return [filename, summarizeResp, true]
       }
     } catch (e: any) {
-      warning(`summarize: error from openai: ${e as string}`)
-      summariesFailed.push(`${filename} (error from openai: ${e as string})})`)
+      warning(`summarize: error from gemini: ${e as string}`)
+      summariesFailed.push(`${filename} (error from gemini: ${e as string})})`)
       return null
     }
   }
@@ -385,7 +385,7 @@ ${
   for (const [filename, fileContent, fileDiff] of filesAndChanges) {
     if (options.maxFiles <= 0 || summaryPromises.length < options.maxFiles) {
       summaryPromises.push(
-        openaiConcurrencyLimit(
+        geminiConcurrencyLimit(
           async () => await doSummary(filename, fileContent, fileDiff)
         )
       )
@@ -409,13 +409,13 @@ ${
 ${filename}: ${summary}
 `
       }
-      // ask chatgpt to summarize the summaries
+      // ask gemini to summarize the summaries
       const [summarizeResp] = await heavyBot.chat(
         prompts.renderSummarizeChangesets(inputs),
         {}
       )
       if (summarizeResp === '') {
-        warning('summarize: nothing obtained from openai')
+        warning('summarize: nothing obtained from gemini')
       } else {
         inputs.rawSummary = summarizeResp
       }
@@ -428,7 +428,7 @@ ${filename}: ${summary}
     {}
   )
   if (summarizeFinalResponse === '') {
-    info('summarize: nothing obtained from openai')
+    info('summarize: nothing obtained from gemini')
   }
 
   if (options.disableReleaseNotes === false) {
@@ -438,7 +438,7 @@ ${filename}: ${summary}
       {}
     )
     if (releaseNotesResponse === '') {
-      info('release notes: nothing obtained from openai')
+      info('release notes: nothing obtained from gemini')
     } else {
       let message = '### Summary by CodeRabbit\n\n'
       message += releaseNotesResponse
@@ -952,7 +952,7 @@ ${commentChain}
             {}
           )
           if (response === '') {
-            info('review: nothing obtained from openai')
+            info('review: nothing obtained from gemini')
             reviewsFailed.push(`${filename} (no response)`)
             return
           }
@@ -1002,7 +1002,7 @@ ${commentChain}
     for (const [filename, fileContent, , patches] of filesAndChangesReview) {
       if (options.maxFiles <= 0 || reviewPromises.length < options.maxFiles) {
         reviewPromises.push(
-          openaiConcurrencyLimit(async () => {
+          geminiConcurrencyLimit(async () => {
             await doReview(filename, fileContent, patches)
           })
         )
