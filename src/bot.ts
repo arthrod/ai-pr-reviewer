@@ -72,7 +72,8 @@ IMPORTANT: Entire response must be in the language with ISO code: ${options.lang
             config: {
               systemInstruction: this.systemMessage,
               temperature: this.options.geminiModelTemperature,
-              maxOutputTokens: this.geminiOptions.tokenLimits.responseTokens
+              maxOutputTokens: this.geminiOptions.tokenLimits.responseTokens,
+              tools: [{googleSearch: {}}]
             }
           })
           return response

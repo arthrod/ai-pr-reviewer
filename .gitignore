@@ -19,7 +19,6 @@ test-results/
 junit.xml
 
 # Build outputs
-dist/
 lib/
 build/
 out/

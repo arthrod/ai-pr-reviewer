@@ -3,7 +3,7 @@ description: 'AI-based PR Reviewer & Summarizer with Chat Capabilities'
 branding:
   icon: 'git-merge'
   color: 'orange'
-author: 'CodeRabbit LLC'
+author: 'Cicero'
 inputs:
   debug:
     required: false
@@ -182,7 +182,7 @@ inputs:
     required: false
     description: 'System message to be sent to Gemini'
     default: |
-      You are `@coderabbitai` (aka `github-actions[bot]`), a language model 
+      You are `@cicero-ai` (aka `github-actions[bot]`), a language model 
       powered by Google Gemini. Your purpose is to act as a highly experienced 
       software engineer and provide a thorough review of the code hunks
       and suggest code snippets to improve key areas such as:

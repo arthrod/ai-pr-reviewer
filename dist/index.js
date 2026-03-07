@@ -20480,7 +20480,8 @@ IMPORTANT: Entire response must be in the language with ISO code: ${options.lang
                     config: {
                         systemInstruction: this.systemMessage,
                         temperature: this.options.geminiModelTemperature,
-                        maxOutputTokens: this.geminiOptions.tokenLimits.responseTokens
+                        maxOutputTokens: this.geminiOptions.tokenLimits.responseTokens,
+                        tools: [{ googleSearch: {} }]
                     }
                 });
                 return response;
@@ -20542,24 +20543,24 @@ IMPORTANT: Entire response must be in the language with ISO code: ${options.lang
 // eslint-disable-next-line camelcase
 const context = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context;
 const repo = context.repo;
-const COMMENT_GREETING = `${(0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('bot_icon')}   CodeRabbit`;
-const COMMENT_TAG = '<!-- This is an auto-generated comment by OSS CodeRabbit -->';
-const COMMENT_REPLY_TAG = '<!-- This is an auto-generated reply by OSS CodeRabbit -->';
-const SUMMARIZE_TAG = '<!-- This is an auto-generated comment: summarize by OSS CodeRabbit -->';
-const IN_PROGRESS_START_TAG = '<!-- This is an auto-generated comment: summarize review in progress by OSS CodeRabbit -->';
-const IN_PROGRESS_END_TAG = '<!-- end of auto-generated comment: summarize review in progress by OSS CodeRabbit -->';
-const DESCRIPTION_START_TAG = '<!-- This is an auto-generated comment: release notes by OSS CodeRabbit -->';
-const DESCRIPTION_END_TAG = '<!-- end of auto-generated comment: release notes by OSS CodeRabbit -->';
-const RAW_SUMMARY_START_TAG = `<!-- This is an auto-generated comment: raw summary by OSS CodeRabbit -->
+const COMMENT_GREETING = `${(0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('bot_icon')}   Cicero`;
+const COMMENT_TAG = '<!-- This is an auto-generated comment by Cicero -->';
+const COMMENT_REPLY_TAG = '<!-- This is an auto-generated reply by Cicero -->';
+const SUMMARIZE_TAG = '<!-- This is an auto-generated comment: summarize by Cicero -->';
+const IN_PROGRESS_START_TAG = '<!-- This is an auto-generated comment: summarize review in progress by Cicero -->';
+const IN_PROGRESS_END_TAG = '<!-- end of auto-generated comment: summarize review in progress by Cicero -->';
+const DESCRIPTION_START_TAG = '<!-- This is an auto-generated comment: release notes by Cicero -->';
+const DESCRIPTION_END_TAG = '<!-- end of auto-generated comment: release notes by Cicero -->';
+const RAW_SUMMARY_START_TAG = `<!-- This is an auto-generated comment: raw summary by Cicero -->
 <!--
 `;
 const RAW_SUMMARY_END_TAG = `-->
-<!-- end of auto-generated comment: raw summary by OSS CodeRabbit -->`;
-const SHORT_SUMMARY_START_TAG = `<!-- This is an auto-generated comment: short summary by OSS CodeRabbit -->
+<!-- end of auto-generated comment: raw summary by Cicero -->`;
+const SHORT_SUMMARY_START_TAG = `<!-- This is an auto-generated comment: short summary by Cicero -->
 <!--
 `;
 const SHORT_SUMMARY_END_TAG = `-->
-<!-- end of auto-generated comment: short summary by OSS CodeRabbit -->`;
+<!-- end of auto-generated comment: short summary by Cicero -->`;
 const COMMIT_ID_START_TAG = '<!-- commit_ids_reviewed_start -->';
 const COMMIT_ID_END_TAG = '<!-- commit_ids_reviewed_end -->';
 class Commenter {
@@ -23903,7 +23904,7 @@ $comment
 // eslint-disable-next-line camelcase
 const context = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context;
 const repo = context.repo;
-const ASK_BOT = '@coderabbitai';
+const ASK_BOT = '@cicero-ai';
 const handleReviewComment = async (heavyBot, options, prompts) => {
     const commenter = new _commenter__WEBPACK_IMPORTED_MODULE_2__/* .Commenter */ .Es();
     const inputs = new _inputs__WEBPACK_IMPORTED_MODULE_4__/* .Inputs */ .k();
@@ -28704,7 +28705,7 @@ var tokenizer = __nccwpck_require__(652);
 // eslint-disable-next-line camelcase
 const review_context = github.context;
 const review_repo = review_context.repo;
-const ignoreKeyword = '@coderabbitai: ignore';
+const ignoreKeyword = '@cicero-ai: ignore';
 const codeReview = async (lightBot, heavyBot, options, prompts) => {
     const commenter = new lib_commenter/* Commenter */.Es();
     const geminiConcurrencyLimit = pLimit(options.geminiConcurrencyLimit);
@@ -28998,7 +28999,7 @@ ${filename}: ${summary}
             (0,core.info)('release notes: nothing obtained from gemini');
         }
         else {
-            let message = '### Summary by CodeRabbit\n\n';
+            let message = '### Summary by Cicero\n\n';
             message += releaseNotesResponse;
             try {
                 await commenter.updateDescription(review_context.payload.pull_request.number, message);
@@ -29247,11 +29248,9 @@ ${historicalComment ? historicalComment + '\n\n---\n\n' : ''}
 ${collaborativeComment ? collaborativeComment + '\n\n---\n\n' : ''}
 
 <details>
-<summary>Uplevel your code reviews with CodeRabbit Pro</summary>
+<summary>About Cicero</summary>
 
-### CodeRabbit Pro
-
-If you like this project, please support us by purchasing the [Pro version](https://coderabbit.ai). The Pro version has advanced context, superior noise reduction and several proprietary improvements compared to the open source version. Moreover, CodeRabbit Pro is free for open source projects.
+Cicero is an AI-powered PR reviewer built on Google Gemini with Google Search grounding for enhanced accuracy.
 
 </details>
 `;
@@ -29442,16 +29441,16 @@ ${reviewsSkipped.length > 0
 <details>
 <summary>Tips</summary>
 
-### Chat with <img src="https://avatars.githubusercontent.com/in/347564?s=41&u=fad245b8b4c7254fe63dd4dcd4d662ace122757e&v=4" alt="Image description" width="20" height="20">  CodeRabbit Bot (\`@coderabbitai\`)
+### Chat with Cicero Bot (\`@cicero-ai\`)
 - Reply on review comments left by this bot to ask follow-up questions. A review comment is a comment on a diff or a file.
-- Invite the bot into a review comment chain by tagging \`@coderabbitai\` in a reply.
+- Invite the bot into a review comment chain by tagging \`@cicero-ai\` in a reply.
 
 ### Code suggestions
 - The bot may make code suggestions, but please review them carefully before committing since the line number ranges may be misaligned. 
 - You can edit the comment made by the bot and manually tweak the suggestion if it is slightly off.
 
 ### Pausing incremental reviews
-- Add \`@coderabbitai: ignore\` anywhere in the PR description to pause further reviews from the bot.
+- Add \`@cicero-ai: ignore\` anywhere in the PR description to pause further reviews from the bot.
 
 </details>
 `;
